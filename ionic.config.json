@@ -1,0 +1,7 @@
+{
+  "name": "ApiYa",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
