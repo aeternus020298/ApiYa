@@ -1,0 +1,48 @@
+#imagen{
+    width: 25vh;
+    height: 25vh;
+    border-radius: 15vh;
+    border: 2px solid #c32268;
+    background: #ffff;
+    box-shadow: 1px 4px 1px 4px rgba($color: #c93877, $alpha: 0.5);
+    
+}
+
+#login{
+    text-align: center;
+    margin-top: 5vh;
+    padding-top: 5vh;
+}
+
+
+ion-header{
+    --background: #f5f5f3;
+
+
+}
+
+ion-content{
+    --background: #f5f5f3;
+}
+
+ion-item{
+    border-radius: 15vh;
+
+}
+#usuario{
+    padding: 3vh 3vh 3vh 3vh;
+    
+}
+
+#usuario-input{
+    border-radius: 15vh;
+    border: 1vh;
+}
+
+.ion-valid.sc-ion-input-md-h {
+    --highlight-color: #c32268;
+}
+
+ion-item::part(native) {
+    caret-color: #c32268;
+  }

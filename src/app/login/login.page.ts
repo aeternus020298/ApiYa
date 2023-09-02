@@ -35,6 +35,15 @@ export class LoginPage implements OnInit {
     }
     
   }
+
+  registrarse(){
+    let navigationextras: NavigationExtras={
+      state:{
+        user:this.user
+      }
+    }
+    this.router.navigate(['/registro'], navigationextras); 
+  }
     
   /**
    * validateModel sirve para validar que se ingrese algo en los

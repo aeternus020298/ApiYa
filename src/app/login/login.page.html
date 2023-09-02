@@ -1,30 +1,36 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-buttons slot="start">
+      <ion-button color="primary">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button expand="block" routerLink="/registro" color="primary">
+        Registrarse
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <img alt="login_img" src="https://previews.123rf.com/images/bsd555/bsd5551807/bsd555180702638/104710059-icono-de-concepto-de-creaci%C3%B3n-de-cuenta-nueva-ilustraci%C3%B3n-de-l%C3%ADnea-fina-de-idea-de-registro-de.jpg" />
-    <ion-card-header>
-      <ion-card-title>Inicio de Sesión</ion-card-title>
-    </ion-card-header>
   
+  <div id="login">
+    <img id="imagen" alt="login_img" src="../../assets/Mechanical Love.svg" />
+  </div>
     <ion-card-content>
-      <ion-item>
-        <ion-label position="floating">Usuario</ion-label>
-        <ion-input type="text" [(ngModel)]="user.usuario"></ion-input>
+      <ion-item style="padding: 2vh 3vh 2vh 3vh;">
+        <ion-label position="floating" color="primary" >Usuario</ion-label>
+        <ion-input id="usuario-input" type="text" placeholder="Ingresa el usuario" [(ngModel)]="user.usuario" ></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-label position="floating">Password</ion-label>
+      <ion-item style="padding: 2vh 3vh 2vh 3vh;">
+        <ion-label position="floating" color="primary">Contraseña</ion-label>
         <ion-input type="password" [(ngModel)]="user.password"></ion-input>
       </ion-item>
       <ion-row>
-        <ion-col>
-          <ion-button expand="block" (click)="ingresar()">Ingresar</ion-button>
+        <ion-col style="padding-top: 10vh;">
+          <ion-button expand="block" shape="round" (click)="ingresar()">Ingresar</ion-button>
         </ion-col>
-      </ion-row>
+      </ion-row>  
     </ion-card-content>
-  </ion-card>
 </ion-content>
