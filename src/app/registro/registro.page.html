@@ -1,13 +1,61 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Registro</ion-title>
+    <ion-title>
+      APIYA
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="content-container">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Registro</ion-title>
-    </ion-toolbar>
   </ion-header>
+  
+  
+  <ion-card>
+    <ion-card-content>
+      
+        <h1 class="ion-text-center" id="bnd">Bienvenido</h1>
+      
+
+      
+        <b class="ion-text-center">
+          <h4 #animar1>Registrate en ApiYa!</h4>
+        </b>
+      
+      
+
+      <ion-item class="ion-padding-horizontal">
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input type="text" placeholder="Ingresa tu nombre"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-padding-horizontal">
+        <ion-label position="stacked">Apellido</ion-label>
+        <ion-input type="text" placeholder="Ingresa tu apellido"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-padding-horizontal">
+        <ion-label position="stacked">Fecha de Nacimiento</ion-label>
+        <ion-input type="date" ></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-padding-horizontal">
+        <ion-label position="stacked" >Correo Electrónico</ion-label>
+        <ion-input type="email" placeholder="Ingresa tu correo electrónico"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-padding-horizontal">
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-padding-horizontal">
+        <ion-label position="stacked">Reingresa tu Contraseña</ion-label>
+        <ion-input type="password"></ion-input>
+      </ion-item>
+      
+    <ion-button shape="full" class="btnAceptar">Aceptar</ion-button>
+
+    </ion-card-content>
+  </ion-card>
 </ion-content>
