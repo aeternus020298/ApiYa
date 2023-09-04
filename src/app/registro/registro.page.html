@@ -1,7 +1,12 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" routerLink="/home">
+        <ion-icon slot="icon-only"  name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title>
-      APIYA
+      
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -54,7 +59,7 @@
         <ion-input type="password"></ion-input>
       </ion-item>
       
-    <ion-button shape="full" class="btnAceptar">Aceptar</ion-button>
+    <ion-button shape="round" class="btnAceptar" >Aceptar</ion-button>
 
     </ion-card-content>
   </ion-card>

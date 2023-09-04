@@ -12,6 +12,7 @@
     text-align: center;
     margin-top: 5vh;
     padding-top: 5vh;
+    padding-bottom: 5vh;
 }
 
 
@@ -27,14 +28,13 @@ ion-content{
 
 ion-item{
     border-radius: 15vh;
+    margin: 0px 20px 8px 20px;
 
 }
-#usuario{
-    padding: 3vh 3vh 3vh 3vh;
-    
-}
-.custom{
-    border-radius: 50%;
+
+.olvidaste{
+    text-align: center;
+    margin-top: 0px;
 }
 
 #labelsesion{
