@@ -1,20 +1,25 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" color="tertiary">
+  <div class="container">
+    <lottie-player slot="end" autoplay loop src="https://lottie.host/1913695e-db8c-4d07-b5e0-d5f582fd8056/bozzc0ArOX.json">
+    </lottie-player>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
+
+  <ion-row>
+    <ion-col id="labelsesion" class="text-focus-in">
+      <ion-label>La aplicación por excelencia para organizar las fotos de bodas</ion-label>
+    </ion-col>
+  </ion-row>
+
+  <div>
+    <ion-row>
+      <ion-col>
+        <ion-button class="buttoncolors text-focus-in" expand="block" routerLink="/registro" shape="round">Crear una cuenta</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button class="buttoncolors text-focus-in" expand="block" routerLink="/login" shape="round">Iniciar Sesión</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+
 </ion-content>

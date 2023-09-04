@@ -1,27 +1,19 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.container{
+  margin-top: 8vh;
+  
+}
+.buttoncolors{
+  margin-left: 5vh;
+  margin-right: 5vh;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+#labelsesion{
+  font-size: large;
+  margin: 5vh 10vh 5vh 10vh;
+  box-shadow: 1px 4px 1px 4px rgba($color: #000000, $alpha: 0.5);
+  border-radius: 10px;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+.text-focus-in{-webkit-animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both;animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both}
 
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
+@-webkit-keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}

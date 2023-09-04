@@ -13,7 +13,7 @@ export class RegistroPage {
   @ViewChild('animar1', {read: ElementRef, static: true})
   animar1!: ElementRef;
 
-  private colors: string[] = ['#ed5c53', '#69cd68', '#74a7e4']; // Lista de colores
+  private colors: string[] = ['#22c37d', '#c32268', '#22c37d', '#c32268']; // Lista de colores
   private currentColorIndex = 0; // Índice del color actual
 
   constructor(private animationController: AnimationController) {}
