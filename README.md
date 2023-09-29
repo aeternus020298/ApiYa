@@ -4,11 +4,9 @@ Despues de esto, se hace la instalacion de angular, esto a través del comando *
 
 ## Hacerlo funcionar a través de linux:
 
-Primero se debe instalar node, esto se hace a través del siguiente comando si la distro es basada en Ubuntu (tomese como ejemplo, POP-OS):
+Primero se debe instalar node, esto se hace a través del siguiente link si la distro es basada en Ubuntu (tomese como ejemplo, POP-OS):
 ```
-sudo apt install -y curl
-curl -sL https://deb.nodesource.com/setup_19.x | sudo -E bash -
-sudo apt install -y nodejs
+https://github.com/nodesource/distributions#installation-instructions
 ```
 Se instalaran las dependencias y al momento de finalizar, se debe comprobar las versiones instaladas en la terminal de la siguiente manera:
 ```
