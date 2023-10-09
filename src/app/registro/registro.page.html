@@ -11,56 +11,63 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="content-container">
+<ion-content [fullscreen]="true" class="content-container custom-content">
   <ion-header collapse="condense">
   </ion-header>
   
+
+  <h1 class="ion-text-center" id="bnd">Lagna</h1>
+      
+  <b class="ion-text-center">
+    <h4 id="registro">Registrate ya!</h4>
+  </b>
+      
+  <!-- CREACIÓN DE FORM REGISTRO -->
+  <!-- CREACIÓN DE FORM REGISTRO -->
+
+      <form class="text-focus-in">
+        <!-- Campo para colocar el nombre -->
+        <ion-item class="form">
+          <ion-label position="floating" class="colorLabel">Nombre</ion-label>
+          <ion-input placeholder="Coloca tu nombre" class="colorPlaceHolder"></ion-input>
+        </ion-item>
+        <br>
+        <!-- Campo para colocar el apellido -->
+        <ion-item class="form">
+          <ion-label position="floating" class="colorLabel">Apellido</ion-label>
+          <ion-input placeholder="Coloca tu apellido" class="colorPlaceHolder"></ion-input>
+        </ion-item>
+        <br>
+        <!-- Campo para colocar la fecha de nacimiento -->
+        <ion-item class="form">
+          <ion-label position="floating" class="colorLabel">Fecha de nacimiento</ion-label>
+          <ion-input placeholder="Coloca tu fecha de nacimiento" type="date" class="colorPlaceHolder"></ion-input>
+        </ion-item>
+        <br>
+        <!-- Campo para colocar el correo electronico -->
+        <ion-item class="form">
+          <ion-label position="floating" class="colorLabel">Email</ion-label>
+          <ion-input placeholder="Coloca tu nombre" type="email" class="colorPlaceHolder"></ion-input>
+        </ion-item>
+        <br>
+        <!-- Campos para colocar la contraseña y reingresarla denuevo -->
+        <ion-item class="form">
+          <ion-label position="floating" class="colorLabel">Contraseña</ion-label>
+          <ion-input placeholder="Ingresa tu contraseña" type="password" class="colorPlaceHolder"></ion-input>
+        </ion-item>
+        <br>
+        <ion-item class="form">
+          <ion-label position="floating" class="colorLabel">Valida contraseña</ion-label>
+          <ion-input placeholder="Reingresa tu contraseña" type="password" class="colorPlaceHolder"></ion-input>
+        </ion-item>
+        
+      </form>
+
+  <!--CREACIÓN DE BUTTON ACEPTAR  -->
+  <!--CREACIÓN DE BUTTON ACEPTAR  -->
+
+  <div class="ion-text-center">
+    <ion-button shape="round" id="btnAceptar">Aceptar</ion-button>
+  </div>
   
-  <ion-card>
-    <ion-card-content>
-      
-        <h1 class="ion-text-center" id="bnd">Bienvenido</h1>
-      
-
-      
-        <b class="ion-text-center">
-          <h4 #animar1>Registrate en ApiYa!</h4>
-        </b>
-      
-      
-
-      <ion-item class="ion-padding-horizontal">
-        <ion-label position="stacked">Nombre</ion-label>
-        <ion-input type="text" placeholder="Ingresa tu nombre"></ion-input>
-      </ion-item>
-
-      <ion-item class="ion-padding-horizontal">
-        <ion-label position="stacked">Apellido</ion-label>
-        <ion-input type="text" placeholder="Ingresa tu apellido"></ion-input>
-      </ion-item>
-
-      <ion-item class="ion-padding-horizontal">
-        <ion-label position="stacked">Fecha de Nacimiento</ion-label>
-        <ion-input type="date" ></ion-input>
-      </ion-item>
-
-      <ion-item class="ion-padding-horizontal">
-        <ion-label position="stacked" >Correo Electrónico</ion-label>
-        <ion-input type="email" placeholder="Ingresa tu correo electrónico"></ion-input>
-      </ion-item>
-
-      <ion-item class="ion-padding-horizontal">
-        <ion-label position="stacked">Contraseña</ion-label>
-        <ion-input type="password"></ion-input>
-      </ion-item>
-
-      <ion-item class="ion-padding-horizontal">
-        <ion-label position="stacked">Reingresa tu Contraseña</ion-label>
-        <ion-input type="password"></ion-input>
-      </ion-item>
-      
-    <ion-button shape="round" class="btnAceptar" >Aceptar</ion-button>
-
-    </ion-card-content>
-  </ion-card>
 </ion-content>
