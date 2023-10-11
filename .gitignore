@@ -2,3 +2,5 @@ node_modules
 .angular/
 android/
 www/
+
+resources/android/**/*
