@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true">
 
-  <swiper-container>
+  <!-- <swiper-container>
 
     <swiper-slide>
       <ion-row>
@@ -81,8 +81,38 @@
       </ion-row>
     </div>
   </swiper-slide>
-  </swiper-container>
+  </swiper-container> -->
 
+  <h4>Organiza tu boda aqui!</h4>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of bodas">
+      
+      <ion-item>
+      <ion-label>
+      <p>{{ item.descripcion }}</p>
+      <p>{{ item.lugar }}</p>
+      <p>{{ item.fecha }}</p>
+      </ion-label>
+      </ion-item>
 
+      <ion-item-options>
+        <ion-item-option (click)="editar(item)">
+          <ion-icon name="create" ></ion-icon> Editar
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="eliminar(item)">
+          <ion-icon name="trash"></ion-icon> Eliminar
+        </ion-item-option>
+
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+
+    <ion-fab-button routerLink="/addboda">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+
+  </ion-fab>
 
 </ion-content>
