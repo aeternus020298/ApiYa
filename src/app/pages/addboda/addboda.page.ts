@@ -9,16 +9,20 @@ import { DbserviceService } from '../../services/dbservice.service';
 })
 export class AddbodaPage implements OnInit {
 
-  // descripcionBoda = "";
-  // lugarBoda = "";
-  // fechaBoda = "";
-  constructor() { }
+  descripcionBoda = "";
+  investrellaBoda = "";
+  menuestrellaBoda = "";
+  tragoestrellaBoda = "";
+  lugarBoda = "";
+  fechaBoda = "";
 
-  // guardar(){
-  //   this.dbservice.addBoda(this.descripcionBoda, this.lugarBoda, this.fechaBoda)
-  //   this.dbservice.presentToast("Datos agregados");
-  //   this.router.navigate(['/home']);
-  // }
+  constructor(private dbservice: DbserviceService, private router: Router ) { }
+
+  guardar(){
+    this.dbservice.addBoda(this.descripcionBoda, this.investrellaBoda, this.menuestrellaBoda, this.tragoestrellaBoda,this.lugarBoda, this.fechaBoda)
+    this.dbservice.presentToast("Datos agregados");
+    this.router.navigate(['/home']);
+  }
 
   ngOnInit() {
   }

@@ -22,11 +22,7 @@ const routes: Routes = [
   {
     path: 'registro',
     loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
-  },
-  {
-    path: '**',
-    loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
-  },
+  },  
   {
     path: 'addboda',
     loadChildren: () => import('./pages/addboda/addboda.module').then( m => m.AddbodaPageModule)
@@ -35,6 +31,11 @@ const routes: Routes = [
     path: 'modboda',
     loadChildren: () => import('./pages/modboda/modboda.module').then( m => m.ModbodaPageModule)
   },
+  {
+    path: '**',
+    loadChildren: () => import('./pages/error/error.module').then( m => m.ErrorPageModule)
+  }
+
   
 
 

@@ -10,7 +10,7 @@ import { Boda } from '../clases/boda';
 export class DbserviceService {
 
   public database!: SQLiteObject;
-  tblBoda: string = "CREATE TABLE IF NOT EXISTS Boda(id INTEGER PRIMARY KEY autoincrement, descripcion VARCHAR(70) NULL, lugar VARCHAR(30) NOT NULL, fecha DATE NOT NULL;";
+  tblBoda: string = "CREATE TABLE IF NOT EXISTS Boda(id INTEGER PRIMARY KEY autoincrement, descripcion VARCHAR(70) NULL, investrella VARCHAR(30) NULL, menuestrella VARCHAR(50) NULL, tragoestrella VARCHAR(30) NULL, lugar VARCHAR(30) NOT NULL, fecha DATE NOT NULL;";
   
   private isDbReady:
     BehaviorSubject<boolean> = new BehaviorSubject(false);
@@ -49,16 +49,16 @@ export class DbserviceService {
   }
 
   //Metodo que inserta un registro en la tabla boda
-  async addBoda(descripcion: any, lugar: any, fecha: any) {
-    let data = [descripcion, lugar, fecha];
-    await this.database.executeSql('INSERT INTO Boda(descripcion,lugar,fecha) VALUES(?,?,?)', data);
+  async addBoda(descripcion: any, investrella: any, menuestrella: any, tragoestrella: any, lugar: any, fecha: any) {
+    let data = [descripcion, investrella, menuestrella, tragoestrella, lugar, fecha];
+    await this.database.executeSql('INSERT INTO Boda(descripcion,investrella,menuestrella,tragoestrella,lugar,fecha) VALUES(?,?,?,?,?,?)', data);
     
   }
 
   //Metodo que actualiza el titulo y/o el texto filtrando por el id
-  async updateBoda(id: any, descripcion: any, lugar: any, fecha: any){
-    let data = [descripcion, lugar, fecha];
-    await this.database.executeSql('UPDATE Boda SET descripcion=?, lugar=?, fecha=? WHERE id=?', data);
+  async updateBoda(id: any, descripcion: any, investrella: any, menuestrella: any, tragoestrella: any, lugar: any, fecha: any){
+    let data = [descripcion, investrella, menuestrella, tragoestrella, lugar, fecha];
+    await this.database.executeSql('UPDATE Boda SET descripcion=?, investrella=?, menuestrella=?, tragoestrella=?, lugar=?, fecha=? WHERE id=?', data);
 
   }
 

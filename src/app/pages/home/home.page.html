@@ -82,14 +82,26 @@
     </div>
   </swiper-slide>
   </swiper-container> -->
+  <ion-header [translucent]="true" class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button color="primary" routerLink="/login">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
 
-  <h4>Organiza tu boda aqui!</h4>
+  <h4 class="ion-text-center">Organiza tu boda aqui!</h4>
   <ion-list>
     <ion-item-sliding *ngFor="let item of bodas">
       
       <ion-item>
       <ion-label>
       <p>{{ item.descripcion }}</p>
+      <p>{{ item.investrella }}</p>
+      <p>{{ item.menuestrella }}</p>
+      <p>{{ item.tragoestrella }}</p>
       <p>{{ item.lugar }}</p>
       <p>{{ item.fecha }}</p>
       </ion-label>
