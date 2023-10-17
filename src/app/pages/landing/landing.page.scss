@@ -1,0 +1,93 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
+*{
+    font-family: 'Varela Round', sans-serif;
+}
+
+
+ion-content{
+  --background: #f5f5f3;
+}
+.container{
+  margin-top: 40px;
+  
+}
+.buttoncolors{
+  margin-left: 5vh;
+  margin-right: 5vh;
+}
+
+#labelsesion2{
+  text-align: center;
+  font-size: 23px;
+  line-height: 30px;
+  margin: 0px 20px 0px 20px;
+  //box-shadow: 1px 4px 1px 4px rgba($color: #000000, $alpha: 0.2);
+  border-radius: 10px;
+
+}
+
+
+#labelsesion{
+  text-align: center;
+  font-size: 24px;
+  margin: 20px 30px 20px 30px;
+  //box-shadow: 1px 4px 1px 4px rgba($color: #000000, $alpha: 0.2);
+  border-radius: 10px;
+  line-height: 40px;
+}
+
+#tituloapp{
+  text-align: center;
+  margin: 20px 0px 0px 0px;
+  font-size: 50px;
+  //font-family: 'Dela Gothic One', cursive;
+  font-family: 'Varela Round', sans-serif;
+
+}
+
+#bienvenido{
+  text-align: center;
+  margin: 50px 0px 40px 0px;
+  font-size: 20px;
+  font-family: 'Varela Round', sans-serif;
+
+}
+
+//2da slide
+
+#detalles{
+  text-align: center;
+  font-size: 20px;
+  line-height: 30px;
+  margin: 30px 20px 0px 20px;
+  //box-shadow: 1px 4px 1px 4px rgba($color: #000000, $alpha: 0.2);
+  border-radius: 10px;
+}
+#detalles2{
+  text-align: center;
+  font-size: 20px;
+  line-height: 30px;
+  margin: 20px 20px 20px 20px;
+  //box-shadow: 1px 4px 1px 4px rgba($color: #000000, $alpha: 0.2);
+  border-radius: 10px;
+
+}
+
+
+
+
+
+
+//animacion de aparicion en el texto
+
+.text-focus-in{-webkit-animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both;animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both}
+
+@-webkit-keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}
+
+//animacion de sombra en el titulo de la app. slide1
+.tracking-in-expand{-webkit-animation:tracking-in-expand 2s cubic-bezier(.215,.61,.355,1.000) 1s both;animation:tracking-in-expand 2s cubic-bezier(.215,.61,.355,1.000) 1s both}
+ @-webkit-keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}@keyframes tracking-in-expand{0%{letter-spacing:-.5em;opacity:0}40%{opacity:.6}100%{opacity:1}}
