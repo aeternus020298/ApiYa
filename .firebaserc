@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "lagna-login-registro": {
+      "hosting": {
+        "app": [
+          "lagna-login-registro"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "lagna-login-registro"
+  }
+}
