@@ -6,6 +6,7 @@ import { LoadingController } from "@ionic/angular";
 import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
 //se implementa los validadores y el form de angular
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-registro",
@@ -21,6 +22,7 @@ export class RegistroPage implements OnInit {
     public formBuilder: FormBuilder,
     public loadingCtrl: LoadingController,
     public authService: FirebaseAuthService,
+    public router: Router,
     private animationController: AnimationController
   ) {}
 
@@ -38,13 +40,7 @@ export class RegistroPage implements OnInit {
           Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$"),
         ],
       ],
-      password: [
-        "",
-        [
-          Validators.required,
-          Validators.pattern("(?=.*d)(?=.*[a-z])(?=.*[A-Z]).{8,}"),
-        ],
-      ],
+      password: ["", [Validators.required, Validators.pattern(".{8,}")]],
     });
   }
 
@@ -56,7 +52,19 @@ export class RegistroPage implements OnInit {
     const loading = await this.loadingCtrl.create();
     await loading.present();
     if (this.regForm?.valid) {
-      //const user = await this.authService.registerUser(email,password)
+      const user = await this.authService
+        .registerUser(this.regForm.value.email, this.regForm.value.password)
+        .catch((error) => {
+          console.log(error);
+          loading.dismiss();
+        });
+
+      if (user) {
+        loading.dismiss();
+        this.router.navigate(["/login"]);
+      } else {
+        console.log("Ingresar valores validos.");
+      }
     }
   }
 

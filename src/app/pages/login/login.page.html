@@ -19,17 +19,28 @@
     <div id="login" class="">
       <img id="imagen" alt="login_img" src="../../assets/Mechanical Love.svg" />
     </div>
-    <form class="text-focus-in">
+    <form [formGroup] = "loginForm" class="text-focus-in">
+
         <ion-item color="#c93877;">
-          <ion-input placeholder="Nombre de usuario" [(ngModel)]="user.usuario" name="usuario" class="input"></ion-input>
+          <ion-input placeholder="Correo" formControlName="email" class="input"></ion-input>
           <ion-icon name="person-outline"></ion-icon>
         </ion-item>
+        <div *ngIf="this.loginForm.controls?.['email'].touched && this.loginForm.controls?.['email'].invalid">
+          <ion-text *ngIf="errorControl.password.errors?.required">
+            Se requiere correo.
+          </ion-text>
+        </div>
 
       
         <ion-item color="#c93877;">
-          <ion-input placeholder="Contraseña" type="password" [(ngModel)]="user.password" name="password" class="input"></ion-input>
+          <ion-input placeholder="Contraseña" type="password" formControlName="password" class="input"></ion-input>
           <ion-icon name="lock-closed-outline"></ion-icon>
         </ion-item>
+        <div *ngIf="this.loginForm.controls?.['password'].touched && this.loginForm.controls?.['password'].invalid">
+          <ion-text *ngIf="errorControl.password.errors?.required">
+            Se requiere contraseña.
+          </ion-text>
+        </div>
 
         <div class="olvidaste">
           <a [routerLink]="['/restore']" style="color:#c32268;"> ¿Olvidaste tu contraseña?</a>
@@ -37,7 +48,7 @@
 
       <ion-row>
         <ion-col style="padding-top: 2vh; padding-left: 5vh; padding-right: 5vh;">
-          <ion-button expand="block" shape="round" (click)="ingresar()">Ingresar</ion-button>
+          <ion-button (click)="loginIn()" expand="block" shape="round">Ingresar</ion-button>
         </ion-col>
       </ion-row>
     </form>

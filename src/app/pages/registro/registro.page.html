@@ -2,11 +2,11 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-button color="primary" routerLink="/login">
-        <ion-icon slot="icon-only"  name="arrow-back"></ion-icon>
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
     <ion-title>
-      
+
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,64 +14,100 @@
 <ion-content [fullscreen]="true" class="content-container custom-content">
   <ion-header collapse="condense">
   </ion-header>
-  
+
 
   <h1 class="ion-text-center" id="bnd">Lagna</h1>
-      
+
   <b class="ion-text-center">
     <h4 id="registro">Registrate ya!</h4>
   </b>
-      
+
   <!-- CREACIÓN DE FORM REGISTRO -->
   <!-- CREACIÓN DE FORM REGISTRO -->
 
-      <form [formGroup]="regForm" novalidate class="text-focus-in">
-        <!-- Campo para colocar el nombre -->
-        <ion-item class="form">
-          <ion-label position="floating" class="colorLabel">Nombre</ion-label>
-          <ion-input formControlName= "nombre" placeholder="Coloca tu nombre" class="colorPlaceHolder"></ion-input>
-        </ion-item>
-        <br>
-        <!-- Campo para colocar el apellido -->
-        <ion-item class="form">
-          <ion-label position="floating" class="colorLabel">Apellido</ion-label>
-          <!-- agrego en el formcontrolname el mismo nombre que se encuentra en page.ts, en el form builder -->
-          <ion-input formControlName= "apellido" placeholder="Coloca tu apellido" class="colorPlaceHolder"></ion-input>
-        </ion-item>
-        <br>
-        <!-- Campo para colocar la fecha de nacimiento -->
-        <ion-item class="form">
-          <ion-label position="floating" class="colorLabel">Fecha de nacimiento</ion-label>
-          <!-- agrego en el formcontrolname el mismo nombre que se encuentra en page.ts, en el form builder -->
-          <ion-input formControlName= "fechaNac"  placeholder="Coloca tu fecha de nacimiento" type="date" class="colorPlaceHolder"></ion-input>
-        </ion-item>
-        <br>
-        <!-- Campo para colocar el correo electronico -->
-        <ion-item class="form">
-          <ion-label position="floating" class="colorLabel">Email</ion-label>
-          <!-- agrego en el formcontrolname el mismo nombre que se encuentra en page.ts, en el form builder -->
-          <ion-input formControlName= "email" placeholder="Coloca tu nombre" type="email" class="colorPlaceHolder"></ion-input>
-        </ion-item>
-        <br>
-        <!-- Campos para colocar la contraseña y reingresarla denuevo -->
-        <ion-item class="form">
-          <ion-label position="floating" class="colorLabel">Contraseña</ion-label>
-          <!-- agrego en el formcontrolname el mismo nombre que se encuentra en page.ts, en el form builder -->
-          <ion-input formControlName= "password" placeholder="Ingresa tu contraseña" type="password" class="colorPlaceHolder"></ion-input>
-        </ion-item>
-        <br>
-        <ion-item class="form">
-          <ion-label position="floating" class="colorLabel">Valida contraseña</ion-label>
-          <ion-input placeholder="Reingresa tu contraseña" type="password" class="colorPlaceHolder"></ion-input>
-        </ion-item>
-        
-      </form>
+  <form [formGroup]="regForm" novalidate class="text-focus-in">
+    <!-- Campo para colocar el nombre -->
+    <ion-item class="form">
+      <ion-label position="floating" class="colorLabel">Nombre</ion-label>
+      <ion-input formControlName="nombre" placeholder="Coloca tu nombre" class="colorPlaceHolder"></ion-input>
+    </ion-item>
 
-  <!--CREACIÓN DE BUTTON ACEPTAR  -->
-  <!--CREACIÓN DE BUTTON ACEPTAR  -->
+    <div *ngIf="this.regForm.controls?.['nombre'].touched && this.regForm.controls?.['nombre'].invalid">
+      <ion-text *ngIf="errorControl.nombre.errors?.required">
+        Nombre es requerido
+      </ion-text>
+    </div>
 
-  <div class="ion-text-center">
-    <ion-button shape="round" id="btnAceptar" routerLink="/login">Aceptar</ion-button>
-  </div>
-  
+    <br>
+    <!-- Campo para colocar el apellido -->
+    <ion-item class="form">
+      <ion-label position="floating" class="colorLabel">Apellido</ion-label>
+      <!-- agrego en el formcontrolname el mismo nombre que se encuentra en page.ts, en el form builder -->
+      <ion-input formControlName="apellido" placeholder="Coloca tu apellido" class="colorPlaceHolder"></ion-input>
+    </ion-item>
+
+    <div *ngIf="this.regForm.controls?.['apellido'].touched && this.regForm.controls?.['apellido'].invalid">
+      <ion-text *ngIf="errorControl.apellido.errors?.required">
+        Apellido es requerido
+      </ion-text>
+    </div>
+
+    <br>
+    <!-- Campo para colocar la fecha de nacimiento -->
+    <ion-item class="form">
+      <ion-label position="floating" class="colorLabel">Fecha de nacimiento</ion-label>
+      <!-- agrego en el formcontrolname el mismo nombre que se encuentra en page.ts, en el form builder -->
+      <ion-input formControlName="fechaNac" placeholder="Coloca tu fecha de nacimiento" type="date"
+        class="colorPlaceHolder"></ion-input>
+    </ion-item>
+
+    <div *ngIf="this.regForm.controls?.['fechaNac'].touched && this.regForm.controls?.['fechaNac'].invalid">
+      <ion-text *ngIf="errorControl.fechaNac.errors?.required">
+        Se requiere fecha de nacimiento
+      </ion-text>
+    </div>
+
+    <br>
+    <!-- Campo para colocar el correo electronico -->
+    <ion-item class="form">
+      <ion-label position="floating" class="colorLabel">Email</ion-label>
+      <!-- agrego en el formcontrolname el mismo nombre que se encuentra en page.ts, en el form builder -->
+      <ion-input formControlName="email" placeholder="Coloca tu nombre" type="email"
+        class="colorPlaceHolder"></ion-input>
+    </ion-item>
+
+    <div *ngIf="this.regForm.controls?.['email'].touched && this.regForm.controls?.['email'].invalid">
+      <ion-text *ngIf="errorControl.email.errors?.required">
+        El correo es requerido
+      </ion-text>
+      <ion-text *ngIf="errorControl.email.errors?.pattern">
+        El correo debe ser valido
+      </ion-text>
+    </div>
+
+    <br>
+    <!-- Campos para colocar la contraseña y reingresarla denuevo -->
+    <ion-item class="form">
+      <ion-label position="floating" class="colorLabel">Contraseña</ion-label>
+      <!-- agrego en el formcontrolname el mismo nombre que se encuentra en page.ts, en el form builder -->
+      <ion-input formControlName="password" placeholder="Ingresa tu contraseña" type="password"
+        class="colorPlaceHolder"></ion-input>
+    </ion-item>
+
+    <div *ngIf="this.regForm.controls?.['password'].touched && this.regForm.controls?.['password'].invalid">
+      <ion-text *ngIf="errorControl.password.errors?.required">
+        Se requiere contraseña.
+      </ion-text>
+      <ion-text *ngIf="errorControl.password.errors?.pattern">
+        La contraseña debe contener 8 caracteres.
+      </ion-text>
+    </div>
+
+    <!--CREACIÓN DE BUTTON ACEPTAR  -->
+    <div class="ion-text-center">
+      <ion-button (click)="signUp()" shape="round" id="btnAceptar">Aceptar</ion-button>
+    </div>
+
+  </form>
+
 </ion-content>
