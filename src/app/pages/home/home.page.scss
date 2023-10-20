@@ -2,11 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap');
 
 *{
     font-family: 'Varela Round', sans-serif;
 }
-
+.listafor{
+  font-family: 'Playpen Sans', cursive;
+}
 
 ion-content{
   --background: #f5f5f3;
@@ -76,9 +79,15 @@ ion-content{
   border-radius: 10px;
 
 }
+#titulo{
+  font-size: 20px;
+}
 
-
-
+.full-width-card {
+  width: 100%; /* Ancho del 100% para ocupar toda la pantalla */
+  margin: 0; /* Elimina cualquier margen que pueda afectar el espaciado */
+  padding: 0; /* Elimina cualquier relleno que pueda afectar el espaciado interno */
+}
 
 
 
