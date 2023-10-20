@@ -4,3 +4,7 @@ android/
 www/
 
 resources/android/**/*
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json

@@ -1,81 +1,60 @@
-import { Component, OnInit } from '@angular/core';
-import { NavigationExtras, Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { NavigationExtras, Router } from "@angular/router";
+import { LoadingController, ToastController } from "@ionic/angular";
+import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: "app-login",
+  templateUrl: "./login.page.html",
+  styleUrls: ["./login.page.scss"],
 })
 export class LoginPage implements OnInit {
+  //se inicializa el formgroup
+  loginForm: FormGroup;
 
-  user={
-    usuario:"",
-    password:""
-  }
-  // variable para mostrar el campo faltante
-  field:string="";
-  constructor(private router: Router, public toastController: ToastController) { }
+  //constructores para el login (igual que en el registro)
+  constructor(
+    public formBuilder: FormBuilder,
+    public loadingCtrl: LoadingController,
+    public router: Router,
+    public authService: FirebaseAuthService
+  ) {}
 
   ngOnInit() {
-  }
-
-  ingresar(){
-    console.log(this.user)
-    if (this.validateModel(this.user)) {
-      this.presentToast("top", "Bienvenido "+this.user.usuario);
-      // Se declara e instancia un elemento de tipo NavigationExtras
-      let navigationextras: NavigationExtras={
-        state:{
-          user: this.user //Al state le asigno un objeto con clave valor
-        }
-      }
-      this.router.navigate(['/home'],navigationextras);
-    }else{
-      this.presentToast("bottom","Falta "+this.field,4000);
-    }
-    
-  }
-
-  registrarse(){
-    let navigationextras: NavigationExtras={
-      state:{
-        user:this.user
-      }
-    }
-    this.router.navigate(['/registro'], navigationextras); 
-  }
-    
-  /**
-   * validateModel sirve para validar que se ingrese algo en los
-   * campos del html mediante su modelo
-   */
-  validateModel(model:any){
-    // Recorro todas las entradas que me entrega Object entries y obtengo su clave, valor
-    for(var[key,value] of Object.entries(model)){
-      // Si un valor es "" se retornara false y se avisara de lo faltante
-      if(value==""){
-        this.field=key;
-        return false;
-      }      
-    }
-    return true;
-  }
-
-    /**
-   * Muestra un toast al usuario
-   * @param position Posición dónde se mostrará el mensaje
-   * @param message Mensaje a presentar al usuario
-   * @param duration Duración el toast, este es opcional
-   */
-  async presentToast(position: 'top' | 'middle' | 'bottom',
-                    message: string,
-                    duration?: number) {
-    const toast = await this.toastController.create({
-      message: message,
-      duration: duration?duration:2000,
-      position: position,
+    this.loginForm = this.formBuilder.group({
+      email: [
+        "",
+        [
+          Validators.required,
+          Validators.email,
+          Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$"),
+        ],
+      ],
+      password: ["", [Validators.required, Validators.pattern(".{8,}")]],
     });
-    await toast.present();
   }
 
+  get errorControl() {
+    return this.loginForm?.controls;
+  }
+
+  async loginIn() {
+    const loading = await this.loadingCtrl.create();
+    await loading.present();
+    if (this.loginForm?.valid) {
+      const user = await this.authService
+        .loginUser(this.loginForm.value.email, this.loginForm.value.password)
+        .catch((error) => {
+          console.log(error);
+          loading.dismiss();
+        });
+
+      if (user) {
+        loading.dismiss();
+        this.router.navigate(["/home"]);
+      } else {
+        console.log("Ingresar valores validos.");
+      }
+    }
+  }
 }
