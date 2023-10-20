@@ -1,5 +1,4 @@
 <ion-content [fullscreen]="true">
-
   <!-- <swiper-container>
 
     <swiper-slide>
@@ -92,39 +91,67 @@
     </ion-toolbar>
   </ion-header>
 
-  <h4 class="ion-text-center">Organiza tu boda aqui!</h4>
+  <h4 class="ion-text-center" id="titulo">Organiza tu boda aqui!</h4>
   <ion-list>
     <ion-item-sliding *ngFor="let item of bodas">
-      
-      <ion-item>
-      <ion-label>
-      <p>{{ item.descripcion }}</p>
-      <p>{{ item.investrella }}</p>
-      <p>{{ item.menuestrella }}</p>
-      <p>{{ item.tragoestrella }}</p>
-      <p>{{ item.lugar }}</p>
-      <p>{{ item.fecha }}</p>
-      </ion-label>
-      </ion-item>
+      <ion-card-content class="full-width-card">
+        <ion-item class="ion-text-center">
+          <ion-label class="ion-text-wrap">
+            <h3>Descripción</h3>
+            <p>{{ item.descripcion }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item class="ion-text-center">
+          <ion-label class="ion-text-wrap">
+            <h3>Invitado destacado</h3>
+            <p>{{ item.investrella }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item class="ion-text-center">
+          <ion-label class="ion-text-wrap">
+            <h3>Menú destacado</h3>
+            <p>{{ item.menuestrella }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item class="ion-text-center">
+          <ion-label class="ion-text-wrap">
+            <h3>Cóctel destacado</h3>
+            <p>{{ item.tragoestrella }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item class="ion-text-center">
+          <ion-label class="ion-text-wrap">
+            <h3>Lugar del evento</h3>
+            <p>{{ item.lugar }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item class="ion-text-center">
+          <ion-label class="ion-text-wrap">
+            <h3>Fecha del evento</h3>
+            <p>{{ item.fecha }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-card-content>
 
       <ion-item-options>
         <ion-item-option (click)="editar(item)">
-          <ion-icon name="create" ></ion-icon> Editar
+          <ion-icon name="create"></ion-icon> Editar
         </ion-item-option>
         <ion-item-option color="danger" (click)="eliminar(item)">
           <ion-icon name="trash"></ion-icon> Eliminar
         </ion-item-option>
-
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-
     <ion-fab-button routerLink="/addboda">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
-
   </ion-fab>
-
 </ion-content>

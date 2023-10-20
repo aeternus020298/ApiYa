@@ -15,11 +15,25 @@ export class HomePage {
   bodas: any = [
     {
       descripcion: "Escribe aqui datos de interés",
+      investrella: "Escribe aqui tu invitado especial",
+      menuestrella: "Escribe aqui tu menu especial",
+      tragoestrella: "Escribe aqui tu traguito especial",
       lugar: "Escribe aqui el lugar de tu boda",
       fecha: "Escribe aqui la fecha de tu boda"
     }
   ]
   constructor(private router: Router, private servicioBD: DbserviceService) {}
+
+  ngOnInit(){
+    this.servicioBD.dbState().subscribe((res: any) =>{
+      if(res){
+        this.servicioBD.fetchBodas().subscribe((item: any) =>{
+          this.bodas = item;
+        })
+      }
+      //this.servicioBD.presentAlert("4");
+    });
+  }
 
   getItem($event: any){
     const valor = $event.target.value;
@@ -31,6 +45,9 @@ export class HomePage {
       state : {
         idEnviado : item.id,
         descripcionEnviado : item.descripcion,
+        investrella: item.investrella,
+        menuestrella: item.menuestrella,
+        tragoestrella: item.tragoestrella,
         lugarEnviado : item.lugar,
         fechaEnviado : item.fecha
       }

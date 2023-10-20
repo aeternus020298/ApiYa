@@ -1,6 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Editar Boda</ion-title>
+    <ion-buttons slot="start">
+      <ion-button color="primary" routerLink="/home">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -9,7 +14,7 @@
     <ion-card class="ion-text-center">
       <ion-card-title>
         <ion-label>
-          <h1 id="datos">Modifica tus datos!</h1>
+          <h1 id="datos">Modificar Datos</h1>
         </ion-label>
       </ion-card-title>
 
@@ -21,17 +26,17 @@
 
         <ion-item class="wordwrap">
           <img src="../../../assets/icon/heart-star.svg" alt="invitado estrella">
-          <ion-input label="Invitado estrella" labelPlacement="floating" placeholder="Coloca tu invitado especial!" [(ngModel)]="investrellaBoda"></ion-input>
+          <ion-input label="Invitado destacado" labelPlacement="floating" placeholder="Coloca tu invitado especial" [(ngModel)]="investrellaBoda"></ion-input>
         </ion-item>
 
         <ion-item class="wordwrap">
           <img src="../../../assets/icon/meat.svg" alt="buffet">
-          <ion-input label="Menú estrella" labelPlacement="floating" placeholder="¿Qué comerán tus invitados?" [(ngModel)]="menuestrellaBoda"></ion-input>
+          <ion-input label="Menú destacado" labelPlacement="floating" placeholder="¿Qué comerán tus invitados?" [(ngModel)]="menuestrellaBoda"></ion-input>
         </ion-item>
 
         <ion-item class="wordwrap">
           <img src="../../../assets/icon/beer-filled.svg" alt="traguito">
-          <ion-input label="Traguito estrella" labelPlacement="floating" placeholder="Coloca ese traguito alucinante!" [(ngModel)]="tragoestrellaBoda"></ion-input>
+          <ion-input label="Cóctel destacado" labelPlacement="floating" placeholder="Coloca ese traguito alucinante!" [(ngModel)]="tragoestrellaBoda"></ion-input>
         </ion-item>
 
         <ion-item class="wordwrap">
@@ -41,6 +46,9 @@
 
         <ion-item class="wordwrap">
           <img src="../../../assets/icon/calendar-heart.svg" alt="fecha">
+          <ion-label class="ion-text-wrap custom-font">
+            Fecha
+          </ion-label>
           <ion-input type="date" [(ngModel)]="fechaBoda"></ion-input>
         </ion-item>
 
