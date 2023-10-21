@@ -6,11 +6,11 @@ import { Platform, ToastController } from '@ionic/angular';
 import { DbserviceService } from '../../services/dbservice.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-boda',
+  templateUrl: './boda.page.html',
+  styleUrls: ['./boda.page.scss'],
 })
-export class HomePage {
+export class BodaPage {
 
   bodas: any = [
     {
@@ -22,14 +22,7 @@ export class HomePage {
       fecha: "Escribe aqui la fecha de tu boda"
     }
   ]
-  
-  isModalOpen = false;
-  
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
-  }
-
-  constructor(private router: Router, private servicioBD: DbserviceService) {}
+  constructor(private router: Router, private servicioBD: DbserviceService) { }
 
   ngOnInit(){
     this.servicioBD.dbState().subscribe((res: any) =>{
@@ -71,10 +64,9 @@ export class HomePage {
   segmentChanged(event: any) {
     const selectedSegment = event.detail.value;
     
-    if (selectedSegment === 'Boda') {
+    if (selectedSegment === 'Home') {
       // Redirige a la página "Boda"
-      this.router.navigate(['/boda']);
+      this.router.navigate(['/home']);
     }
   }
-  
 }
