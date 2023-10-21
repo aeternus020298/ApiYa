@@ -1,0 +1,45 @@
+<ion-content [fullscreen]="true">
+  
+  <ion-segment value="custom" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="Home">
+      <ion-label>Home</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Boda" >
+      <ion-label>Boda</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of bodas">
+      <ion-card class="custom-card">
+        <ion-card-header>
+          <ion-card-title class="custom-title">{{ item.descripcion }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="custom-content">
+          <div class="ion-text-center">
+            <p class="custom-text"><strong>Invitado destacado:</strong> {{ item.investrella }}</p>
+            <p class="custom-text"><strong>Menú destacado:</strong> {{ item.menuestrella }}</p>
+            <p class="custom-text"><strong>Cóctel destacado:</strong> {{ item.tragoestrella }}</p>
+            <p class="custom-text"><strong>Lugar del evento:</strong> {{ item.lugar }}</p>
+            <p class="custom-text"><strong>Fecha del evento:</strong> {{ item.fecha }}</p>
+          </div>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-item-options>
+        <ion-item-option (click)="editar(item)">
+          <ion-icon name="create"></ion-icon> Editar
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="eliminar(item)">
+          <ion-icon name="trash"></ion-icon> Eliminar
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/addboda">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
