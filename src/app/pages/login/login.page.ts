@@ -8,7 +8,7 @@ import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
   templateUrl: "./login.page.html",
   styleUrls: ["./login.page.scss"],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
   //se inicializa el formgroup
   loginForm: FormGroup;
 
@@ -17,10 +17,9 @@ export class LoginPage implements OnInit {
     public formBuilder: FormBuilder,
     public loadingCtrl: LoadingController,
     public router: Router,
-    public authService: FirebaseAuthService
-  ) {}
-
-  ngOnInit() {
+    public authService: FirebaseAuthService,
+    private toastController: ToastController
+  ) {
     this.loginForm = this.formBuilder.group({
       email: [
         "",
@@ -41,20 +40,47 @@ export class LoginPage implements OnInit {
   async loginIn() {
     const loading = await this.loadingCtrl.create();
     await loading.present();
-    if (this.loginForm?.valid) {
-      const user = await this.authService
-        .loginUser(this.loginForm.value.email, this.loginForm.value.password)
-        .catch((error) => {
-          console.log(error);
-          loading.dismiss();
-        });
 
-      if (user) {
-        loading.dismiss();
-        this.router.navigate(["/home"]);
+    try {
+      if (this.loginForm.valid) {
+        const user = await this.authService.loginUser(
+          this.loginForm.value.email,
+          this.loginForm.value.password
+        );
+
+        if (user) {
+          loading.dismiss();
+          this.router.navigate(["/home"]);
+        } else {
+          loading.dismiss();
+          // Credenciales incorrectas
+          this.presentErrorToast("Credenciales incorrectas");
+        }
       } else {
-        console.log("Ingresar valores validos.");
+        loading.dismiss();
+        // Formulario no válido
+        this.presentErrorToast("No se encontro el usuario");
       }
+    } catch (error) {
+      console.error(error);
+      loading.dismiss();
+
+      // Error general
+      this.presentErrorToast("Ocurrió un error durante el inicio de sesión");
     }
+  }
+
+  async presentErrorToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000,
+      position: "middle",
+    });
+
+    await toast.present();
+  }
+
+  async ingresarFlag() {
+    localStorage.setItem("ingresado", "true");
   }
 }
