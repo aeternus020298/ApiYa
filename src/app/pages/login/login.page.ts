@@ -36,6 +36,15 @@ export class LoginPage {
   get errorControl() {
     return this.loginForm?.controls;
   }
+  // flag para el ingresar.
+  async ingresar() {
+    localStorage.setItem("ingresado", "true");
+  }
+
+  // flag para quitar el ingresado.
+  async olvidar() {
+    localStorage.removeItem("ingresado");
+  }
 
   async loginIn() {
     const loading = await this.loadingCtrl.create();
@@ -78,9 +87,5 @@ export class LoginPage {
     });
 
     await toast.present();
-  }
-
-  async ingresarFlag() {
-    localStorage.setItem("ingresado", "true");
   }
 }

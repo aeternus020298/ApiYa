@@ -2,11 +2,13 @@ import { NgModule } from "@angular/core";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 import { AuthGuard } from "./guards/auth.guard";
 import { AuthRedirectGuard } from "./guards/auth-redirect.guard";
+import { AuthLocalGuard } from "./guards/auth-local.guard";
+import { NoauthLocalGuard } from "./guards/noauth-local.guard";
 
 const routes: Routes = [
   {
     path: "home",
-    canActivate: [AuthGuard],
+    canActivate: [AuthLocalGuard],
     loadChildren: () =>
       import("./pages/home/home.module").then((m) => m.HomePageModule),
   },
@@ -25,6 +27,7 @@ const routes: Routes = [
   //Pestaña que te permite recuperar la cuenta en caso de olvidar la contraseña.
   {
     path: "restore",
+    canActivate: [NoauthLocalGuard],
     loadChildren: () =>
       import("./restore/restore.module").then((m) => m.RestorePageModule),
   },
@@ -39,26 +42,26 @@ const routes: Routes = [
   //Pestaña que te permite agregar los datos de una boda.
   {
     path: "addboda",
-    canActivate: [AuthGuard],
+    canActivate: [AuthLocalGuard],
     loadChildren: () =>
       import("./pages/addboda/addboda.module").then((m) => m.AddbodaPageModule),
   },
   //Pestaña que te permite modificar los datos de una boda.
   {
     path: "modboda",
-    canActivate: [AuthGuard],
+    canActivate: [AuthLocalGuard],
     loadChildren: () =>
       import("./pages/modboda/modboda.module").then((m) => m.ModbodaPageModule),
   },
   //Pestaña que se abre cuando se inicia por primera vez, es la que tiene actualmente almacenado el swipper
   {
     path: "landing",
-    canActivate: [AuthRedirectGuard],
+    canActivate: [NoauthLocalGuard],
     loadChildren: () =>
       import("./pages/landing/landing.module").then((m) => m.LandingPageModule),
   },
 
-//Pestaña que redirecciona a 404 si es que no encuentra un path existente, siempre debe estar al ultimo, si no otorgara problemas.
+  //Pestaña que redirecciona a 404 si es que no encuentra un path existente, siempre debe estar al ultimo, si no otorgara problemas.
   {
     path: "**",
     loadChildren: () =>

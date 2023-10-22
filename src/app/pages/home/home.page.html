@@ -1,4 +1,12 @@
-<ion-header [translucent]="true">
+<ion-header>
+  <ion-toolbar>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-footer>
   <ion-toolbar>
     <ion-segment value="custom" (ionChange)="segmentChanged($event)">
       <ion-segment-button value="principal">
@@ -11,7 +19,7 @@
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
-</ion-header>
+</ion-footer>
   <ion-content>
     <ion-router-outlet></ion-router-outlet>
   </ion-content>
