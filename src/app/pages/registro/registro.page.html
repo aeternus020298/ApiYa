@@ -105,7 +105,7 @@
 
     <!--CREACIÓN DE BUTTON ACEPTAR  -->
     <div class="ion-text-center">
-      <ion-button (click)="signUp()" shape="round" id="btnAceptar">Aceptar</ion-button>
+      <ion-button [disabled]= "!isFormValid" (click)="signUp()"  shape="round" id="btnAceptar">Aceptar</ion-button>
     </div>
 
   </form>

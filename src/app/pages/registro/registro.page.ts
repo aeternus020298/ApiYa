@@ -7,6 +7,7 @@ import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
 //se implementa los validadores y el form de angular
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+import { ToastController } from "@ionic/angular";
 
 @Component({
   selector: "app-registro",
@@ -16,6 +17,7 @@ import { Router } from "@angular/router";
 export class RegistroPage implements OnInit {
   //se declara el regForm
   regForm: FormGroup;
+  isFormValid: boolean = false;
 
   //se agrega el formbuilder, se agrego el inject, aunque no se muy bien para que aun.
   constructor(
@@ -23,6 +25,7 @@ export class RegistroPage implements OnInit {
     public loadingCtrl: LoadingController,
     public authService: FirebaseAuthService,
     public router: Router,
+    private toastController: ToastController,
     private animationController: AnimationController
   ) {}
 
@@ -42,30 +45,58 @@ export class RegistroPage implements OnInit {
       ],
       password: ["", [Validators.required, Validators.pattern(".{8,}")]],
     });
+
+    // Escucha los cambios en el formulario
+    this.regForm.valueChanges.subscribe(() => {
+      this.updateFormValidity();
+    });
   }
 
   get errorControl() {
     return this.regForm?.controls;
   }
+
+  //
+  updateFormValidity() {
+    this.isFormValid = this.regForm.valid;
+  }
   //agrego un metodo que me permite crear una pantalla de carga mientras se registra el usuario en firebase.
   async signUp() {
     const loading = await this.loadingCtrl.create();
     await loading.present();
-    if (this.regForm?.valid) {
-      const user = await this.authService
-        .registerUser(this.regForm.value.email, this.regForm.value.password)
-        .catch((error) => {
-          console.log(error);
-          loading.dismiss();
-        });
 
-      if (user) {
-        loading.dismiss();
-        this.router.navigate(["/login"]);
+    try {
+      if (this.regForm.valid) {
+        const user = await this.authService.registerUser(
+          this.regForm.value.email,
+          this.regForm.value.password
+        );
+
+        if (user) {
+          this.router.navigate(["/login"]);
+        } else {
+          loading.dismiss();
+          this.presentErrorToast("Ingresar valores válidos");
+        }
       } else {
-        console.log("Ingresar valores validos.");
+        loading.dismiss();
+        this.presentErrorToast("Ingrese valores válidos");
       }
+    } catch (error) {
+      console.error(error);
+      loading.dismiss(); // Oculta el componente de carga en caso de error
+      this.presentErrorToast("El correo ingresado es invalido");
     }
+  }
+  //creo mi pop up de error.
+  async presentErrorToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 3000, // Duración en milisegundos (3 segundos en este ejemplo)
+      position: "middle", // Posición en la pantalla ('top', 'middle', 'bottom')
+    });
+
+    await toast.present();
   }
 
   ngAfterViewInit() {
