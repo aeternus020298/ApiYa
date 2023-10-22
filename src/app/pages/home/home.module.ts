@@ -8,6 +8,9 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { defineCustomElements } from '@teamhive/lottie-player/loader';
 
+import { BodaComponent } from 'src/app/components/boda/boda.component';
+import { PrincipalComponent } from 'src/app/components/principal/principal.component';
+
 defineCustomElements(window);
 @NgModule({
   imports: [
@@ -17,7 +20,7 @@ defineCustomElements(window);
     HomePageRoutingModule,
     MatSliderModule
   ],
-  declarations: [HomePage],
+  declarations: [HomePage, BodaComponent, PrincipalComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomePageModule {}

@@ -1,14 +1,4 @@
-<ion-content [fullscreen]="true">
-  
-  <ion-segment value="custom" (ionChange)="segmentChanged($event)">
-    <ion-segment-button value="Home">
-      <ion-label>Home</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="Boda" >
-      <ion-label>Boda</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-  
+ 
   <ion-list>
     <ion-item-sliding *ngFor="let item of bodas">
       <ion-card class="custom-card">
@@ -42,4 +32,11 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-</ion-content>
+
+
+
+<!-- <ion-footer [translucent]="true">
+  <ion-toolbar class="ion-text-center" id="enterprise">
+    <ion-title>Lagna®enterprise</ion-title>
+  </ion-toolbar>
+</ion-footer> -->

@@ -1,18 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Boda } from '../../clases/boda';
 import { NavigationExtras, Router } from '@angular/router';
 import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite';
 import { Platform, ToastController } from '@ionic/angular';
 import { DbserviceService } from '../../services/dbservice.service';
-import { ActivatedRoute } from '@angular/router';
-
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-boda',
+  templateUrl: './boda.component.html',
+  styleUrls: ['./boda.component.scss'],
 })
-export class HomePage {
+export class BodaComponent {
 
   bodas: any = [
     {
@@ -24,16 +22,7 @@ export class HomePage {
       fecha: "Escribe aqui la fecha de tu boda"
     }
   ]
-  
-  isModalOpen = false;
-  
-  setOpen(isOpen: boolean) {
-    this.isModalOpen = isOpen;
-  }
-
-  constructor(private router: Router, private servicioBD: DbserviceService) {
-    this.router.navigate(['home/principal'])
-  }
+  constructor(private router: Router, private servicioBD: DbserviceService) { }
 
   ngOnInit(){
     this.servicioBD.dbState().subscribe((res: any) =>{
@@ -71,30 +60,7 @@ export class HomePage {
     this.servicioBD.presentToast("Haz eliminado tu boda :( !!!")
   }
 
-  // Función para cambiar de página según el valor del ion-segment
-  // segmentChanged(event: any) {
-  //   const selectedSegment = event.detail.value;
-    
-  //   if (selectedSegment === 'Boda') {
-  //     // Redirige a la página "Boda"
-  //     this.router.navigate(['/boda']);
-  //   }
-  // }
-
-   segmentChanged($event: any){
-     console.log($event);
-     let direccion=$event.detail.value;
-     this.router.navigate(['home/' + direccion])
-   }
-
-  // segmentChanged(event: any) {
-  //   const selectedSegment = event.detail.value;
-  //   if (selectedSegment === 'Boda') {
-  //     this.router.navigate(['home/boda']);
-  //   } else if (selectedSegment === 'Home') {
-  //     this.router.navigate(['home/principal']);
-  //   }
-  // }
   
   
 }
+

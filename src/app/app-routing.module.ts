@@ -42,10 +42,7 @@ const routes: Routes = [
     path: 'landing',
     loadChildren: () => import('./pages/landing/landing.module').then( m => m.LandingPageModule)
   },
-  {
-    path: 'boda',
-    loadChildren: () => import('./pages/boda/boda.module').then( m => m.BodaPageModule)
-  },
+
 //Pestaña que redirecciona a 404 si es que no encuentra un path existente, siempre debe estar al ultimo, si no otorgara problemas.
   {
     path: '**',

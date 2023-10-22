@@ -1,5 +1,5 @@
 export const environment = {
-  firebase: {
+  firebaseConfig: {
     projectId: 'lagna-login-registro',
     appId: '1:395943183455:web:2bceab02900119058e47ea',
     storageBucket: 'lagna-login-registro.appspot.com',

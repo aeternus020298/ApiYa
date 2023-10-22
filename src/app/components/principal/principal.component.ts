@@ -1,17 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Boda } from '../../clases/boda';
 import { NavigationExtras, Router } from '@angular/router';
 import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite';
 import { Platform, ToastController } from '@ionic/angular';
 import { DbserviceService } from '../../services/dbservice.service';
+import { ModalController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-boda',
-  templateUrl: './boda.page.html',
-  styleUrls: ['./boda.page.scss'],
+  selector: 'app-principal',
+  templateUrl: './principal.component.html',
+  styleUrls: ['./principal.component.scss'],
 })
-export class BodaPage {
-
+export class PrincipalComponent  implements OnInit {
   bodas: any = [
     {
       descripcion: "Escribe aqui datos de interés",
@@ -22,7 +22,16 @@ export class BodaPage {
       fecha: "Escribe aqui la fecha de tu boda"
     }
   ]
-  constructor(private router: Router, private servicioBD: DbserviceService) { }
+  
+  isModalOpen = false;
+  
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
+
+  constructor(private router: Router, private servicioBD: DbserviceService, private modalController: ModalController) { 
+    this.router.navigate(['home/boda']);
+  }
 
   ngOnInit(){
     this.servicioBD.dbState().subscribe((res: any) =>{
@@ -61,12 +70,18 @@ export class BodaPage {
   }
 
   // Función para cambiar de página según el valor del ion-segment
-  segmentChanged(event: any) {
-    const selectedSegment = event.detail.value;
+  // segmentChanged(event: any) {
+  //   const selectedSegment = event.detail.value;
     
-    if (selectedSegment === 'Home') {
-      // Redirige a la página "Boda"
-      this.router.navigate(['/home']);
-    }
+  //   if (selectedSegment === 'Boda') {
+  //     // Redirige a la página "Boda"
+  //     this.router.navigate(['/boda']);
+  //   }
+  // }
+  segmentChanged($event: any){
+    console.log($event);
+    let direccion=$event.detail.value;
+    this.router.navigate(['home/' + direccion])
   }
+
 }

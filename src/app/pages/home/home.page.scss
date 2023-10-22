@@ -10,6 +10,14 @@
 .listafor{
   font-family: 'Playpen Sans', cursive;
 }
+ion-toolbar{
+  --background: #e7a6c2;
+  --opacity: 0.5;
+ 
+}
+#enterprise{
+  --box-shadow: 1px 4px 1px 4px rgba($color: #c93877, $alpha: 0.5);
+}
 
 ion-content{
   --background: #f5f5f3;

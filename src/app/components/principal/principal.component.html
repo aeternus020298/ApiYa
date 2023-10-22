@@ -1,0 +1,44 @@
+<ion-searchbar placeholder="Busca el evento"></ion-searchbar>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of bodas">
+      <ion-card class="custom-card">
+        <ion-card-header>
+          <ion-card-title class="custom-title">{{ item.descripcion }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="custom-content">
+          <div class="ion-text-center">
+            <p class="custom-text"><strong>Lugar del evento:</strong> {{ item.lugar }}</p>
+            <p class="custom-text"><strong>Fecha del evento:</strong> {{ item.fecha }}</p>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-item-sliding>
+    <ion-button expand="block" (click)="setOpen(true)">Ver más</ion-button>
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Información</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni illum quidem recusandae ducimus quos
+          reprehenderit. Veniam, molestias quos, dolorum consequuntur nisi deserunt omnis id illo sit cum qui. Eaque,
+          dicta.
+        </p>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  </ion-list>
+
+  
+
+  <!-- <ion-footer [translucent]="true">
+    <ion-toolbar class="ion-text-center" id="enterprise">
+      <ion-title>Lagna®enterprise</ion-title>
+    </ion-toolbar>
+  </ion-footer> -->

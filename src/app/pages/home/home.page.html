@@ -1,49 +1,20 @@
-<ion-content [fullscreen]="true">
+<ion-header [translucent]="true">
   <ion-toolbar>
-  <ion-segment value="custom" (ionChange)="segmentChanged($event)">
-    <ion-segment-button value="Home" >
-      <ion-label>Home</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="Boda">
-      <ion-label>Boda</ion-label>
-    </ion-segment-button>
-  </ion-segment>
-</ion-toolbar>
-<ion-searchbar placeholder="Busca el evento"></ion-searchbar>
-  <ion-list>
-    <ion-item-sliding *ngFor="let item of bodas">
-      <ion-card class="custom-card">
-        <ion-card-header>
-          <ion-card-title class="custom-title">{{ item.descripcion }}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content class="custom-content">
-          <div class="ion-text-center">
-            <p class="custom-text"><strong>Lugar del evento:</strong> {{ item.lugar }}</p>
-            <p class="custom-text"><strong>Fecha del evento:</strong> {{ item.fecha }}</p>
-          </div>
-        </ion-card-content>
-      </ion-card>
-    </ion-item-sliding>
-    <ion-button expand="block" (click)="setOpen(true)">Ver más</ion-button>
-  <ion-modal [isOpen]="isModalOpen">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>Información</ion-title>
-          <ion-buttons slot="end">
-            <ion-button (click)="setOpen(false)">Close</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni illum quidem recusandae ducimus quos
-          reprehenderit. Veniam, molestias quos, dolorum consequuntur nisi deserunt omnis id illo sit cum qui. Eaque,
-          dicta.
-        </p>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
-  </ion-list>
+    <ion-segment value="custom" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="principal">
+        <ion-icon name="home-outline"></ion-icon>
+        <ion-label>Home</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="boda">
+        <ion-icon name="heart-outline"></ion-icon>
+        <ion-label>Boda</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+  <ion-content>
+    <ion-router-outlet></ion-router-outlet>
+  </ion-content>
 
-</ion-content>
+
+
