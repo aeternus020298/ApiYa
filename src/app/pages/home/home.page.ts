@@ -5,6 +5,7 @@ import { SQLite, SQLiteObject } from "@awesome-cordova-plugins/sqlite";
 import { Platform, ToastController } from "@ionic/angular";
 import { DbserviceService } from "../../services/dbservice.service";
 import { ActivatedRoute } from "@angular/router";
+import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
 
 @Component({
   selector: "app-home",
@@ -24,13 +25,19 @@ export class HomePage {
   ];
 
   isModalOpen = false;
+  user: any;
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
 
-  constructor(private router: Router, private servicioBD: DbserviceService) {
+  constructor(
+    private router: Router,
+    private servicioBD: DbserviceService,
+    private authService: FirebaseAuthService
+  ) {
     this.router.navigate(["home/principal"]);
+    this.user = authService.getProfile();
   }
 
   ngOnInit() {
@@ -48,10 +55,21 @@ export class HomePage {
     const valor = $event.target.value;
     console.log("valor del control: " + valor);
   }
-  //metodo
+  //metodo eliminar la flag del guard
   cerrarSesion() {
     localStorage.removeItem("ingresado");
     this.router.navigate(["/login"]);
+  }
+  //metodo cerrar sesion firebase
+  async logOut() {
+    this.authService
+      .signOut()
+      .then(() => {
+        this.router.navigate(["/landing"]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   editar(item: any) {

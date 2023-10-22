@@ -43,12 +43,12 @@
         </div>
 
         <div class="olvidaste">
-          <a [routerLink]="['/restore']" style="color:#c32268;"> ¿Olvidaste tu contraseña?</a>
+          <a (click)="olvidar()" [routerLink]="['/restore']" style="color:#c32268;"> ¿Olvidaste tu contraseña?</a>
         </div>
 
       <ion-row>
         <ion-col style="padding-top: 2vh; padding-left: 5vh; padding-right: 5vh;">
-          <ion-button (click)="loginIn()" (click)="ingresar()" expand="block" shape="round">Ingresar</ion-button>
+          <ion-button (click)="loginIn()" expand="block" shape="round">Ingresar</ion-button>
         </ion-col>
       </ion-row>
     </form>

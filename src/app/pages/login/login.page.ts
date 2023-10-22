@@ -37,9 +37,9 @@ export class LoginPage {
     return this.loginForm?.controls;
   }
   // flag para el ingresar.
-  async ingresar() {
-    localStorage.setItem("ingresado", "true");
-  }
+  // async ingresar() {
+  //   localStorage.setItem("ingresado", "true");
+  // }
 
   // flag para quitar el ingresado.
   async olvidar() {
@@ -60,6 +60,7 @@ export class LoginPage {
         if (user) {
           loading.dismiss();
           this.router.navigate(["/home"]);
+          localStorage.setItem("ingresado", "true");
         } else {
           loading.dismiss();
           // Credenciales incorrectas

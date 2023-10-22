@@ -1,28 +1,37 @@
-<ion-header>
+
+
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
-
+    <ion-buttons slot="end">
+      <ion-button color="primary" routerLink="">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-button expand="block" (click)="logOut()"
+      (click)="cerrarSesion()" color="primary">
+        Salir
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
-
 </ion-header>
-
 
 <ion-footer>
   <ion-toolbar>
     <ion-segment value="custom" (ionChange)="segmentChanged($event)">
       <ion-segment-button value="principal">
         <ion-icon name="home-outline"></ion-icon>
-        <ion-label>Home</ion-label>
+        <ion-label></ion-label>
       </ion-segment-button>
       <ion-segment-button value="boda">
         <ion-icon name="heart-outline"></ion-icon>
-        <ion-label>Boda</ion-label>
+        <ion-label></ion-label>
       </ion-segment-button>
-    </ion-segment>
+  </ion-segment>
   </ion-toolbar>
 </ion-footer>
+
   <ion-content>
     <ion-router-outlet></ion-router-outlet>
   </ion-content>
-
-
 
