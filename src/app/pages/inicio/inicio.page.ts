@@ -1,18 +1,15 @@
-import { Component } from "@angular/core";
-import { Boda } from "../../clases/boda";
+import { Component, OnInit } from "@angular/core";
 import { NavigationExtras, Router } from "@angular/router";
-import { SQLite, SQLiteObject } from "@awesome-cordova-plugins/sqlite";
-import { Platform, ToastController } from "@ionic/angular";
-import { DbserviceService } from "../../services/dbservice.service";
-import { ActivatedRoute } from "@angular/router";
+import { DbserviceService } from "src/app/services/dbservice.service";
 import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
 
 @Component({
-  selector: "app-home",
-  templateUrl: "home.page.html",
-  styleUrls: ["home.page.scss"],
+  selector: "app-inicio",
+  templateUrl: "./inicio.page.html",
+  styleUrls: ["./inicio.page.scss"],
 })
-export class HomePage {
+export class InicioPage implements OnInit {
+  menuType: string = "overlay";
   bodas: any = [
     {
       descripcion: "Escribe aqui datos de interés",
@@ -30,13 +27,12 @@ export class HomePage {
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
-
   constructor(
     private router: Router,
     private servicioBD: DbserviceService,
     private authService: FirebaseAuthService
   ) {
-    this.router.navigate(["home/principal"]);
+    this.router.navigate(["inicio/principal"]);
     this.user = authService.getProfile();
   }
 
@@ -105,7 +101,7 @@ export class HomePage {
   segmentChanged($event: any) {
     console.log($event);
     let direccion = $event.detail.value;
-    this.router.navigate(["home/" + direccion]);
+    this.router.navigate(["inicio/" + direccion]);
   }
 
   // segmentChanged(event: any) {

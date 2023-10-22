@@ -34,7 +34,7 @@ export class PrincipalComponent implements OnInit {
     private servicioBD: DbserviceService,
     private modalController: ModalController
   ) {
-    this.router.navigate(["home/boda"]);
+    this.router.navigate(["inicio/boda"]);
   }
 
   ngOnInit() {
@@ -85,6 +85,6 @@ export class PrincipalComponent implements OnInit {
   segmentChanged($event: any) {
     console.log($event);
     let direccion = $event.detail.value;
-    this.router.navigate(["home/" + direccion]);
+    this.router.navigate(["inicio/" + direccion]);
   }
 }

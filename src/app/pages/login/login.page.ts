@@ -59,7 +59,7 @@ export class LoginPage {
 
         if (user) {
           loading.dismiss();
-          this.router.navigate(["/home"]);
+          this.router.navigate(["/inicio"]);
           localStorage.setItem("ingresado", "true");
         } else {
           loading.dismiss();

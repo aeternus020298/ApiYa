@@ -1,14 +1,14 @@
 import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
-import { HomePage } from "./home.page";
-import { BodaComponent } from "src/app/components/boda/boda.component";
+import { Routes, RouterModule } from "@angular/router";
+
+import { InicioPage } from "./inicio.page";
 import { PrincipalComponent } from "src/app/components/principal/principal.component";
+import { BodaComponent } from "src/app/components/boda/boda.component";
 
 const routes: Routes = [
   {
     path: "",
-    component: HomePage,
-    //declaracion del componente Boda que será llamado
+    component: InicioPage,
     children: [
       {
         path: "boda",
@@ -26,4 +26,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class HomePageRoutingModule {}
+export class InicioPageRoutingModule {}
