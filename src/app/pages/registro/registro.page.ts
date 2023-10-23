@@ -71,7 +71,8 @@ export class RegistroPage implements OnInit {
           this.regForm.value.email,
           this.regForm.value.password
         );
-
+        loading.dismiss();
+        this.presentSucessToast("Usuario creado con exito.");
         if (user) {
           this.router.navigate(["/login"]);
         } else {
@@ -96,6 +97,15 @@ export class RegistroPage implements OnInit {
       position: "middle", // Posición en la pantalla ('top', 'middle', 'bottom')
     });
 
+    await toast.present();
+  }
+
+  async presentSucessToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 1000,
+      position: "bottom",
+    });
     await toast.present();
   }
 

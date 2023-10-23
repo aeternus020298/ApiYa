@@ -22,6 +22,7 @@ const routes: Routes = [
   //Pestaña donde se hace el inicio de sesion
   {
     path: "login",
+    canActivate: [NoauthLocalGuard],
     loadChildren: () =>
       import("./pages/login/login.module").then((m) => m.LoginPageModule),
   },

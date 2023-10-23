@@ -13,17 +13,18 @@
             <p class="custom-text"><strong>Lugar del evento:</strong> {{ item.lugar }}</p>
             <p class="custom-text"><strong>Fecha del evento:</strong> {{ item.fecha }}</p>
           </div>
+          <ion-item-options>
+            <ion-item-option (click)="editar(item)">
+              <ion-icon name="create"></ion-icon> Editar
+            </ion-item-option>
+            <ion-item-option color="danger" (click)="eliminar(item)">
+              <ion-icon name="trash"></ion-icon> Eliminar
+            </ion-item-option>
+          </ion-item-options>
         </ion-card-content>
       </ion-card>
 
-      <ion-item-options>
-        <ion-item-option (click)="editar(item)">
-          <ion-icon name="create"></ion-icon> Editar
-        </ion-item-option>
-        <ion-item-option color="danger" (click)="eliminar(item)">
-          <ion-icon name="trash"></ion-icon> Eliminar
-        </ion-item-option>
-      </ion-item-options>
+
     </ion-item-sliding>
   </ion-list>
 
