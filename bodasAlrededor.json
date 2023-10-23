@@ -1,0 +1,44 @@
+{
+    "BodasAlrededor": [
+        {
+            "id": 1,
+            "Novios": "Carlos Suarez y Karina Diaz",
+            "Menu": "Causa de Pulpo",
+            "Coctel": "Mojito Tradicional",
+            "Lugar": "Casona Los Pinos, Reñaca",
+            "fecha": "15/10/2024"
+        },
+        {
+            "id": 2,
+            "Novios": "Abraham Pérez y Fernanda Marciel",
+            "Menu": "Timbal de Quinoa, palta y camarones",
+            "Coctel": "Old Fashioned",
+            "Lugar": "William Cole Vineyards, Casablanca",
+            "fecha": "10/09/2024"
+        },
+        {
+            "id": 3,
+            "Novios": "Adolfo Sosa y Carmina Gomez",
+            "Menu": "Atun sellado y Hummus",
+            "Coctel": "Daiquiri",
+            "Lugar": "Les Bourgeois, Concón",
+            "fecha": "17/02/2024"
+        },
+        {
+            "id": 4,
+            "Novios": "Anselmo Romero y Inna García",
+            "Menu": "Tataki de Salmón",
+            "Coctel": "Whiskey Sour",
+            "Lugar": "Estancia El Cuadro, Casablanca",
+            "fecha": "02/11/2024"
+        },
+        {
+            "id": 5,
+            "Novios": "Adriel Flores y Dominica López",
+            "Menu": "Quiche de Alcachofas",
+            "Coctel": "Margarita",
+            "Lugar": "Hotel Gervasoni, Valparaiso",
+            "fecha": "18/12/2024"
+        }
+    ]
+}
