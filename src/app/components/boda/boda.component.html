@@ -1,11 +1,8 @@
  <ion-content>
   <ion-list>
     <ion-item-sliding *ngFor="let item of bodas">
-
       <ion-item>
-        
         <ion-card-content class="custom-content">
-
           <div class="ion-text-center">
             <ion-card-title class="custom-title">Boda</ion-card-title>
             <br>
@@ -16,10 +13,8 @@
             <p class="custom-text"><strong>Lugar del evento:</strong> {{ item.lugar }}</p>
             <p class="custom-text"><strong>Fecha del evento:</strong> {{ item.fecha }}</p>
           </div>
-
         </ion-card-content>
       </ion-item>
-
           <ion-item-options>
             <ion-item-option (click)="editar(item)">
               <ion-icon name="create"></ion-icon> Editar
