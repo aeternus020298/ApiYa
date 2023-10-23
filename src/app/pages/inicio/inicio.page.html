@@ -1,15 +1,39 @@
 <ion-menu side="start" contentId="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu Content</ion-title>
+      <ion-icon class="iconomenu" name="person-outline" slot="end"></ion-icon>
+      <ion-title>Usuario</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">This is the menu content.</ion-content>
+  <ion-content class="ion-padding">
+    <ion-list class="modFondo">
+      <ion-item class="separation" routerLink="/inicio">
+        <ion-icon class="iconolist" name="person-circle-outline" slot="end"></ion-icon>
+        <ion-label>Mi cuenta</ion-label>
+      </ion-item>
+      <ion-item class="separation" routerLink="/inicio">
+        <ion-icon class="iconolist" name="settings-outline" slot="end"></ion-icon>
+        <ion-label>Configuracion</ion-label>
+      </ion-item>
+      <ion-item class="separation" routerLink="/inicio">
+        <ion-icon class="iconolist" name="heart-circle-outline" slot="end"></ion-icon>
+        <ion-label>Mis bodas</ion-label>
+      </ion-item>
+      <ion-item class="separation" routerLink="/inicio">
+        <ion-icon class="iconolist" name="add-circle-outline" slot="end"></ion-icon>
+        <ion-label>Mis invitaciones</ion-label>
+      </ion-item>
+      <ion-item class="separation" routerLink="/inicio">
+        <ion-icon class="iconolist" name="log-out-outline" slot="end"></ion-icon>
+        <ion-label>Cerrar sesion</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
 </ion-menu>
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <ion-title></ion-title>
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
@@ -28,11 +52,12 @@
       <ion-segment value="custom" (ionChange)="segmentChanged($event)">
         <ion-segment-button value="principal">
           <ion-icon name="home-outline"></ion-icon>
-          
+        </ion-segment-button>
+        <ion-segment-button value="qr">
+          <ion-icon name="qr-code-outline"></ion-icon>
         </ion-segment-button>
         <ion-segment-button value="boda">
           <ion-icon name="heart-outline"></ion-icon>
-          
         </ion-segment-button>
     </ion-segment>
     </ion-toolbar>

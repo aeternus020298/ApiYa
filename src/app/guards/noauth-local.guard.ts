@@ -23,7 +23,7 @@ export class NoauthLocalGuard implements CanActivate {
     | boolean
     | UrlTree {
     if (localStorage.getItem("ingresado")) {
-      this.navController.navigateRoot("home");
+      this.navController.navigateRoot("inicio");
       //No te permite ingresar a la pestaña y te manda al login
       return false;
     } else {
