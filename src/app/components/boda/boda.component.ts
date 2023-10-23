@@ -4,6 +4,7 @@ import { NavigationExtras, Router } from "@angular/router";
 import { SQLite, SQLiteObject } from "@awesome-cordova-plugins/sqlite";
 import { Platform, ToastController } from "@ionic/angular";
 import { DbserviceService } from "src/app/services/dbservice.service";
+import { InfiniteScrollCustomEvent } from '@ionic/angular';
 
 @Component({
   selector: "app-boda",
@@ -11,6 +12,7 @@ import { DbserviceService } from "src/app/services/dbservice.service";
   styleUrls: ["./boda.component.scss"],
 })
 export class BodaComponent {
+  items = [];
   bodas: any = [
     {
       descripcion: "Escribe aqui datos de interés",
@@ -58,4 +60,19 @@ export class BodaComponent {
     this.servicioBD.deleteBoda(item.id);
     this.servicioBD.presentToast("Haz eliminado tu boda :( !!!");
   }
+
+  private generateItems() {
+    const count = this.items.length + 1;
+    for (let i = 0; i < 50; i++) {
+      this.items.push(`Item ${count + i}`);
+    }
+  }
+
+  onIonInfinite(ev) {
+    this.generateItems();
+    setTimeout(() => {
+      (ev as InfiniteScrollCustomEvent).target.complete();
+    }, 500);
+  }
 }
+

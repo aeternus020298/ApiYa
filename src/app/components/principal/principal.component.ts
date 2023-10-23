@@ -5,6 +5,7 @@ import { SQLite, SQLiteObject } from "@awesome-cordova-plugins/sqlite";
 import { Platform, ToastController } from "@ionic/angular";
 import { DbserviceService } from "src/app/services/dbservice.service";
 import { ModalController } from "@ionic/angular";
+import { ApicoctelesService } from "src/app/services/apicocteles.service";
 
 @Component({
   selector: "app-principal",
@@ -13,6 +14,17 @@ import { ModalController } from "@ionic/angular";
 })
 export class PrincipalComponent implements OnInit {
   searchTerm: string = "";
+
+  bodasAlrededor: any = [
+    {
+      Novios: "Los novios",
+      Menu: "El menu",
+      Coctel: "El trago",
+      Lugar: "El lugar",
+      fecha: "La fecha",
+    },
+  ]
+
   bodas: any = [
     {
       descripcion: "Escribe aqui datos de interés",
@@ -33,7 +45,8 @@ export class PrincipalComponent implements OnInit {
   constructor(
     private router: Router,
     private servicioBD: DbserviceService,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private apiService: ApicoctelesService
   ) {
     this.router.navigate(["inicio/boda"]);
   }
@@ -109,6 +122,21 @@ export class PrincipalComponent implements OnInit {
         this.bodas = items;
       });
     }
+  }
+  loadBodas() {
+    this.apiService.getPosts().subscribe(
+      (data: any) => {
+        this.bodasAlrededor = data; // Asigna los datos obtenidos a la variable 'bodaAlrededor'
+        this.openBodasModal();
+      },
+      (error: any) => {
+        console.error('Error al obtener los datos de bodas', error);
+      }
+    );
+  }
+  
+  openBodasModal() {
+    this.setOpen(true);
   }
   
 }

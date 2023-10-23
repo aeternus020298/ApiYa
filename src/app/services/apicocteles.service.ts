@@ -23,8 +23,8 @@ export class ApicoctelesService {
   constructor(private http:HttpClient) { }
 
   //Conjunto de información sin filtrar
-  getPosts() :Observable<any>{
-    return this.http.get(this.apiurl+'/posts/').pipe(
+  getPosts(): Observable<any> {
+    return this.http.get(this.apiurl).pipe(
       retry(3)
     );
   }
