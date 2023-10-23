@@ -23,12 +23,12 @@ export class ModbodaPage implements OnInit {
     this.activedRoute.queryParams.subscribe(param =>{
       if(this.router.getCurrentNavigation()?.extras.state){
         this.idBoda = this.router.getCurrentNavigation()?.extras.state?.["idEnviado"];
-        this.descripcionBoda = this.router.getCurrentNavigation()?.extras.state?.["textoEnviado"];
-        this.investrellaBoda = this.router.getCurrentNavigation()?.extras.state?.["textoEnviado"];
-        this.menuestrellaBoda = this.router.getCurrentNavigation()?.extras.state?.["textoEnviado"];
-        this.tragoestrellaBoda = this.router.getCurrentNavigation()?.extras.state?.["textoEnviado"];
-        this.lugarBoda = this.router.getCurrentNavigation()?.extras.state?.["textoEnviado"];
-        this.fechaBoda = this.router.getCurrentNavigation()?.extras.state?.["textoEnviado"];
+        this.descripcionBoda = this.router.getCurrentNavigation()?.extras.state?.["descripcionEnviado"];
+        this.investrellaBoda = this.router.getCurrentNavigation()?.extras.state?.["investrella"];
+        this.menuestrellaBoda = this.router.getCurrentNavigation()?.extras.state?.["menuestrella"];
+        this.tragoestrellaBoda = this.router.getCurrentNavigation()?.extras.state?.["tragoestrella"];
+        this.lugarBoda = this.router.getCurrentNavigation()?.extras.state?.["lugarEnviado"];
+        this.fechaBoda = this.router.getCurrentNavigation()?.extras.state?.["fechaEnviado"];
 
       }
     })
@@ -44,7 +44,7 @@ export class ModbodaPage implements OnInit {
       this.lugarBoda,
       this.fechaBoda
     );
-    this.dbservice.presentToast("Datos agregados");
+    this.dbservice.presentToast("Datos modificados");
     this.router.navigate(["/inicio"]);
   }
   ngOnInit() {}
