@@ -15,6 +15,10 @@ import { environment } from "src/environments/environment";
 import { AuthGuard } from "./guards/auth.guard";
 import { AuthRedirectGuard } from "./guards/auth-redirect.guard";
 
+
+//Dependencia para servicio API y en el NgModule
+import { HttpClientModule } from '@angular/common/http';
+
 //NOTA: se agrega 'SQLite' a providers
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +26,7 @@ import { AuthRedirectGuard } from "./guards/auth-redirect.guard";
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    HttpClientModule,
     AngularFireModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),

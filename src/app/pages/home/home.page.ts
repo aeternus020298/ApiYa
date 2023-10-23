@@ -5,7 +5,7 @@ import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite';
 import { Platform, ToastController } from '@ionic/angular';
 import { DbserviceService } from '../../services/dbservice.service';
 import { ActivatedRoute } from '@angular/router';
-
+import { ApicoctelesService } from '../../services/apicocteles.service';
 
 @Component({
   selector: 'app-home',
@@ -31,7 +31,7 @@ export class HomePage {
     this.isModalOpen = isOpen;
   }
 
-  constructor(private router: Router, private servicioBD: DbserviceService) {
+  constructor(private router: Router, private servicioBD: DbserviceService, private api: ApicoctelesService) {
     this.router.navigate(['home/principal'])
   }
 
