@@ -16,53 +16,52 @@
   </ion-header>
 
 
-  <h1 class="ion-text-center" id="bnd">Lagna</h1>
+  <h1 class="ion-text-center" id="bnd">LAGNA</h1>
 
   <b class="ion-text-center">
-    <h4 id="registro">Registrate ya!</h4>
   </b>
 
   <!-- CREACIÓN DE FORM REGISTRO -->
   <!-- CREACIÓN DE FORM REGISTRO -->
 
-  <form [formGroup]="regForm" novalidate class="text-focus-in">
+  <form [formGroup]="regForm" novalidate class="">
     <!-- Campo para colocar el nombre -->
     <ion-item class="form">
-      <ion-label position="floating" class="colorLabel">Nombre</ion-label>
+      <ion-label position="" class="Label">Nombre</ion-label>
       <ion-input formControlName="nombre" placeholder="Coloca tu nombre" class="colorPlaceHolder"></ion-input>
     </ion-item>
 
-    <div *ngIf="this.regForm.controls?.['nombre'].touched && this.regForm.controls?.['nombre'].invalid">
-      <ion-text *ngIf="errorControl.nombre.errors?.required">
-        Nombre es requerido
+    <div class="shake-horizontal" *ngIf="this.regForm.controls?.['nombre'].touched && this.regForm.controls?.['nombre'].invalid">
+      <ion-text class="error" *ngIf="errorControl.nombre.errors?.required">
+        Se requiere Nombre
       </ion-text>
     </div>
 
     <br>
     <!-- Campo para colocar el apellido -->
     <ion-item class="form">
-      <ion-label position="floating" class="colorLabel">Apellido</ion-label>
+      <ion-label position="" class="Label">Apellido</ion-label>
       <!-- agrego en el formcontrolname el mismo nombre que se encuentra en page.ts, en el form builder -->
       <ion-input formControlName="apellido" placeholder="Coloca tu apellido" class="colorPlaceHolder"></ion-input>
     </ion-item>
 
-    <div *ngIf="this.regForm.controls?.['apellido'].touched && this.regForm.controls?.['apellido'].invalid">
-      <ion-text *ngIf="errorControl.apellido.errors?.required">
-        Apellido es requerido
+    <div class="shake-horizontal" *ngIf="this.regForm.controls?.['apellido'].touched && this.regForm.controls?.['apellido'].invalid">
+      <ion-text class="error"  *ngIf="errorControl.apellido.errors?.required">
+        Se requiere apellido
       </ion-text>
     </div>
 
     <br>
     <!-- Campo para colocar la fecha de nacimiento -->
     <ion-item class="form">
-      <ion-label position="floating" class="colorLabel">Fecha de nacimiento</ion-label>
+      <ion-label position="" class="Label">Fecha de nacimiento</ion-label>
       <!-- agrego en el formcontrolname el mismo nombre que se encuentra en page.ts, en el form builder -->
       <ion-input formControlName="fechaNac" placeholder="Coloca tu fecha de nacimiento" type="date"
         class="colorPlaceHolder"></ion-input>
     </ion-item>
 
-    <div *ngIf="this.regForm.controls?.['fechaNac'].touched && this.regForm.controls?.['fechaNac'].invalid">
-      <ion-text *ngIf="errorControl.fechaNac.errors?.required">
+    <div class="shake-horizontal" *ngIf="this.regForm.controls?.['fechaNac'].touched && this.regForm.controls?.['fechaNac'].invalid">
+      <ion-text class="error"  *ngIf="errorControl.fechaNac.errors?.required">
         Se requiere fecha de nacimiento
       </ion-text>
     </div>
@@ -70,17 +69,17 @@
     <br>
     <!-- Campo para colocar el correo electronico -->
     <ion-item class="form">
-      <ion-label position="floating" class="colorLabel">Email</ion-label>
+      <ion-label position="" class="Label">Email</ion-label>
       <!-- agrego en el formcontrolname el mismo nombre que se encuentra en page.ts, en el form builder -->
       <ion-input formControlName="email" placeholder="Coloca tu nombre" type="email"
         class="colorPlaceHolder"></ion-input>
     </ion-item>
 
-    <div *ngIf="this.regForm.controls?.['email'].touched && this.regForm.controls?.['email'].invalid">
-      <ion-text *ngIf="errorControl.email.errors?.required">
+    <div class="shake-horizontal" *ngIf="this.regForm.controls?.['email'].touched && this.regForm.controls?.['email'].invalid">
+      <ion-text class="error"  *ngIf="errorControl.email.errors?.required">
         El correo es requerido
       </ion-text>
-      <ion-text *ngIf="errorControl.email.errors?.pattern">
+      <ion-text class="error"  *ngIf="errorControl.email.errors?.pattern">
         El correo debe ser valido
       </ion-text>
     </div>
@@ -88,17 +87,17 @@
     <br>
     <!-- Campos para colocar la contraseña y reingresarla denuevo -->
     <ion-item class="form">
-      <ion-label position="floating" class="colorLabel">Contraseña</ion-label>
+      <ion-label position="" class="Label">Contraseña</ion-label>
       <!-- agrego en el formcontrolname el mismo nombre que se encuentra en page.ts, en el form builder -->
       <ion-input formControlName="password" placeholder="Ingresa tu contraseña" type="password"
         class="colorPlaceHolder"></ion-input>
     </ion-item>
 
-    <div *ngIf="this.regForm.controls?.['password'].touched && this.regForm.controls?.['password'].invalid">
-      <ion-text *ngIf="errorControl.password.errors?.required">
+    <div class="shake-horizontal" *ngIf="this.regForm.controls?.['password'].touched && this.regForm.controls?.['password'].invalid">
+      <ion-text class="error" *ngIf="errorControl.password.errors?.required">
         Se requiere contraseña.
       </ion-text>
-      <ion-text *ngIf="errorControl.password.errors?.pattern">
+      <ion-text class="error" *ngIf="errorControl.password.errors?.pattern">
         La contraseña debe contener 8 caracteres.
       </ion-text>
     </div>

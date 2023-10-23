@@ -21,34 +21,36 @@
     </div>
     <form [formGroup] = "loginForm" class="text-focus-in">
 
-        <ion-item color="#c93877;">
-          <ion-input placeholder="Correo" formControlName="email" class="input"></ion-input>
+        <ion-item>
+          <ion-label position="" class="Label" >Correo </ion-label>
+          <ion-input formControlName="email" class="input"></ion-input>
           <ion-icon name="person-outline"></ion-icon>
         </ion-item>
-        <div *ngIf="this.loginForm.controls?.['email'].touched && this.loginForm.controls?.['email'].invalid">
-          <ion-text *ngIf="errorControl.password.errors?.required">
+        <div class="shake-horizontal"*ngIf="this.loginForm.controls?.['email'].touched && this.loginForm.controls?.['email'].invalid">
+          <ion-text class="error " *ngIf="errorControl.password.errors?.required">
             Se requiere correo.
           </ion-text>
         </div>
 
       
-        <ion-item color="#c93877;">
-          <ion-input placeholder="Contraseña" type="password" formControlName="password" class="input"></ion-input>
+        <ion-item>
+          <ion-label position="" class="Label">Contraseña</ion-label>
+          <ion-input type="password" formControlName="password" class="input"></ion-input>
           <ion-icon name="lock-closed-outline"></ion-icon>
         </ion-item>
-        <div *ngIf="this.loginForm.controls?.['password'].touched && this.loginForm.controls?.['password'].invalid">
-          <ion-text *ngIf="errorControl.password.errors?.required">
+        <div class="shake-horizontal" *ngIf="this.loginForm.controls?.['password'].touched && this.loginForm.controls?.['password'].invalid">
+          <ion-text class="error" *ngIf="errorControl.password.errors?.required">
             Se requiere contraseña.
           </ion-text>
         </div>
 
         <div class="olvidaste">
-          <a (click)="olvidar()" [routerLink]="['/restore']" style="color:#c32268;"> ¿Olvidaste tu contraseña?</a>
+          <a (click)="olvidar()" [routerLink]="['/asd']" style="color:#c32268;"> ¿Olvidaste tu contraseña?</a>
         </div>
 
       <ion-row>
         <ion-col style="padding-top: 2vh; padding-left: 5vh; padding-right: 5vh;">
-          <ion-button (click)="loginIn()" expand="block" shape="round">Ingresar</ion-button>
+          <ion-button id="btnAceptar"(click)="loginIn()" expand="block" shape="round">Ingresar</ion-button>
         </ion-col>
       </ion-row>
     </form>
