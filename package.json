@@ -38,6 +38,7 @@
     "cordova-sqlite-storage": "^6.1.0",
     "i": "^0.3.7",
     "ionicons": "^7.0.0",
+    "phonegap-plugin-barcodescanner": "^8.1.0",
     "rxjs": "~7.8.0",
     "swiper": "^10.3.1",
     "tslib": "^2.3.0",
