@@ -1,17 +1,15 @@
 import { Component, OnInit } from "@angular/core";
-import { Boda } from "src/app/clases/boda";
 import { NavigationExtras, Router } from "@angular/router";
-import { SQLite, SQLiteObject } from "@awesome-cordova-plugins/sqlite";
-import { Platform, ToastController } from "@ionic/angular";
 import { DbserviceService } from "src/app/services/dbservice.service";
-import { ModalController } from "@ionic/angular";
+import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
 
 @Component({
-  selector: "app-principal",
-  templateUrl: "./principal.component.html",
-  styleUrls: ["./principal.component.scss"],
+  selector: "app-inicio",
+  templateUrl: "./inicio.page.html",
+  styleUrls: ["./inicio.page.scss"],
 })
-export class PrincipalComponent implements OnInit {
+export class InicioPage implements OnInit {
+  menuType: string = "overlay";
   bodas: any = [
     {
       descripcion: "Escribe aqui datos de interés",
@@ -24,17 +22,18 @@ export class PrincipalComponent implements OnInit {
   ];
 
   isModalOpen = false;
+  user: any;
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
-
   constructor(
     private router: Router,
     private servicioBD: DbserviceService,
-    private modalController: ModalController
+    private authService: FirebaseAuthService
   ) {
-    this.router.navigate(["inicio/boda"]);
+    this.router.navigate(["inicio/principal"]);
+    this.user = authService.getProfile();
   }
 
   ngOnInit() {
@@ -51,6 +50,22 @@ export class PrincipalComponent implements OnInit {
   getItem($event: any) {
     const valor = $event.target.value;
     console.log("valor del control: " + valor);
+  }
+  //metodo eliminar la flag del guard
+  cerrarSesion() {
+    localStorage.removeItem("ingresado");
+    this.router.navigate(["/login"]);
+  }
+  //metodo cerrar sesion firebase
+  async logOut() {
+    this.authService
+      .signOut()
+      .then(() => {
+        this.router.navigate(["/landing"]);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   editar(item: any) {
@@ -82,9 +97,19 @@ export class PrincipalComponent implements OnInit {
   //     this.router.navigate(['/boda']);
   //   }
   // }
+
   segmentChanged($event: any) {
     console.log($event);
     let direccion = $event.detail.value;
     this.router.navigate(["inicio/" + direccion]);
   }
+
+  // segmentChanged(event: any) {
+  //   const selectedSegment = event.detail.value;
+  //   if (selectedSegment === 'Boda') {
+  //     this.router.navigate(['home/boda']);
+  //   } else if (selectedSegment === 'Home') {
+  //     this.router.navigate(['home/principal']);
+  //   }
+  // }
 }

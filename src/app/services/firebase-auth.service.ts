@@ -33,6 +33,10 @@ export class FirebaseAuthService {
   async signOut() {
     return await this.ngFireAuth.signOut;
   }
+  //metodo para obtener los datos del usuario
+  async getProfile() {
+    return await this.ngFireAuth.currentUser;
+  }
   //metodo para comprobar si el usuario inicio sesion o no
   isLoggedIn(): Observable<boolean> {
     return this.ngFireAuth.authState.pipe(map((user) => !!user));

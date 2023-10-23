@@ -14,7 +14,7 @@ export class AuthRedirectGuard implements CanActivate {
   canActivate(): boolean {
     if (this.authService.isLoggedIn()) {
       // Si el usuario está autenticado, redirige a la página "home"
-      this.router.navigate(["/home"]);
+      this.router.navigate(["/inicio"]);
       return false;
     }
 

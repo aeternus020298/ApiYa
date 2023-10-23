@@ -1,6 +1,6 @@
-<ion-searchbar placeholder="Busca el evento"></ion-searchbar>
-  <ion-list>
+<ion-list>
     <ion-item-sliding *ngFor="let item of bodas">
+      <ion-searchbar placeholder="Busca el evento"></ion-searchbar>
       <ion-card class="custom-card">
         <ion-card-header>
           <ion-card-title class="custom-title">{{ item.descripcion }}</ion-card-title>
