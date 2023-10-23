@@ -12,6 +12,7 @@ import { ModalController } from "@ionic/angular";
   styleUrls: ["./principal.component.scss"],
 })
 export class PrincipalComponent implements OnInit {
+  searchTerm: string = "";
   bodas: any = [
     {
       descripcion: "Escribe aqui datos de interés",
@@ -87,4 +88,27 @@ export class PrincipalComponent implements OnInit {
     let direccion = $event.detail.value;
     this.router.navigate(["inicio/" + direccion]);
   }
+
+  searchItems(event: CustomEvent) {
+    const searchTerm = this.searchTerm.toLowerCase(); // Obtén el término de búsqueda en minúsculas
+    if (searchTerm.trim() !== "") {
+      // Filtra los elementos según el término de búsqueda
+      this.bodas = this.bodas.filter((item: any) => {
+        return (
+          item.descripcion.toLowerCase().includes(searchTerm) ||
+          item.investrella.toLowerCase().includes(searchTerm) ||
+          item.menuestrella.toLowerCase().includes(searchTerm) ||
+          item.tragoestrella.toLowerCase().includes(searchTerm) ||
+          item.lugar.toLowerCase().includes(searchTerm) ||
+          item.fecha.toLowerCase().includes(searchTerm)
+        );
+      });
+    } else {
+      // Si el campo de búsqueda está vacío, muestra todos los elementos nuevamente
+      this.servicioBD.fetchBodas().subscribe((items: any) => {
+        this.bodas = items;
+      });
+    }
+  }
+  
 }

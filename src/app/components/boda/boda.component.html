@@ -1,6 +1,7 @@
  
   <ion-list>
     <ion-item-sliding *ngFor="let item of bodas">
+      <ion-item>
       <ion-card class="custom-card">
         <ion-card-header>
           <ion-card-title class="custom-title">{{ item.descripcion }}</ion-card-title>
@@ -15,6 +16,7 @@
           </div>
         </ion-card-content>
       </ion-card>
+    </ion-item>
 
       <ion-item-options>
         <ion-item-option (click)="editar(item)">
@@ -24,6 +26,7 @@
           <ion-icon name="trash"></ion-icon> Eliminar
         </ion-item-option>
       </ion-item-options>
+      
     </ion-item-sliding>
   </ion-list>
 

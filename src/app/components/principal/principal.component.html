@@ -1,6 +1,6 @@
+<ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchItems($event)"></ion-searchbar>
 <ion-list>
     <ion-item-sliding *ngFor="let item of bodas">
-      <ion-searchbar placeholder="Busca el evento"></ion-searchbar>
       <ion-card class="custom-card">
         <ion-card-header>
           <ion-card-title class="custom-title">{{ item.descripcion }}</ion-card-title>
@@ -18,9 +18,9 @@
     <ng-template>
       <ion-header>
         <ion-toolbar>
-          <ion-title>Información</ion-title>
+          <ion-title>Bodas de la Región</ion-title>
           <ion-buttons slot="end">
-            <ion-button (click)="setOpen(false)">Close</ion-button>
+            <ion-button (click)="setOpen(false)">Cerrar</ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
