@@ -3,7 +3,7 @@ node_modules
 android/
 www/
 #Añadimos esto para evitar que se manden las configuraciones al visual.
-#settings.json
+settings.json
 
 resources/android/**/*
 # Firebase
