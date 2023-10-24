@@ -2,6 +2,8 @@ node_modules
 .angular/
 android/
 www/
+#Añadimos esto para evitar que se manden las configuraciones al visual.
+#settings.json
 
 resources/android/**/*
 # Firebase
