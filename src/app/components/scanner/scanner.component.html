@@ -1,0 +1,71 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Scannea para entrar a la boda! </ion-card-title> 
+  </ion-card-header>
+  <ion-card-content>
+    <form [formGroup]="formGroup">
+      <ion-item class="itemScan">
+        <ion-button class="scanButton" expand="block" (click)="scan()" [disabled]="!isSupported"
+          >Scan</ion-button>
+      </ion-item>
+    </form>
+  </ion-card-content>
+</ion-card>
+
+<ng-container *ngFor="let barcode of barcodes">
+  <ion-card>
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label position="fixed">Bytes</ion-label>
+        <ion-input
+          type="text"
+          readonly
+          [value]="barcode.bytes?.toString() || ''"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="fixed">Corner Points</ion-label>
+        <ion-input
+          type="text"
+          readonly
+          [value]="barcode.cornerPoints?.toString() || ''"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="fixed">Display Value</ion-label>
+        <ion-input
+          type="text"
+          readonly
+          [value]="barcode.displayValue"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="fixed">Format</ion-label>
+        <ion-input type="text" readonly [value]="barcode.format"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="fixed">Raw Value</ion-label>
+        <ion-input
+          type="text"
+          readonly
+          [value]="barcode.rawValue"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="fixed">Value Type</ion-label>
+        <ion-input
+          type="text"
+          readonly
+          [value]="barcode.valueType"
+        ></ion-input>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+</ng-container>
