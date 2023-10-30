@@ -43,7 +43,6 @@ export class InicioPage implements OnInit {
           this.bodas = item;
         });
       }
-      //this.servicioBD.presentAlert("4");
     });
   }
 
@@ -88,28 +87,9 @@ export class InicioPage implements OnInit {
     this.servicioBD.presentToast("Haz eliminado tu boda :( !!!");
   }
 
-  // Función para cambiar de página según el valor del ion-segment
-  // segmentChanged(event: any) {
-  //   const selectedSegment = event.detail.value;
-
-  //   if (selectedSegment === 'Boda') {
-  //     // Redirige a la página "Boda"
-  //     this.router.navigate(['/boda']);
-  //   }
-  // }
-
   segmentChanged($event: any) {
     console.log($event);
     let direccion = $event.detail.value;
     this.router.navigate(["inicio/" + direccion]);
   }
-
-  // segmentChanged(event: any) {
-  //   const selectedSegment = event.detail.value;
-  //   if (selectedSegment === 'Boda') {
-  //     this.router.navigate(['home/boda']);
-  //   } else if (selectedSegment === 'Home') {
-  //     this.router.navigate(['home/principal']);
-  //   }
-  // }
 }
