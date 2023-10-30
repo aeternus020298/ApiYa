@@ -109,7 +109,4 @@ export class RegistroPage implements OnInit {
     await toast.present();
   }
 
-  ngAfterViewInit() {
-    const animar1Animation = this.animationController;
-  }
 }
