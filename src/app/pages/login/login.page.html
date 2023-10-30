@@ -22,8 +22,7 @@
     <form [formGroup] = "loginForm" class="text-focus-in">
 
         <ion-item>
-          <ion-label position="" class="Label" >Correo </ion-label>
-          <ion-input formControlName="email" class="input"></ion-input>
+          <ion-input placeholder="Correo" formControlName="email" class="input"></ion-input>
           <ion-icon name="person-outline"></ion-icon>
         </ion-item>
         <div class="shake-horizontal"*ngIf="this.loginForm.controls?.['email'].touched && this.loginForm.controls?.['email'].invalid">
@@ -34,8 +33,7 @@
 
       
         <ion-item>
-          <ion-label position="" class="Label">Contraseña</ion-label>
-          <ion-input type="password" formControlName="password" class="input"></ion-input>
+          <ion-input placeholder="Contraseña" type="password" formControlName="password" class="input"></ion-input>
           <ion-icon name="lock-closed-outline"></ion-icon>
         </ion-item>
         <div class="shake-horizontal" *ngIf="this.loginForm.controls?.['password'].touched && this.loginForm.controls?.['password'].invalid">
@@ -45,7 +43,7 @@
         </div>
 
         <div class="olvidaste">
-          <a (click)="olvidar()" [routerLink]="['/asd']" style="color:#c32268;"> ¿Olvidaste tu contraseña?</a>
+          <a (click)="olvidar()" [routerLink]="['/restore']" style="color:#c32268;"> ¿Olvidaste tu contraseña? </a>
         </div>
 
       <ion-row>
@@ -64,29 +62,27 @@
         </ion-col>
       </ion-row>
 
-      
-
       <ion-row style="text-align: center;">
 
-        <ion-col>
+        <ion-col size-lg="6" size-md="6" size-sm="3" size="3">
             <ion-button fill="clear" color="dark">
               <ion-icon size="large" name="logo-google"></ion-icon>
             </ion-button>
         </ion-col>
 
-        <ion-col>
+        <ion-col size-lg="6" size-md="6" size-sm="3" size="3">
           <ion-button fill="clear" color="dark">
             <ion-icon size="large" name="logo-facebook"></ion-icon>
           </ion-button>
         </ion-col>
 
-        <ion-col >
+        <ion-col size-lg="6" size-md="6" size-sm="3" size="3">
           <ion-button fill="clear" color="dark">
             <ion-icon size="large" name="logo-instagram"></ion-icon>
           </ion-button>
         </ion-col>
 
-        <ion-col>
+        <ion-col size-lg="6" size-md="6" size-sm="3" size="3">
           <ion-button fill="clear" color="dark">
             <ion-icon size="large" name="logo-linkedin"></ion-icon>
           </ion-button>
