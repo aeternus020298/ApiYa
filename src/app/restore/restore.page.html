@@ -17,17 +17,18 @@
 <ion-content mode="md">
   <p id="tituloapp" class="ion-padding">Recupera tu contraseña</p>
   <ion-item>
-    <ion-label class="textoAyuda">Tranquilo, le pasa hasta a los mejores</ion-label>
+    <ion-label class="textoAyuda">Enviaremos un correo para que 
+      <br> puedas restablecer tu contraseña</ion-label>
   </ion-item>
-  <ion-row>
+  <ion-row class="text-focus-in">
     <ion-col size="12">
       <ion-item class="ion-padding correo">
-        <ion-input type="email" placeholder="Correo"></ion-input>
+        <ion-input [(ngModel)]="email" type="email" placeholder="Correo"></ion-input>
       </ion-item>
     </ion-col>
     <ion-col size="12">
-      <ion-button class="ion-padding" expand="block" color="primary" shape="round">
-        Recuperar
+      <ion-button class="ion-padding" (click)="resetPassword()" expand="block" color="primary" shape="round">
+        Enviar
       </ion-button>
     </ion-col>
   </ion-row>
