@@ -35,6 +35,7 @@ export class ModbodaPage implements OnInit {
   }
 
   editar() {
+    this.dbservice.presentToast(this.idBoda);
     this.dbservice.updateBoda(
       this.idBoda,
       this.descripcionBoda,

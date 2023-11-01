@@ -6,6 +6,7 @@ import { Platform, ToastController } from "@ionic/angular";
 import { DbserviceService } from "src/app/services/dbservice.service";
 import { ModalController } from "@ionic/angular";
 import { ApicoctelesService } from "src/app/services/apicocteles.service";
+import { InfiniteScrollCustomEvent } from '@ionic/angular';
 
 @Component({
   selector: "app-principal",
@@ -13,6 +14,10 @@ import { ApicoctelesService } from "src/app/services/apicocteles.service";
   styleUrls: ["./principal.component.scss"],
 })
 export class PrincipalComponent implements OnInit {
+  
+  //Declaracion de Diccionarios ocupados, relacionados a Infite Scroll, Searchbar, API, SQLite
+  items = [];
+  
   searchTerm: string = "";
 
   bodasAlrededor: any = [
@@ -48,10 +53,12 @@ export class PrincipalComponent implements OnInit {
     private modalController: ModalController,
     private apiService: ApicoctelesService
   ) {
+    this.loadBodas()
     this.router.navigate(["inicio/boda"]);
   }
 
   ngOnInit() {
+    //Codigo relacionado al funcionamiento de la API
     this.servicioBD.dbState().subscribe((res: any) => {
       if (res) {
         this.servicioBD.fetchBodas().subscribe((item: any) => {
@@ -60,6 +67,7 @@ export class PrincipalComponent implements OnInit {
       }
       //this.servicioBD.presentAlert("4");
     });
+    
   }
 
   getItem($event: any) {
@@ -67,6 +75,7 @@ export class PrincipalComponent implements OnInit {
     console.log("valor del control: " + valor);
   }
 
+  //Funciones Editar y Eliminar no se estan ocupando en principal.component.html
   editar(item: any) {
     let navigationextras: NavigationExtras = {
       state: {
@@ -87,21 +96,15 @@ export class PrincipalComponent implements OnInit {
     this.servicioBD.presentToast("Haz eliminado tu boda :( !!!");
   }
 
-  // Función para cambiar de página según el valor del ion-segment
-  // segmentChanged(event: any) {
-  //   const selectedSegment = event.detail.value;
 
-  //   if (selectedSegment === 'Boda') {
-  //     // Redirige a la página "Boda"
-  //     this.router.navigate(['/boda']);
-  //   }
-  // }
+  //Relacionado a segment y los componentes
   segmentChanged($event: any) {
     console.log($event);
     let direccion = $event.detail.value;
     this.router.navigate(["inicio/" + direccion]);
   }
 
+  //Relacionado a Ion-searchbar
   searchItems(event: CustomEvent) {
     const searchTerm = this.searchTerm.toLowerCase(); // Obtén el término de búsqueda en minúsculas
     if (searchTerm.trim() !== "") {
@@ -123,10 +126,16 @@ export class PrincipalComponent implements OnInit {
       });
     }
   }
+
+  //Funcion queocupa la API para traer los datos
   loadBodas() {
+    console.log("cargo loadBoda")
     this.apiService.getPosts().subscribe(
       (data: any) => {
+        console.log(data)
+        console.log("llegue al console log")
         this.bodasAlrededor = data; // Asigna los datos obtenidos a la variable 'bodaAlrededor'
+        console.log(this.bodasAlrededor)
         this.openBodasModal();
       },
       (error: any) => {

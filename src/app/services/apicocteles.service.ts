@@ -17,7 +17,7 @@ export class ApicoctelesService {
   }
 
   //Se establece la base url del API a consumir
-  apiurl = 'https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/bodasAlrededor.json?alt=media&token=eba06f04-8241-449c-afe4-993724720bf7&_gl=1*cuxmgx*_ga*OTI2ODM5ODY0LjE2OTc3NTM3MTI.*_ga_CW55HF8NVT*MTY5ODAyODUyMy45LjEuMTY5ODAzMTU0My41Mi4wLjA';
+  apiurl = 'https://apibodas-fb7d7-default-rtdb.firebaseio.com/apibodas/-NhSSwjag7FA_yVXP7jg/BodasAlrededor.json';
 
   //Se declara la variable http de tipo HttpClient
   constructor(private http:HttpClient) { }
