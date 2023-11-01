@@ -1,13 +1,13 @@
 import { Component, OnInit } from "@angular/core";
-import { IonCard, AnimationController } from "@ionic/angular";
-import type { QueryList } from "@angular/core";
-import type { Animation } from "@ionic/angular";
-import { LoadingController } from "@ionic/angular";
+import {
+  AnimationController,
+  LoadingController,
+  ToastController,
+} from "@ionic/angular";
 import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
 //se implementa los validadores y el form de angular
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
-import { ToastController } from "@ionic/angular";
 
 @Component({
   selector: "app-registro",
@@ -109,7 +109,4 @@ export class RegistroPage implements OnInit {
     await toast.present();
   }
 
-  ngAfterViewInit() {
-    const animar1Animation = this.animationController;
-  }
 }

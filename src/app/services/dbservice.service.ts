@@ -56,22 +56,27 @@ export class DbserviceService {
   //Creación de método que carga en la lista casamientos en contenido de la tabla Boda
   cargarBodas() {
     let items: Boda[] = [];
-    this.database.executeSql("SELECT * FROM boda", []).then((res) => {
-      if (res.rows.length > 0) {
-        for (let i = 0; i < res.rows.length; i++) {
-          items.push({
-            id: res.rows.item(i).id,
-            descripcion: res.rows.item(i).descripcion,
-            investrella: res.rows.item(i).investrella,
-            menuestrella: res.rows.item(i).menuestrella,
-            tragoestrella: res.rows.item(i).tragoestrella,
-            lugar: res.rows.item(i).lugar,
-            fecha: res.rows.item(i).fecha,
-          });
+    this.database
+      .executeSql("SELECT * FROM boda", [])
+      .then((res) => {
+        if (res.rows.length > 0) {
+          for (let i = 0; i < res.rows.length; i++) {
+            items.push({
+              id: res.rows.item(i).id,
+              descripcion: res.rows.item(i).descripcion,
+              investrella: res.rows.item(i).investrella,
+              menuestrella: res.rows.item(i).menuestrella,
+              tragoestrella: res.rows.item(i).tragoestrella,
+              lugar: res.rows.item(i).lugar,
+              fecha: res.rows.item(i).fecha,
+            });
+          }
         }
-      }
-    });
-    this.casamientos.next(items);
+        this.casamientos.next(items);
+      })
+      .catch((error) => {
+        this.presentToast("Error al cargar las bodas: " + error);
+      });
   }
 
   //Metodo que inserta un registro en la tabla boda
@@ -115,6 +120,7 @@ export class DbserviceService {
       tragoestrella,
       lugar,
       fecha,
+      id,
     ];
     await this.database.executeSql(
       "UPDATE Boda SET descripcion=?, investrella=?, menuestrella=?, tragoestrella=?, lugar=?, fecha=? WHERE id=?",

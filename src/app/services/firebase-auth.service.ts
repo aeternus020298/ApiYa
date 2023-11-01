@@ -31,7 +31,7 @@ export class FirebaseAuthService {
   }
   //metodo para cerrar sesion
   async signOut() {
-    return await this.ngFireAuth.signOut;
+    return this.ngFireAuth.signOut;
   }
   //metodo para obtener los datos del usuario
   async getProfile() {

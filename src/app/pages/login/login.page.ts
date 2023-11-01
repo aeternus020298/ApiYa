@@ -1,6 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { NavigationExtras, Router } from "@angular/router";
+import { Router } from "@angular/router";
 import { LoadingController, ToastController } from "@ionic/angular";
 import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
 @Component({
@@ -36,10 +36,6 @@ export class LoginPage {
   get errorControl() {
     return this.loginForm?.controls;
   }
-  // flag para el ingresar.
-  // async ingresar() {
-  //   localStorage.setItem("ingresado", "true");
-  // }
 
   // flag para quitar el ingresado.
   async olvidar() {

@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ModbodaPage } from './modboda.page';
+import { ComponentFixture, TestBed, async } from "@angular/core/testing";
+import { ModbodaPage } from "./modboda.page";
 
-describe('ModbodaPage', () => {
+describe("ModbodaPage", () => {
   let component: ModbodaPage;
   let fixture: ComponentFixture<ModbodaPage>;
 
@@ -11,7 +11,7 @@ describe('ModbodaPage', () => {
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

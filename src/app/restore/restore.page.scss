@@ -1,0 +1,28 @@
+*{
+    --background: #f5f5f3
+}
+
+
+#tituloapp{
+    text-align: center;
+    margin-top: 40%;
+    font-size: 30px;
+    //font-family: 'Dela Gothic One', cursive;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.correo{
+    margin-top: 10%;
+}
+
+.textoAyuda{
+    text-align: center;
+    color: rgba(0, 0, 0, 0.321);
+    }
+.text-focus-in{-webkit-animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both;animation:text-focus-in 1s cubic-bezier(.55,.085,.68,.53) both}
+
+@-webkit-keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}@keyframes text-focus-in{0%{-webkit-filter:blur(12px);filter:blur(12px);opacity:0}100%{-webkit-filter:blur(0);filter:blur(0);opacity:1}}
+
+//animacion para texto error
+.shake-horizontal{-webkit-animation:shake-horizontal .3s cubic-bezier(.455,.03,.515,.955) both;animation:shake-horizontal .3s cubic-bezier(.455,.03,.515,.955) both}
+@-webkit-keyframes shake-horizontal{0%,100%{-webkit-transform:translateX(0);transform:translateX(0)}10%,30%,50%,70%{-webkit-transform:translateX(-10px);transform:translateX(-10px)}20%,40%,60%{-webkit-transform:translateX(10px);transform:translateX(10px)}80%{-webkit-transform:translateX(8px);transform:translateX(8px)}90%{-webkit-transform:translateX(-8px);transform:translateX(-8px)}}@keyframes shake-horizontal{0%,100%{-webkit-transform:translateX(0);transform:translateX(0)}10%,30%,50%,70%{-webkit-transform:translateX(-10px);transform:translateX(-10px)}20%,40%,60%{-webkit-transform:translateX(10px);transform:translateX(10px)}80%{-webkit-transform:translateX(8px);transform:translateX(8px)}90%{-webkit-transform:translateX(-8px);transform:translateX(-8px)}}
