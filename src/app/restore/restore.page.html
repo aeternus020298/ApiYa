@@ -15,7 +15,7 @@
 </ion-header>
 
 <ion-content mode="md">
-  <p id="tituloRestore" class="ion-padding">Recupera tu contraseña</p>
+  <p id="tituloRestore" class="ion-padding">¿Contraseña olvidada?</p>
   <ion-item>
     <ion-label class="textoAyuda">Enviaremos un correo para que 
       <br> puedas restablecer tu contraseña</ion-label>
@@ -26,19 +26,29 @@
     </lottie-player>
   </div>
 
-  <ion-row class="text-focus-in">
-    <ion-col size="12">
-      <ion-item class="ion-padding correo">
-        <ion-input class="input" [(ngModel)]="email" color="primary" type="email" placeholder="Correo"></ion-input>
-        <ion-icon slot="end" name="person-outline"></ion-icon>
-      </ion-item>
-    </ion-col>
-    <ion-col size="12">
-      <ion-button class="ion-padding" (click)="resetPassword()" expand="block" color="primary" shape="round">
-        Enviar
-      </ion-button>
-    </ion-col>
-  </ion-row>
+  <form [formGroup]="formRestore" (ngSubmit)="resetPassword()">
+    <ion-row class="text-focus-in">
+      <ion-col size="12">
+        <ion-item class="ion-padding correo">
+          <ion-input formControlName="email" class="input" color="primary" type="email" placeholder="Correo"></ion-input>
+          <ion-icon slot="end" name="person-outline"></ion-icon>
+        </ion-item>
+        <ion-text *ngIf="email.invalid && (email.dirty || email.touched)">
+          <p class="error shake-horizontal" *ngIf="email.errors.required">Email es requerido</p>
+          <p class="error shake-horizontal" *ngIf="email.errors.email || email.errors.pattern">Ingresa un correo válido</p>
+        </ion-text>
+      </ion-col>
+      <ion-col size="12">
+        <ion-button class="ion-padding" type="submit" [disabled]="!formRestore.valid" expand="block" color="primary" shape="round">
+          Enviar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  
 
 
+  </form>
+
+
+  
 </ion-content>
