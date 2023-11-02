@@ -16,15 +16,17 @@
 
 <ion-content mode="md">
   <p id="tituloRestore" class="ion-padding">¿Contraseña olvidada?</p>
+  
+  <div id="login">
+    <lottie-player slot="end" autoplay loop src="https://lottie.host/d69f1fa4-eb07-4327-a795-741e4bfef458/CIERJV3bBG.json">
+    </lottie-player>
+  </div>
+
   <ion-item>
     <ion-label class="textoAyuda">Enviaremos un correo para que 
       <br> puedas restablecer tu contraseña</ion-label>
   </ion-item>
 
-  <div id="login">
-    <lottie-player slot="end" autoplay loop src="https://lottie.host/d69f1fa4-eb07-4327-a795-741e4bfef458/CIERJV3bBG.json">
-    </lottie-player>
-  </div>
 
   <form [formGroup]="formRestore" (ngSubmit)="resetPassword()">
     <ion-row class="text-focus-in">
