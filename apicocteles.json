@@ -1,0 +1,100 @@
+{
+    "Cocktail":[
+        {
+            "id": 1,
+            "nombreCocktail": "Mojito tradicional",
+            "imagen": "https://firebasestorage.googleapis.com/v0/b/apicocteles.appspot.com/o/Mojito%20tradicional.png?alt=media&token=9328afb9-451b-4d34-b2b0-78e30082b2ad",
+            "descripcion": "Menta, jugo de limón, ron blanco"
+        },
+        {
+            "id": 2,
+            "nombreCocktail": "Daiquiri",
+            "imagen": "https://firebasestorage.googleapis.com/v0/b/apicocteles.appspot.com/o/Daiquiri.jfif?alt=media&token=0b44d18d-9c38-48ae-b8a8-a0e7f3ad469d",
+            "descripcion": "Ron blanco, jugo de lima"
+        },
+        {
+            "id": 3,
+            "nombreCocktail": "Old Fashioned",
+            "imagen": "https://firebasestorage.googleapis.com/v0/b/apicocteles.appspot.com/o/Old%20Fashioned.jpg?alt=media&token=9cf68e86-d842-4060-b129-848dd0e4923b",
+            "descripcion": "Bourbon, amargo de angostura, soda"
+        },
+        {
+            "id": 4,
+            "nombreCocktail": "Margarita",
+            "imagen": "https://firebasestorage.googleapis.com/v0/b/apicocteles.appspot.com/o/Margarita.jpg?alt=media&token=646e3859-88a9-4964-864c-4c072c4fe45c",
+            "descripcion": "Tequila, triple sec, jugo de lima, sal"
+        },
+        {
+            "id": 5,
+            "nombreCocktail": "Negroni",
+            "imagen": "https://firebasestorage.googleapis.com/v0/b/apicocteles.appspot.com/o/Negroni.jpg?alt=media&token=a48d0eda-ff91-43ca-9a59-0e8ef1e21ef5",
+            "descripcion": "Gin, campari, vermouth rosso"
+        },
+        {
+            "id": 6,
+            "nombreCocktail": "Piña colada",
+            "imagen": "https://firebasestorage.googleapis.com/v0/b/apicocteles.appspot.com/o/Pi%C3%B1a%20Colada.jpg?alt=media&token=8bea25ed-c1c0-4cae-ac7f-1661c3a16bd3",
+            "descripcion": "Ron, crema de coco, leche, crema, pulpa"
+        },
+        {
+            "id": 7,
+            "nombreCocktail": "Tom Collins",
+            "imagen": "https://firebasestorage.googleapis.com/v0/b/apicocteles.appspot.com/o/Tom%20Collins.jpg?alt=media&token=003a6792-3335-40f5-ae9c-5101172b3e64",
+            "descripcion": "Gin, agua tónica, jugo de limón, syrup"
+        },
+        {
+            "id": 8,
+            "nombreCocktail": "Martini Dry",
+            "imagen": "https://firebasestorage.googleapis.com/v0/b/apicocteles.appspot.com/o/Martini%20Dry.jpg?alt=media&token=362c9142-7e7b-441b-a6c0-e89de1daed25",
+            "descripcion": "Gin, vermouth rosso"
+        },
+        {
+            "id": 9,
+            "nombreCocktail": "GodFather",
+            "imagen": "https://firebasestorage.googleapis.com/v0/b/apicocteles.appspot.com/o/GodFather.jpg?alt=media&token=3032b955-0382-48d8-8155-a9bbb948c7e9",
+            "descripcion": "Whisky, amaretto"
+        },
+        {
+            "id": 10,
+            "nombreCocktail": "Kir Royal",
+            "imagen": "https://firebasestorage.googleapis.com/v0/b/apicocteles.appspot.com/o/Kir%20Royal.jpg?alt=media&token=b76b3223-f81f-4540-8f86-133b5c346e4f",
+            "descripcion": "Licor de cassis, espumante"
+        },
+        {
+            "id": 11,
+            "nombreCocktail": "Caipirinha",
+            "imagen": "https://firebasestorage.googleapis.com/v0/b/apicocteles.appspot.com/o/Caipirinha.jpg?alt=media&token=dc1bc33c-a30c-473b-a67c-82d881007dfb",
+            "descripcion": "Cachaza, jugo de limón, azúcar"
+        },
+        {
+            "id": 12,
+            "nombreCocktail": "Cosmopolitan",
+            "imagen": "https://firebasestorage.googleapis.com/v0/b/apicocteles.appspot.com/o/Cosmopolitan.jpg?alt=media&token=b4e3d55d-e83c-470a-85c1-00d1af3c2242",
+            "descripcion": "Vodka, triple sec, jugo de arandanos, jugo de limón"
+        },
+        {
+            "id": 13,
+            "nombreCocktail": "Manhattan",
+            "imagen": "https://firebasestorage.googleapis.com/v0/b/apicocteles.appspot.com/o/Manhattan.jpg?alt=media&token=e1ef9648-096f-4f04-8e58-21e780cc330a",
+            "descripcion": "Whisky, vermouth rosso, amargo de angostura"
+        },
+        {
+            "id": 14,
+            "nombreCocktail": "Fernet Branca",
+            "imagen": "https://firebasestorage.googleapis.com/v0/b/apicocteles.appspot.com/o/Fernet%20Branca.jpg?alt=media&token=40d20d6e-e968-4cf3-8ab1-3855daf9bac5",
+            "descripcion": "Fernet, bebida"
+        },
+        {
+            "id": 15,
+            "nombreCocktail": "Gin Tonic",
+            "imagen": "https://firebasestorage.googleapis.com/v0/b/apicocteles.appspot.com/o/Gin%20Tonic.jpg?alt=media&token=433fad74-477c-4905-b4db-a7fbe7e829a3",
+            "descripcion": "Gin, agua tónica, limón"
+        },
+        {
+            "id": 16,
+            "nombreCocktail": "Sangría",
+            "imagen": "https://firebasestorage.googleapis.com/v0/b/apicocteles.appspot.com/o/Sangr%C3%ADa.jpg?alt=media&token=4dcbd4c5-b4df-49b4-9ceb-1b56142d87ab",
+            "descripcion": "Vino tinto, jugo de naranja, jugo de limón, canela, clavo de olor, azúcar"
+        }
+    ]
+}
