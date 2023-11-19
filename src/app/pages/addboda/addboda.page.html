@@ -36,7 +36,12 @@
 
         <ion-item class="wordwrap">
           <img src="../../../assets/icon/beer-filled.svg" alt="traguito">
-          <ion-input label="Cóctel destacado" labelPlacement="floating" placeholder="Coloca ese traguito alucinante!" [(ngModel)]="tragoestrellaBoda"></ion-input>
+          <ion-label>Cóctel destacado</ion-label>
+          <ion-select placeholder="Elige un cóctel" [(ngModel)]="tragoestrellaBoda">
+            <ion-select-option *ngFor="let cocktail of apicocteles" [value]="cocktail.nombreCocktail">
+              {{ cocktail.nombreCocktail }}
+            </ion-select-option>
+          </ion-select>
         </ion-item>
 
         <ion-item class="wordwrap">
