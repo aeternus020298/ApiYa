@@ -32,7 +32,7 @@ export class InicioPage implements OnInit {
     private servicioBD: DbserviceService,
     private authService: FirebaseAuthService
   ) {
-    this.router.navigate(["inicio/principal"]);
+    this.router.navigate(["inicio"]);
     this.user = authService.getProfile();
   }
 

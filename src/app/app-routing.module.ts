@@ -31,7 +31,7 @@ const routes: Routes = [
     path: "restore",
     canActivate: [NoauthLocalGuard],
     loadChildren: () =>
-      import("./restore/restore.module").then((m) => m.RestorePageModule),
+      import("./pages/restore/restore.module").then((m) => m.RestorePageModule),
   },
   //Pestaña que te permite registrarte en la aplicacion.
   {
@@ -64,8 +64,16 @@ const routes: Routes = [
   },
 
   {
-    path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    path: "home",
+    loadChildren: () =>
+      import("./pages/home/home.module").then((m) => m.HomePageModule),
+  },
+  {
+    path: "proveedores",
+    loadChildren: () =>
+      import("./pages/proveedores/proveedores.module").then(
+        (m) => m.ProveedoresPageModule
+      ),
   },
 
   //Pestaña que redirecciona a 404 si es que no encuentra un path existente, siempre debe estar al ultimo, si no otorgara problemas.

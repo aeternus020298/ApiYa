@@ -1,0 +1,215 @@
+{
+    "Proovedores":[
+        {
+            "id": 1,
+            "nombre": "Slier",
+            "categoria": "Local de eventos",
+            "region": "Metropolitana",
+            "comuna": "Talagante",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FSlier.jpg?alt=media&token=185dc4eb-9330-4bd2-9ece-79a5f4c6dddc",
+            "calificacion": 4.5
+        },
+        {
+            "id": 2,
+            "nombre": "Casona San José",
+            "categoria": "Local de eventos",
+            "region": "Metropolitana",
+            "comuna": "San José de Maipo",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FCasona%20San%20Jos%C3%A9.jpg?alt=media&token=be89a79d-25d7-402c-90f9-78610ba7c5de",
+            "calificacion": 5
+
+        },
+        {
+            "id": 3,
+            "nombre": "Parcela El Aromo",
+            "categoria": "Local de eventos",
+            "region": "Metropolitana",
+            "comuna": "Buin",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FParcela%20El%20Aromo.jpg?alt=media&token=2b041259-c0c9-4f0b-b654-2a8a48316075",
+            "calificacion": 5
+        },
+        {
+            "id": 4,
+            "nombre": "La Morada del Cajón",
+            "categoria": "Local de eventos",
+            "region": "Metropolitana",
+            "comuna": "San José de Maipo",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FLa%20morada%20del%20Caj%C3%B3n.jpg?alt=media&token=d3a2e985-07f0-482a-bfa0-f4815aea0d80",
+            "calificacion": 5
+        },
+        {
+            "id": 5,
+            "nombre": "Las Rocas de Noviciado",
+            "categoria": "Local de eventos",
+            "region": "Metropolitana",
+            "comuna": "Pudahuel",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FLas%20Rocas%20de%20Noviciado.jpg?alt=media&token=b5a7ac26-6fb0-4776-a414-100c48290ca5",
+            "calificacion": 4.5
+        },
+        {
+            "id": 6,
+            "nombre": "Espacio Nehuen",
+            "categoria": "Local de eventos",
+            "region": "Metropolitana",
+            "comuna": "Talagante",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FEspacio%20Nehuen.jpg?alt=media&token=b797e07c-11a2-42bd-921a-0005991975ed",
+            "calificacion": 0
+
+        },
+        {
+            "id": 7,
+            "nombre": "Casona Lonquén",
+            "categoria": "Local de eventos",
+            "region": "Metropolitana",
+            "comuna": "Isla de Maipo",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FCasona%20Lonqu%C3%A9n.jpg?alt=media&token=af4b9073-e4f1-44e8-8de5-1e895232afff",
+            "calificacion": 0
+        },
+        {
+            "id": 8,
+            "nombre": "El Nogalito",
+            "categoria": "Local de eventos",
+            "region": "Metropolitana",
+            "comuna": "Padre Hurtado",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FCentro%20de%20Eventos%20El%20Nogalito.jpg?alt=media&token=bd9706a4-f485-414e-9790-c7f52f458b1b",
+            "calificacion": 0
+        },
+        {
+            "id": 9,
+            "nombre": "Hacienda Los Rosales",
+            "categoria": "Local de eventos",
+            "region": "Metropolitana",
+            "comuna": "Buin",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FHacienda%20Los%20Rosales.jpg?alt=media&token=c43172ce-366c-4695-8bba-6166673072cd",
+            "calificacion": 0
+        },
+        {
+            "id": 10,
+            "nombre": "Raices Chilenas",
+            "categoria": "Local de eventos",
+            "region": "Valparaíso",
+            "comuna": "Quintero",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FRaices%20Chilenas.png?alt=media&token=ebc56dc9-012c-4b77-a758-c33264ec3592",
+            "calificacion": 0
+
+        },
+        {
+            "id": 11,
+            "nombre": "Nogaró",
+            "categoria": "Restaurant",
+            "region": "Valparaíso",
+            "comuna": "Viña del Mar",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FNogar%C3%B3.jpg?alt=media&token=4ffc9e52-ff2e-411f-9d74-2a82367e7142",
+            "calificacion": 5
+        },
+        {
+            "id": 12,
+            "nombre": "Don Camarón",
+            "categoria": "Restaurant",
+            "region": "Araucanía",
+            "comuna": "Temuco",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FDon%20Camar%C3%B3n.jpg?alt=media&token=dc7bb85c-9276-43a4-af96-759d52a68a8e",
+            "calificacion": 5
+        },
+        {
+            "id": 13,
+            "nombre": "Rancho Don Alejo",
+            "categoria": "Restaurant",
+            "region": "Arica",
+            "comuna": "Valle de Lluta",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FRancho%20Don%20Alejo.jpg?alt=media&token=5170c7b6-1efd-47f6-8714-2a4eb348b948",
+            "calificacion": 0
+        },
+        {
+            "id": 14,
+            "nombre": "Abtao Restaurante Wine",
+            "categoria": "Restaurant",
+            "region": "Valparaíso",
+            "comuna": "Valparaíso",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FAbtao%20Restaurante%20Wine.jpeg?alt=media&token=9ad1407b-8e08-4410-a87f-368a866f2896",
+            "calificacion": 5
+        },
+        {
+            "id": 15,
+            "nombre": "Azul Profundo",
+            "categoria": "Restaurant",
+            "region": "Metropolitana",
+            "comuna": "Providencia",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FAzul%20Profundo.jpg?alt=media&token=0b7423b9-ccc7-4912-8985-4a9618a81732",
+            "calificacion": 0
+
+        },
+        {
+            "id": 16,
+            "nombre": "Fundo La Patagonia",
+            "categoria": "Restaurant",
+            "region": "Metropolitana",
+            "comuna": "San Ignacio",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FFundo%20La%20Patagonia.jpg?alt=media&token=346baf82-a5ee-48dd-9874-311c0d733f4f",
+            "calificacion": 0
+        },
+        {
+            "id": 17,
+            "nombre": "La Caperucita y El Lobo",
+            "categoria": "Restaurant",
+            "region": "Valparaíso",
+            "comuna": "Valparaíso",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FRestaurante%20La%20Caperucita%20y%20El%20Lobo.jpg?alt=media&token=1bfb0fb3-23f1-45cd-b52e-8295e52dbbb9",
+            "calificacion": 5
+        },
+        {
+            "id": 18,
+            "nombre": "Macarena Palma",
+            "categoria": "Vestimenta",
+            "region": "Metropolitana",
+            "comuna": "Vitacura",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FMacarena%20Palma.webp?alt=media&token=2e47fd75-1b48-4dfe-9806-7c1e3811bdc1",
+            "calificacion": 5
+        },
+        {
+            "id": 19,
+            "nombre": "Cecilia Serantoni Novias",
+            "categoria": "Vestimenta",
+            "region": "La serena",
+            "comuna": "Elqui",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FCecilia%20Serantoni%20Novias.webp?alt=media&token=99d31205-b26e-4077-a041-d237ec853acd",
+            "calificacion": 5
+        },
+        {
+            "id": 20,
+            "nombre": "Ema Coliqueo Diseño de Alta Costura",
+            "categoria": "Vestimenta",
+            "region": "Los Rios",
+            "comuna": "Ranco",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FEma%20Coliqueo%20Dise%C3%B1o%20de%20Alta%20Costura.webp?alt=media&token=2c69894b-1443-45dd-9637-ce2274cd8383",
+            "calificacion": 5
+        },
+        {
+            "id": 21,
+            "nombre": "Conymarc Novios",
+            "categoria": "Vestimenta",
+            "region": "Antofagasta",
+            "comuna": "Antofagasta",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FConymarc%20Novios.webp?alt=media&token=3350973b-2deb-42e8-a388-44f3c2cd2d69",
+            "calificacion": 5
+        },
+        {
+            "id": 22,
+            "nombre": "Novias Lupe Pavez",
+            "categoria": "Vestimenta",
+            "region": "Valparaíso",
+            "comuna": "Viña del Mar",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FNovias%20Lupe%20Pavez.webp?alt=media&token=f6a9f046-4543-467a-85a9-99e7c70e405b",
+            "calificacion": 5
+        },
+        {
+            "id": 23,
+            "nombre": "Ardoan Diseño",
+            "categoria": "Vestimenta",
+            "region": "Valparaíso",
+            "comuna": "Valparaíso",
+            "img": "https://firebasestorage.googleapis.com/v0/b/lagna-login-registro.appspot.com/o/proovedores_img%2FArdoan%20Dise%C3%B1o.webp?alt=media&token=f2dc04f0-921c-485b-81af-9f568b07d92e",
+            "calificacion": 5
+        }
+    ]
+}

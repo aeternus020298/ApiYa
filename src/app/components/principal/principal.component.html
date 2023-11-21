@@ -15,42 +15,4 @@
       </ion-card>
     </ion-item-sliding>
     <ion-button expand="block" (click)="setOpen(true)">Ver más</ion-button>
-  <ion-modal [isOpen]="isModalOpen">
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-title class="ion-text-center">Bodas de la Región</ion-title>
-          <ion-buttons slot="end">
-            <ion-button (click)="setOpen(false)">Cerrar</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-        <ion-list>
-          <ion-item *ngFor="let boda of bodasAlrededor">
-            <ion-card>
-              <ion-card-header>
-                <ion-card-title>{{ boda.Novios }}</ion-card-title>
-              </ion-card-header>
-              <ion-card-content>
-                <p><strong>Novios:</strong> {{ boda.Novios}}</p>
-                <p><strong>Menú:</strong> {{ boda.Menu }}</p>
-                <p><strong>Cóctel:</strong> {{ boda.Coctel }}</p>
-                <p><strong>Lugar:</strong> {{ boda.Lugar }}</p>
-                <p><strong>Fecha:</strong> {{ boda.fecha }}</p>
-              </ion-card-content>
-            </ion-card>
-          </ion-item>
-        </ion-list>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
   </ion-list>
-
-  
-
-  <!-- <ion-footer [translucent]="true">
-    <ion-toolbar class="ion-text-center" id="enterprise">
-      <ion-title>Lagna®enterprise</ion-title>
-    </ion-toolbar>
-  </ion-footer> -->

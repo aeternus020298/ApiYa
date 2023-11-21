@@ -1,5 +1,7 @@
+
+
 <ion-menu side="start" contentId="main-content">
-  <ion-header>
+  <ion-header [translucent]="true" class="ion-no-border">
     <ion-toolbar>
       <ion-icon class="iconomenu" name="person-outline" slot="end"></ion-icon>
       <ion-title>Usuario</ion-title>
@@ -31,11 +33,12 @@
     </ion-list>
   </ion-content>
 </ion-menu>
-<div class="ion-page" id="main-content">
-  <ion-header>
+<div class="ion-page" contentId="main-content">
+  <ion-header class="ion-no-border">
     <ion-toolbar>
       <ion-title></ion-title>
       <ion-buttons slot="start">
+        <ion-icon id="menuicon" slot="start" name="menu-outline"></ion-icon>
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
     </ion-toolbar>
@@ -48,17 +51,19 @@
       </ion-content>
   </ion-content>
 
-  <ion-footer id="main-content">
-    <ion-toolbar>
-      <ion-segment value="custom" (ionChange)="segmentChanged($event)">
-        <ion-segment-button value="principal">
-          <ion-icon name="home-outline"></ion-icon>
+  <ion-footer class="footer" id="main-content">
+    <ion-toolbar class="footer">
+      <ion-segment value="custom" color="light" (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="boda">
+          <ion-icon name="heart-outline" ></ion-icon>
         </ion-segment-button>
+
+        <ion-segment-button value="principal">
+          <ion-icon name="home-outline" ></ion-icon>
+        </ion-segment-button> 
+
         <ion-segment-button value="scanner">
           <ion-icon name="qr-code-outline"></ion-icon>
-        </ion-segment-button>
-        <ion-segment-button value="boda">
-          <ion-icon name="heart-outline"></ion-icon>
         </ion-segment-button>
     </ion-segment>
     </ion-toolbar>
