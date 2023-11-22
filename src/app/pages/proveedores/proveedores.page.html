@@ -1,0 +1,52 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" routerLink="/inicio/principal">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content mode="ios" class="background">
+
+  <div class="glass-content">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col class="d-flex-center" size="12">
+          <ion-searchbar placeholder="Buscar..." [debounce]="250" (ionChange)="buscarProveedores($event)"></ion-searchbar>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-chips class="chips">
+          <ion-chip class="ion-padding" [ngClass]="{'chip-activo': categoriaActiva === categoria}" *ngFor="let categoria of categorias" (click)="filtrarPorCategoria(categoria)">
+            <ion-label>{{ categoria }}</ion-label>
+          </ion-chip>
+        </ion-chips>
+        <!-- le añadimos responsividad como en boostrap, pero esta vez en ionic -->
+        <ion-col *ngFor="let proveedor of proveedoresFiltrados"  size-lg="6" size-md="6" size-sm="12" size="12">
+          <ion-card>
+            <ion-grid>
+              <ion-row>
+                
+                <!-- Esto nos esta diciendo que para todas excepto la resolucion de moviles, tendra un tamaño de 12 las cards -->
+                <ion-col class="ion-padding" size-lg="4" size-md="4" size-sm="4" size="12">
+                  <ion-avatar>
+                    <img [src]="proveedor.img" alt="profiles"/>
+                  </ion-avatar>
+                </ion-col>
+                <ion-col class="ion-padding" size-lg="8" size-md="8" size-sm="8" size="12">
+                  <div class="nombre">{{proveedor.nombre}}</div>
+                  <p>Categoria: <br> <strong>{{proveedor.categoria}}</strong> </p>
+                  <p>Calificacion <br> <strong>{{proveedor.calificacion}}</strong> </p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>

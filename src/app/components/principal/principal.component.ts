@@ -4,9 +4,8 @@ import { NavigationExtras, Router } from "@angular/router";
 import { SQLite, SQLiteObject } from "@awesome-cordova-plugins/sqlite";
 import { Platform, ToastController } from "@ionic/angular";
 import { DbserviceService } from "src/app/services/dbservice.service";
+import { ModalController, InfiniteScrollCustomEvent } from "@ionic/angular";
 import { ApicoctelesService } from "src/app/services/apicocteles.service";
-import { InfiniteScrollCustomEvent } from '@ionic/angular';
-import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
 
 @Component({
   selector: "app-principal",

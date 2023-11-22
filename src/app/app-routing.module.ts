@@ -1,10 +1,7 @@
 import { NgModule } from "@angular/core";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
-import { AuthGuard } from "./guards/auth.guard";
-import { AuthRedirectGuard } from "./guards/auth-redirect.guard";
 import { AuthLocalGuard } from "./guards/auth-local.guard";
 import { NoauthLocalGuard } from "./guards/noauth-local.guard";
-
 
 const routes: Routes = [
   {
@@ -31,7 +28,7 @@ const routes: Routes = [
     path: "restore",
     canActivate: [NoauthLocalGuard],
     loadChildren: () =>
-      import("./restore/restore.module").then((m) => m.RestorePageModule),
+      import("./pages/restore/restore.module").then((m) => m.RestorePageModule),
   },
   //Pestaña que te permite registrarte en la aplicacion.
   {
@@ -62,11 +59,20 @@ const routes: Routes = [
     loadChildren: () =>
       import("./pages/landing/landing.module").then((m) => m.LandingPageModule),
   },
-  
-  //Pestaña que abrirá la boda creada por el usuario
   {
-    path: 'miboda',
-    loadChildren: () => import('./pages/miboda/miboda.module').then( m => m.MibodaPageModule)
+    path: "proveedores",
+    loadChildren: () =>
+      import("./pages/proveedores/proveedores.module").then(
+        (m) => m.ProveedoresPageModule
+      ),
+  },
+
+  {
+    path: "localizacion",
+    loadChildren: () =>
+      import("./pages/localizacion/localizacion.module").then(
+        (m) => m.LocalizacionPageModule
+      ),
   },
   //Pestaña que redirecciona a 404 si es que no encuentra un path existente, siempre debe estar al ultimo, si no otorgara problemas.
   {
