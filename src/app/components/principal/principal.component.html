@@ -1,18 +1,58 @@
 
-<ion-list>
-  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchItems($event)"></ion-searchbar>
-    <ion-item-sliding *ngFor="let item of bodas">
-      <ion-card class="custom-card">
-        <ion-card-header>
-          <ion-card-title class="custom-title">{{ item.descripcion }}</ion-card-title>
-        </ion-card-header>
-        <ion-card-content class="custom-content">
-          <div class="ion-text-center">
-            <p class="custom-text"><strong>Lugar del evento:</strong> {{ item.lugar }}</p>
-            <p class="custom-text"><strong>Fecha del evento:</strong> {{ item.fecha }}</p>
-          </div>
-        </ion-card-content>
-      </ion-card>
-    </ion-item-sliding>
-    <ion-button expand="block" (click)="setOpen(true)">Ver más</ion-button>
-  </ion-list>
+  <ion-grid class="iconos">
+    <!-- Row for user profile picture -->
+    <ion-row class="row">
+      <ion-col size="12">
+        <!-- colocar en src {{ userPhotoUrl }} -->
+        <ion-avatar>
+          <img src="../../../assets/imagenPrueba.png" alt="Foto de perfil del usuario" /> 
+        </ion-avatar>
+        <hr>
+        <!-- colocar interpolacion para el nombre del usuario -->
+      </ion-col>
+      <ion-col size="12" class="ion-padding" id="userLabel"> 
+        <ion-label class="ion-text-center">Bienvenido @User</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="row">
+      <ion-col>
+        <ion-button fill="clear" class="button-with-border">
+          <img
+            src="../../../assets/icon/calendar-heart100px.svg"
+            alt="misbodas"
+          />
+        </ion-button>
+        <hr />
+        <ion-label class="button-label">Mi Boda</ion-label>
+      </ion-col>
+
+      <ion-col>
+        <ion-button fill="clear" class="button-with-border">
+          <img src="../../../assets/icon/eye-heart100px.svg" alt="bodasAlredor">
+        </ion-button>
+        <hr>
+        <ion-label class="button-label">Bodas de contactos</ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="row">
+      <ion-col>
+        <ion-button fill="clear" class="button-with-border" >
+          <img src="../../../assets/icon/map-heart100px.svg" alt="lugaresBodas">
+        </ion-button>
+        <hr>
+        <ion-label class="button-label">Lugares de bodas</ion-label>
+      </ion-col>
+
+      <ion-col>
+        <ion-button fill="clear" class="button-with-border"
+        routerLink="/proveedores" >
+          <img src="../../../assets/icon/map-heart100px.svg" alt="lugaresBodas">
+        </ion-button>
+        <hr>
+        <ion-label class="button-label">Proveedores</ion-label>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>

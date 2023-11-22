@@ -43,20 +43,18 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
+
   <ion-content class="ion-padding">
-    
-    
-      <ion-content>
-        <ion-router-outlet></ion-router-outlet>
-      </ion-content>
+
+  <ion-content>
+    <ion-router-outlet></ion-router-outlet>
   </ion-content>
+</ion-content>
+
 
   <ion-footer class="footer" id="main-content">
     <ion-toolbar class="footer">
       <ion-segment value="custom" color="light" (ionChange)="segmentChanged($event)">
-        <ion-segment-button value="boda">
-          <ion-icon name="heart-outline" ></ion-icon>
-        </ion-segment-button>
 
         <ion-segment-button value="principal">
           <ion-icon name="home-outline" ></ion-icon>

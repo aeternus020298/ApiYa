@@ -1,10 +1,7 @@
 import { NgModule } from "@angular/core";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
-import { AuthGuard } from "./guards/auth.guard";
-import { AuthRedirectGuard } from "./guards/auth-redirect.guard";
 import { AuthLocalGuard } from "./guards/auth-local.guard";
 import { NoauthLocalGuard } from "./guards/noauth-local.guard";
-import { BodaComponent } from "./components/boda/boda.component";
 
 const routes: Routes = [
   {
