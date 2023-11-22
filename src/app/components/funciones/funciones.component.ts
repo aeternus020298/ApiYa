@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import { Boda } from "src/app/clases/boda";
 import { NavigationExtras, Router } from "@angular/router";
 import { SQLite, SQLiteObject } from "@awesome-cordova-plugins/sqlite";
@@ -6,12 +6,13 @@ import { Platform, ToastController } from "@ionic/angular";
 import { DbserviceService } from "src/app/services/dbservice.service";
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
 
+
 @Component({
-  selector: "app-boda",
-  templateUrl: "./boda.component.html",
-  styleUrls: ["./boda.component.scss"],
+  selector: 'app-funciones',
+  templateUrl: './funciones.component.html',
+  styleUrls: ['./funciones.component.scss'],
 })
-export class BodaComponent {
+export class FuncionesComponent  implements OnInit {
   items = [];
   bodas: any = [
     {
@@ -23,7 +24,7 @@ export class BodaComponent {
       fecha: "Escribe aqui la fecha de tu boda",
     },
   ];
-  constructor(private router: Router, private servicioBD: DbserviceService) {}
+  constructor(private router: Router, private servicioBD: DbserviceService) { }
 
   ngOnInit() {
     this.servicioBD.dbState().subscribe((res: any) => {
@@ -34,8 +35,8 @@ export class BodaComponent {
       }
       //this.servicioBD.presentAlert("4");
     });
+    
   }
-
   getItem($event: any) {
     const valor = $event.target.value;
     console.log("valor del control: " + valor);
@@ -45,6 +46,7 @@ export class BodaComponent {
     let navigationextras: NavigationExtras = {
       state: {
         idEnviado: item.id,
+        idUsuario: item.userId,
         descripcionEnviado: item.descripcion,
         investrella: item.investrella,
         menuestrella: item.menuestrella,
@@ -57,7 +59,7 @@ export class BodaComponent {
   }
 
   eliminar(item: any) {
-    this.servicioBD.deleteBoda(item.id);
+    this.servicioBD.deleteBoda(item.id, item.userId);
     this.servicioBD.presentToast("Haz eliminado tu boda :( !!!");
   }
 
@@ -74,5 +76,5 @@ export class BodaComponent {
       (ev as InfiniteScrollCustomEvent).target.complete();
     }, 500);
   }
-}
 
+}

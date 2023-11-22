@@ -16,7 +16,8 @@ export class AddbodaPage implements OnInit {
   tragoestrellaBoda = "";
   lugarBoda = "";
   fechaBoda = "";
-
+  userId = "";
+  
   apicocteles: any = [];
 
   constructor(private dbservice: DbserviceService, 
@@ -31,7 +32,8 @@ export class AddbodaPage implements OnInit {
       this.menuestrellaBoda,
       this.tragoestrellaBoda,
       this.lugarBoda,
-      this.fechaBoda
+      this.fechaBoda,
+      this.userId
     );
     this.dbservice.presentToast("Datos agregados");
     this.router.navigate(["/inicio"]);

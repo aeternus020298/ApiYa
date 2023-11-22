@@ -4,7 +4,7 @@ import { AuthGuard } from "./guards/auth.guard";
 import { AuthRedirectGuard } from "./guards/auth-redirect.guard";
 import { AuthLocalGuard } from "./guards/auth-local.guard";
 import { NoauthLocalGuard } from "./guards/noauth-local.guard";
-import { BodaComponent } from "./components/boda/boda.component";
+
 
 const routes: Routes = [
   {
@@ -62,18 +62,20 @@ const routes: Routes = [
     loadChildren: () =>
       import("./pages/landing/landing.module").then((m) => m.LandingPageModule),
   },
-
+  
+  //Pestaña que abrirá la boda creada por el usuario
   {
-    path: 'home',
-    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
+    path: 'miboda',
+    loadChildren: () => import('./pages/miboda/miboda.module').then( m => m.MibodaPageModule)
   },
-
   //Pestaña que redirecciona a 404 si es que no encuentra un path existente, siempre debe estar al ultimo, si no otorgara problemas.
   {
     path: "**",
     loadChildren: () =>
       import("./pages/error/error.module").then((m) => m.ErrorPageModule),
   },
+  
+
 ];
 
 @NgModule({

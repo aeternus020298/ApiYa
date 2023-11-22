@@ -1,5 +1,4 @@
- <ion-content>
-  <ion-list>
+
     <ion-item-sliding *ngFor="let item of bodas">
       <ion-item>
         <ion-card-content class="custom-content">
@@ -24,22 +23,8 @@
             </ion-item-option>
           </ion-item-options>
     </ion-item-sliding>
-  </ion-list>
-
-  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
-    <ion-infinite-scroll-content></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
-</ion-content>
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button routerLink="/addboda">
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 
 
+  
 
-<!-- <ion-footer [translucent]="true">
-  <ion-toolbar class="ion-text-center" id="enterprise">
-    <ion-title>Lagna®enterprise</ion-title>
-  </ion-toolbar>
-</ion-footer> -->
+  

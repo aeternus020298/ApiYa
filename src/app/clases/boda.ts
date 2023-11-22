@@ -1,5 +1,6 @@
 export class Boda {
     id: number | undefined;
+    userId: string | undefined;
     descripcion: string | undefined;
     investrella: string | undefined; //invitado estrella, por ejemplo Los Bunkers
     menuestrella: string | undefined; //el menú destacado que quieres que vean

@@ -1,0 +1,42 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" routerLink="/home">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button expand="block" routerLink="/registro" color="primary">
+        Registrarse
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list>
+    <ion-item-sliding *ngFor="let item of bodas">
+      <ion-card class="custom-card">
+        <ion-card-header>
+          <ion-card-title class="custom-title">{{ item.descripcion }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content class="custom-content">
+          <div class="ion-text-center">
+            <p class="custom-text"><strong>Lugar del evento:</strong> {{ item.lugar }}</p>
+            <p class="custom-text"><strong>Fecha del evento:</strong> {{ item.fecha }}</p>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-item-sliding>  
+  </ion-list>
+</ion-content>
+
+<ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+  <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button routerLink="/addboda">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>  

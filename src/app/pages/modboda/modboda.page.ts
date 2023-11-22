@@ -9,6 +9,7 @@ import { DbserviceService } from "src/app/services/dbservice.service";
 })
 export class ModbodaPage implements OnInit {
   idBoda = "";
+  userId = "";
   descripcionBoda = "";
   investrellaBoda = "";
   menuestrellaBoda = "";
@@ -47,6 +48,7 @@ export class ModbodaPage implements OnInit {
     this.dbservice
       .updateBoda(
         this.idBoda,
+        this.userId,
         this.descripcionBoda,
         this.investrellaBoda,
         this.menuestrellaBoda,

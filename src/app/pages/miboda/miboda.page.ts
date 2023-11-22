@@ -1,18 +1,23 @@
 import { Component, OnInit } from "@angular/core";
 import { NavigationExtras, Router } from "@angular/router";
+import { SQLite, SQLiteObject } from "@awesome-cordova-plugins/sqlite";
+import { Platform, ToastController } from "@ionic/angular";
 import { DbserviceService } from "src/app/services/dbservice.service";
+import { ApicoctelesService } from "src/app/services/apicocteles.service";
+import { InfiniteScrollCustomEvent } from '@ionic/angular';
 import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
 
 @Component({
-  selector: "app-inicio",
-  templateUrl: "./inicio.page.html",
-  styleUrls: ["./inicio.page.scss"],
+  selector: 'app-miboda',
+  templateUrl: './miboda.page.html',
+  styleUrls: ['./miboda.page.scss'],
 })
-export class InicioPage implements OnInit {
+export class MibodaPage implements OnInit {
   menuType: string = "overlay";
+  items = [];
   bodas: any = [
     {
-      descripcion: "Escribe aqui datos de interÃ©s",
+      descripcion: "Escribe aqui datos de interés",
       investrella: "Escribe aqui tu invitado especial",
       menuestrella: "Escribe aqui tu menu especial",
       tragoestrella: "Escribe aqui tu traguito especial",
@@ -21,6 +26,7 @@ export class InicioPage implements OnInit {
     },
   ];
 
+  //BORRAR DESPUÉS
   isModalOpen = false;
   user: any;
 
@@ -32,7 +38,7 @@ export class InicioPage implements OnInit {
     private servicioBD: DbserviceService,
     private authService: FirebaseAuthService
   ) {
-    this.router.navigate(["inicio"]);
+    this.router.navigate(["miboda/funciones"]);
     this.user = authService.getProfile();
   }
 
@@ -50,22 +56,6 @@ export class InicioPage implements OnInit {
     const valor = $event.target.value;
     console.log("valor del control: " + valor);
   }
-  //metodo eliminar la flag del guard
-  cerrarSesion() {
-    localStorage.removeItem("ingresado");
-    this.router.navigate(["/login"]);
-  }
-  //metodo cerrar sesion firebase
-  async logOut() {
-    this.authService
-      .signOut()
-      .then(() => {
-        this.router.navigate(["/landing"]);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
 
   editar(item: any) {
     let navigationextras: NavigationExtras = {
@@ -82,14 +72,29 @@ export class InicioPage implements OnInit {
     this.router.navigate(["/modboda"], navigationextras);
   }
 
-  eliminar(item: any) {
-    this.servicioBD.deleteBoda(item.id, item.userId);
+  eliminar(item: any, userId: any) {
+    this.servicioBD.deleteBoda(item.id, userId);
     this.servicioBD.presentToast("Haz eliminado tu boda :( !!!");
   }
 
   segmentChanged($event: any) {
     console.log($event);
     let direccion = $event.detail.value;
-    this.router.navigate(["inicio/" + direccion]);
+    this.router.navigate(["miboda/" + direccion]);
   }
+  
+  //codgio ts relacionado a infinite scroll
+  private generateItems() {
+    const count = this.items.length + 1;
+    for (let i = 0; i < 50; i++) {
+      this.items.push(`Item ${count + i}`);
+    }
+  }
+  onIonInfinite(ev) {
+    this.generateItems();
+    setTimeout(() => {
+      (ev as InfiniteScrollCustomEvent).target.complete();
+    }, 500);
+  }
+
 }
