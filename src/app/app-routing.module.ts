@@ -67,6 +67,14 @@ const routes: Routes = [
       ),
   },
 
+  {
+    path: "localizacion",
+    loadChildren: () =>
+      import("./pages/localizacion/localizacion.module").then(
+        (m) => m.LocalizacionPageModule
+      ),
+  },
+
   //Pestaña que redirecciona a 404 si es que no encuentra un path existente, siempre debe estar al ultimo, si no otorgara problemas.
   {
     path: "**",

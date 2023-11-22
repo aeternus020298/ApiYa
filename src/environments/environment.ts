@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  //apikey google maps.
+  mapsKey: "AIzaSyBLr5NEUrcwZiMg-TSrBabZRbIGGMMkOZY",
   //Se agrega la configuracion SDK del firebase para Lagna.
   firebaseConfig: {
     apiKey: "AIzaSyC3LbeZkDIcbkEVJRMI3VJIR1-DLC6E7mQ",
