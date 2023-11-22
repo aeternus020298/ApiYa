@@ -59,12 +59,6 @@ const routes: Routes = [
     loadChildren: () =>
       import("./pages/landing/landing.module").then((m) => m.LandingPageModule),
   },
-
-  {
-    path: "home",
-    loadChildren: () =>
-      import("./pages/home/home.module").then((m) => m.HomePageModule),
-  },
   {
     path: "proveedores",
     loadChildren: () =>
