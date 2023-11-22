@@ -66,7 +66,12 @@ const routes: Routes = [
         (m) => m.ProveedoresPageModule
       ),
   },
-
+  {
+    path: "miboda",
+    canActivate: [AuthLocalGuard],
+    loadChildren: () =>
+      import("./pages/miboda/miboda.module").then((m) => m.MibodaPageModule),
+  },
   {
     path: "localizacion",
     loadChildren: () =>
