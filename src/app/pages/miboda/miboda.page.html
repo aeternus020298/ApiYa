@@ -7,7 +7,7 @@
     </ion-buttons>
     <ion-buttons slot="end">
     </ion-buttons>
-    <!-- Botón de eliminar boda -->
+    <!-- BOTÓN DE ELIMINAR BODAS CON EL ID DE LA BODA Y EL USARIO LOGEADO -->
     <ion-buttons slot="end" >
       <ion-button color="danger" (click)="eliminar(bodas.id, currentUserId)">
         <img src="../../../assets/icon/dots-three-vertical-bold.svg" alt="borrar">
@@ -16,15 +16,16 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- REVISAR LA LOGICA DE LOS NGIF YA QUE ACTUALMENTE NO ESTA CUMPLIENDO LOS CONDICIONALES -->
 <ion-content>
-  <!-- Mensaje e imagen cuando no hay bodas -->
+  <!-- MENSAJE E IMAGEN CUANDO NO HAY BODAS DISPONIBLES -->
   <div *ngIf="bodas.length === 0" class="container" id="sinDatos">
     <lottie-player slot="end" autoplay loop src="https://lottie.host/e926bd67-59ef-4ed0-8950-b5d3ee1fbcfd/X4qSfPeZJa.json">
     </lottie-player>
     <h1>No se han encontrado tu boda, añádela más abajo</h1>
   </div>
  
-
+  <!-- DATOS DE LA BODA CUANDO YA EXISTE UNA CREADA -->
   <ion-list *ngIf="bodas.length > 0">
     <div *ngFor="let item of bodas">
       <ion-card class="custom-card">

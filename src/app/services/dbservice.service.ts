@@ -56,7 +56,7 @@ export class DbserviceService {
   }
 
   //Creación de método que carga en la lista casamientos en contenido de la tabla Boda
-  //Se carga los datos de la boda por user id
+  //SE CARGA LOS DATOS DE LA BODA POR USERID
   cargarBodas(userId: string): Observable<Boda[]> {
     return from(this.database.executeSql('SELECT * FROM boda WHERE userId = ?', [userId])).pipe(
       map((res) => {

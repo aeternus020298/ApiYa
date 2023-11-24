@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { NavigationExtras, Router } from "@angular/router";
-import { DbserviceService } from "src/app/services/dbservice.service";
+import { Router } from "@angular/router";
+
 import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
 
 @Component({
@@ -11,38 +11,26 @@ import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
 export class InicioPage implements OnInit {
   currentUserId: string | null = null;
   menuType: string = "overlay";
-  bodas: any = [
-    {
-      descripcion: "Escribe aqui datos de interÃ©s",
-      investrella: "Escribe aqui tu invitado especial",
-      menuestrella: "Escribe aqui tu menu especial",
-      tragoestrella: "Escribe aqui tu traguito especial",
-      lugar: "Escribe aqui el lugar de tu boda",
-      fecha: "Escribe aqui la fecha de tu boda",
-    },
-  ];
 
   isModalOpen = false;
-  user: any;
+  nombreUsuario: string;
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
   constructor(
     private router: Router,
-    private servicioBD: DbserviceService,
     private authService: FirebaseAuthService
   ) {
     this.router.navigate(["inicio"]);
-    this.user = authService.getProfile();
   }
 
-  async ngOnInit() {
-    this.currentUserId = await this.authService.getUserId();
-    this.servicioBD.dbState().subscribe((res: any) => {
-      if (res) {
-        this.servicioBD.fetchBodas(this.currentUserId).subscribe((item: any) => {
-          this.bodas = item;
+  ngOnInit() {
+    this.authService.ngFireAuth.authState.subscribe((user) => {
+      if (user) {
+        this.authService.getUserInfo(user.uid).subscribe((userInfo) => {
+          console.log(userInfo);
+          this.nombreUsuario = userInfo?.nombre;
         });
       }
     });
@@ -67,26 +55,6 @@ export class InicioPage implements OnInit {
       .catch((error) => {
         console.log(error);
       });
-  }
-
-  editar(item: any) {
-    let navigationextras: NavigationExtras = {
-      state: {
-        idEnviado: item.id,
-        descripcionEnviado: item.descripcion,
-        investrella: item.investrella,
-        menuestrella: item.menuestrella,
-        tragoestrella: item.tragoestrella,
-        lugarEnviado: item.lugar,
-        fechaEnviado: item.fecha,
-      },
-    };
-    this.router.navigate(["/modboda"], navigationextras);
-  }
-
-  eliminar(item: any) {
-    this.servicioBD.deleteBoda(item.id, item.userId);
-    this.servicioBD.presentToast("Haz eliminado tu boda :( !!!");
   }
 
   segmentChanged($event: any) {

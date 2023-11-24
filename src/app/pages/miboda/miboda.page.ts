@@ -16,6 +16,7 @@ export class MibodaPage implements OnInit {
   currentUserId: string | null = null;
   menuType: string = "overlay";
   items = [];
+  //POSIBLEMENTE HAYA QUE AJUSTAR ESTO PARA QUE SE LOGRE VER LA IMAGEN Y TEXTO DE LOTTIFILES
   bodas: any = [
     {
       descripcion: "Escribe aqui datos de interés",
@@ -42,7 +43,7 @@ export class MibodaPage implements OnInit {
     this.router.navigate(["miboda/funciones"]);
     this.user = authService.getProfile();
   }
-
+  //SE UTILIZA USERID
   async ngOnInit() {
     this.currentUserId = await this.authService.getUserId();
     this.servicioBD.dbState().subscribe((res: any) => {

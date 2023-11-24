@@ -4,12 +4,12 @@
   <ion-header [translucent]="true" class="ion-no-border">
     <ion-toolbar>
       <ion-icon class="iconomenu" name="person-outline" slot="end"></ion-icon>
-      <ion-title>Usuario</ion-title>
+      <ion-title> {{nombreUsuario}}</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
-    <ion-list class="modFondo" lines="full">
-      <ion-item class="separation" routerLink="/inicio">
+    <ion-list class="modFondo" lines="none">
+      <ion-item class="separation" routerLink="/cuenta">
         <ion-icon class="iconolist" name="person-circle-outline" slot="end"></ion-icon>
         <ion-label>Mi cuenta</ion-label>
       </ion-item>

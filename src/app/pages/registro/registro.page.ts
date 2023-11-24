@@ -69,7 +69,10 @@ export class RegistroPage implements OnInit {
       if (this.regForm.valid) {
         const user = await this.authService.registerUser(
           this.regForm.value.email,
-          this.regForm.value.password
+          this.regForm.value.password,
+          this.regForm.value.nombre,
+          this.regForm.value.apellido,
+          this.regForm.value.fechaNac
         );
         loading.dismiss();
         this.presentSucessToast("Usuario creado con exito.");
@@ -108,5 +111,4 @@ export class RegistroPage implements OnInit {
     });
     await toast.present();
   }
-
 }
