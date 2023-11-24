@@ -7,6 +7,7 @@ import { IonicModule } from "@ionic/angular";
 import { LocalizacionPageRoutingModule } from "./localizacion-routing.module";
 
 import { LocalizacionPage } from "./localizacion.page";
+import { MarcadorPopoverComponent } from "src/app/components/marcador-popover/marcador-popover.component";
 
 @NgModule({
   imports: [
@@ -15,7 +16,7 @@ import { LocalizacionPage } from "./localizacion.page";
     IonicModule,
     LocalizacionPageRoutingModule,
   ],
-  declarations: [LocalizacionPage],
+  declarations: [LocalizacionPage, MarcadorPopoverComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LocalizacionPageModule {}

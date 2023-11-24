@@ -81,6 +81,12 @@ const routes: Routes = [
     loadChildren: () =>
       import("./pages/miboda/miboda.module").then((m) => m.MibodaPageModule),
   },
+
+  {
+    path: "cuenta",
+    loadChildren: () =>
+      import("./pages/cuenta/cuenta.module").then((m) => m.CuentaPageModule),
+  },
   //Pestaña que redirecciona a 404 si es que no encuentra un path existente, siempre debe estar al ultimo, si no otorgara problemas.
   {
     path: "**",

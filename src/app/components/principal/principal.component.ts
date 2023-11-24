@@ -1,11 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Boda } from "src/app/clases/boda";
-import { NavigationExtras, Router } from "@angular/router";
-import { SQLite, SQLiteObject } from "@awesome-cordova-plugins/sqlite";
-import { Platform, ToastController } from "@ionic/angular";
-import { DbserviceService } from "src/app/services/dbservice.service";
-import { ModalController, InfiniteScrollCustomEvent } from "@ionic/angular";
-import { ApicoctelesService } from "src/app/services/apicocteles.service";
+import { Router } from "@angular/router";
+import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
 
 @Component({
   selector: "app-principal",
@@ -13,10 +8,22 @@ import { ApicoctelesService } from "src/app/services/apicocteles.service";
   styleUrls: ["./principal.component.scss"],
 })
 export class PrincipalComponent implements OnInit {
-  
-  constructor(private router: Router ) {}
+  nombreUsuario: string;
+  constructor(
+    private router: Router,
+    private authService: FirebaseAuthService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.authService.ngFireAuth.authState.subscribe((user) => {
+      if (user) {
+        this.authService.getUserInfo(user.uid).subscribe((userInfo) => {
+          console.log(userInfo);
+          this.nombreUsuario = userInfo?.nombre;
+        });
+      }
+    });
+  }
   getItem($event: any) {
     const valor = $event.target.value;
     console.log("valor del control: " + valor);
