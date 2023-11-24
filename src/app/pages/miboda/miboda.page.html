@@ -7,33 +7,50 @@
     </ion-buttons>
     <ion-buttons slot="end">
     </ion-buttons>
+    <!-- BOTÓN DE ELIMINAR BODAS CON EL ID DE LA BODA Y EL USARIO LOGEADO -->
+    <ion-buttons slot="end" >
+      <ion-button color="danger" (click)="eliminar(bodas.id, currentUserId)">
+        <img src="../../../assets/icon/dots-three-vertical-bold.svg" alt="borrar">
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+<!-- REVISAR LA LOGICA DE LOS NGIF YA QUE ACTUALMENTE NO ESTA CUMPLIENDO LOS CONDICIONALES -->
 <ion-content>
-<ion-list>
-    <ion-item-sliding *ngFor="let item of bodas">
+  <!-- MENSAJE E IMAGEN CUANDO NO HAY BODAS DISPONIBLES -->
+  <div *ngIf="bodas.length === 0" class="container" id="sinDatos">
+    <lottie-player slot="end" autoplay loop src="https://lottie.host/e926bd67-59ef-4ed0-8950-b5d3ee1fbcfd/X4qSfPeZJa.json">
+    </lottie-player>
+    <h1>No se han encontrado tu boda, añádela más abajo</h1>
+  </div>
+ 
+  <!-- DATOS DE LA BODA CUANDO YA EXISTE UNA CREADA -->
+  <ion-list *ngIf="bodas.length > 0">
+    <div *ngFor="let item of bodas">
       <ion-card class="custom-card">
         <ion-card-header>
           <ion-card-title class="custom-title">{{ item.descripcion }}</ion-card-title>
         </ion-card-header>
         <ion-card-content class="custom-content">
           <div class="ion-text-center">
-            <p class="custom-text"><strong>Lugar del evento:</strong> {{ item.lugar }}</p>
             <p class="custom-text"><strong>Fecha del evento:</strong> {{ item.fecha }}</p>
+            <p class="custom-text"><strong>Lugar del evento:</strong> {{ item.lugar }}</p>
+            <p class="custom-text"><strong>Cocktail: {{ item.tragoestrella }}</strong></p>
           </div>
         </ion-card-content>
       </ion-card>
-    </ion-item-sliding>  
+    </div>  
   </ion-list>
+  
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  
+  <ion-fab class="background" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/addboda">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>  
 </ion-content>
 
-<ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
-  <ion-infinite-scroll-content></ion-infinite-scroll-content>
-</ion-infinite-scroll>
-
-<ion-fab class="background" vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button routerLink="/addboda">
-    <ion-icon name="add"></ion-icon>
-  </ion-fab-button>
-</ion-fab>  

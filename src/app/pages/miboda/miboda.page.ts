@@ -13,8 +13,10 @@ import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
   styleUrls: ['./miboda.page.scss'],
 })
 export class MibodaPage implements OnInit {
+  currentUserId: string | null = null;
   menuType: string = "overlay";
   items = [];
+  //POSIBLEMENTE HAYA QUE AJUSTAR ESTO PARA QUE SE LOGRE VER LA IMAGEN Y TEXTO DE LOTTIFILES
   bodas: any = [
     {
       descripcion: "Escribe aqui datos de interés",
@@ -41,11 +43,12 @@ export class MibodaPage implements OnInit {
     this.router.navigate(["miboda/funciones"]);
     this.user = authService.getProfile();
   }
-
-  ngOnInit() {
+  //SE UTILIZA USERID
+  async ngOnInit() {
+    this.currentUserId = await this.authService.getUserId();
     this.servicioBD.dbState().subscribe((res: any) => {
       if (res) {
-        this.servicioBD.fetchBodas().subscribe((item: any) => {
+        this.servicioBD.fetchBodas(this.currentUserId).subscribe((item: any) => {
           this.bodas = item;
         });
       }
@@ -76,7 +79,7 @@ export class MibodaPage implements OnInit {
     this.servicioBD.deleteBoda(item.id, userId);
     this.servicioBD.presentToast("Haz eliminado tu boda :( !!!");
   }
-
+  
   segmentChanged($event: any) {
     console.log($event);
     let direccion = $event.detail.value;

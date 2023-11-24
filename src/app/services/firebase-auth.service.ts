@@ -45,8 +45,16 @@ export class FirebaseAuthService {
 
   //Creacion de metodo para logearse con correo y contraseña
   async loginUser(email: string, password: string) {
-    return await this.ngFireAuth.signInWithEmailAndPassword(email, password);
+    const result = await this.ngFireAuth.signInWithEmailAndPassword(email, password);
+    return result.user?.uid; // Retorna el ID del usuario
   }
+  // SE RECOGE USERID Y SE UTILIZA EN FUNCIONES
+  async getUserId(): Promise<string | null> {
+  const user = await this.ngFireAuth.currentUser;
+  return user ? user.uid : null;
+  }
+
+  
   //creacion de metodo para recuperar la contraseña de la cuenta
   async resetPassword(email: string) {
     return await this.ngFireAuth.sendPasswordResetEmail(email);

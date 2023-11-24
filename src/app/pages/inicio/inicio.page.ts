@@ -9,6 +9,7 @@ import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
   styleUrls: ["./inicio.page.scss"],
 })
 export class InicioPage implements OnInit {
+  currentUserId: string | null = null;
   menuType: string = "overlay";
 
   isModalOpen = false;
