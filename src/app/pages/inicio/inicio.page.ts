@@ -9,6 +9,7 @@ import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
   styleUrls: ["./inicio.page.scss"],
 })
 export class InicioPage implements OnInit {
+  currentUserId: string | null = null;
   menuType: string = "overlay";
   bodas: any = [
     {
@@ -36,10 +37,11 @@ export class InicioPage implements OnInit {
     this.user = authService.getProfile();
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.currentUserId = await this.authService.getUserId();
     this.servicioBD.dbState().subscribe((res: any) => {
       if (res) {
-        this.servicioBD.fetchBodas().subscribe((item: any) => {
+        this.servicioBD.fetchBodas(this.currentUserId).subscribe((item: any) => {
           this.bodas = item;
         });
       }

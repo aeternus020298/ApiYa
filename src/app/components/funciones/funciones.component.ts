@@ -5,7 +5,7 @@ import { SQLite, SQLiteObject } from "@awesome-cordova-plugins/sqlite";
 import { Platform, ToastController } from "@ionic/angular";
 import { DbserviceService } from "src/app/services/dbservice.service";
 import { InfiniteScrollCustomEvent } from '@ionic/angular';
-
+import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
 
 @Component({
   selector: 'app-funciones',
@@ -13,6 +13,7 @@ import { InfiniteScrollCustomEvent } from '@ionic/angular';
   styleUrls: ['./funciones.component.scss'],
 })
 export class FuncionesComponent  implements OnInit {
+  currentUserId: string | null = null;
   items = [];
   bodas: any = [
     {
@@ -24,12 +25,15 @@ export class FuncionesComponent  implements OnInit {
       fecha: "Escribe aqui la fecha de tu boda",
     },
   ];
-  constructor(private router: Router, private servicioBD: DbserviceService) { }
+  constructor(private authService: FirebaseAuthService, private router: Router, private servicioBD: DbserviceService) {
+    
+   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.currentUserId = await this.authService.getUserId();
     this.servicioBD.dbState().subscribe((res: any) => {
       if (res) {
-        this.servicioBD.fetchBodas().subscribe((item: any) => {
+        this.servicioBD.fetchBodas(this.currentUserId).subscribe((item: any) => {
           this.bodas = item;
         });
       }

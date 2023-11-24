@@ -149,8 +149,10 @@ export class DbserviceService {
   }
 
   //Metodo que se ejecuta cada vez que se hace un cambio en la tabla de la base de datos
-  fetchBodas(): Observable<Boda[]> {
-    return this.casamientos.asObservable();
+  fetchBodas(userId: string): Observable<Boda[]> {
+    return this.casamientos.asObservable().pipe(
+      map(bodas => bodas.filter(boda => boda.userId === userId))
+      );
   }
 
   async presentToast(mensaje: string) {
