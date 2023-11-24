@@ -40,6 +40,7 @@
     "@teamhive/lottie-player": "^1.0.0",
     "@types/googlemaps": "^3.43.3",
     "cordova-sqlite-storage": "^6.1.0",
+    "emailjs-com": "^3.2.0",
     "i": "^0.3.7",
     "ionicons": "^7.0.0",
     "jsqr": "^1.4.0",

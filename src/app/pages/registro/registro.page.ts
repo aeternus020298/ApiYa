@@ -8,6 +8,8 @@ import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
 //se implementa los validadores y el form de angular
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
+//Se importa emailJs
+import emailjs from 'emailjs-com';
 
 @Component({
   selector: "app-registro",
@@ -74,9 +76,22 @@ export class RegistroPage implements OnInit {
           this.regForm.value.apellido,
           this.regForm.value.fechaNac
         );
-        loading.dismiss();
-        this.presentSucessToast("Usuario creado con exito.");
         if (user) {
+          const templateParams = {
+            user_name: this.regForm.value.nombre,
+            user_email: this.regForm.value.email
+          };
+
+          emailjs.send('service_6zolo3m', 'template_5kbqy2n', templateParams, 'y0hKDkq3olIjq7pyK')
+            .then((response) => {
+              console.log('SUCCESS!', response.status, response.text);
+              this.presentSucessToast("Usuario creado con éxito");
+            }, (error) => {
+              console.log('FAILED...', error);
+              this.presentErrorToast("Error al crear usuario nuevo");
+            });
+
+          loading.dismiss();
           this.router.navigate(["/login"]);
         } else {
           loading.dismiss();
@@ -88,8 +103,8 @@ export class RegistroPage implements OnInit {
       }
     } catch (error) {
       console.error(error);
-      loading.dismiss(); // Oculta el componente de carga en caso de error
-      this.presentErrorToast("El correo ingresado es invalido");
+      loading.dismiss();
+      this.presentErrorToast("El correo ingresado es inválido");
     }
   }
   //creo mi pop up de error.
