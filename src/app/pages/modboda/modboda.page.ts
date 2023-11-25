@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { Boda } from "src/app/clases/boda";
 import { DbserviceService } from "src/app/services/dbservice.service";
 
 @Component({
@@ -8,14 +9,7 @@ import { DbserviceService } from "src/app/services/dbservice.service";
   styleUrls: ["./modboda.page.scss"],
 })
 export class ModbodaPage implements OnInit {
-  idBoda = "";
-  userId = "";
-  descripcionBoda = "";
-  investrellaBoda = "";
-  menuestrellaBoda = "";
-  tragoestrellaBoda = "";
-  lugarBoda = "";
-  fechaBoda = "";
+  boda: Boda = new Boda();
   constructor(
     private dbservice: DbserviceService,
     private router: Router,
@@ -23,45 +17,28 @@ export class ModbodaPage implements OnInit {
   ) {
     this.activedRoute.queryParams.subscribe((param) => {
       if (this.router.getCurrentNavigation()?.extras.state) {
-        this.idBoda =
-          this.router.getCurrentNavigation()?.extras.state?.["idEnviado"];
-        this.descripcionBoda =
-          this.router.getCurrentNavigation()?.extras.state?.[
-            "descripcionEnviado"
-          ];
-        this.investrellaBoda =
-          this.router.getCurrentNavigation()?.extras.state?.["investrella"];
-        this.menuestrellaBoda =
-          this.router.getCurrentNavigation()?.extras.state?.["menuestrella"];
-        this.tragoestrellaBoda =
-          this.router.getCurrentNavigation()?.extras.state?.["tragoestrella"];
-        this.lugarBoda =
-          this.router.getCurrentNavigation()?.extras.state?.["lugarEnviado"];
-        this.fechaBoda =
-          this.router.getCurrentNavigation()?.extras.state?.["fechaEnviado"];
+        const state = this.router.getCurrentNavigation()?.extras.state;
+        this.boda.id = state["idEnviado"];
+        this.boda.descripcion = state["descripcionEnviado"];
+        this.boda.investrella = state["investrella"];
+        this.boda.menuestrella = state["menuestrella"];
+        this.boda.tragoestrella = state["tragoestrella"];
+        this.boda.lugar = state["lugarEnviado"];
+        this.boda.fecha = new Date(state["fechaEnviado"]);
+        this.boda.userId = state["userId"]; // Asegúrate de recibir y asignar el userId
       }
     });
   }
 
   editar() {
-    this.dbservice.presentToast(this.idBoda);
     this.dbservice
-      .updateBoda(
-        this.idBoda,
-        this.userId,
-        this.descripcionBoda,
-        this.investrellaBoda,
-        this.menuestrellaBoda,
-        this.tragoestrellaBoda,
-        this.lugarBoda,
-        this.fechaBoda
-      )
+      .updateBoda(this.boda) // Pasa el objeto boda completo
       .then(() => {
         this.dbservice.presentToast("Datos modificados");
-        this.router.navigate(["/inicio"]);
+        this.router.navigate(["/miboda/funciones"]);
       })
       .catch((error) => {
-        this.dbservice.presentToast("Error al modificar");
+        this.dbservice.presentToast("Error al modificar: " + error);
       });
   }
   ngOnInit() {}

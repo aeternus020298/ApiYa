@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { LOCALE_ID, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouteReuseStrategy } from "@angular/router";
 //Se agrega plugin de awesome cordova para ser reconocido
@@ -15,9 +15,12 @@ import { environment } from "src/environments/environment";
 import { AuthGuard } from "./guards/auth.guard";
 import { AuthRedirectGuard } from "./guards/auth-redirect.guard";
 
-
 //Dependencia para servicio API y en el NgModule
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from "@angular/common/http";
+//agregar idioma español.
+import { registerLocaleData } from "@angular/common";
+import localeEsMX from "@angular/common/locales/es-MX";
+registerLocaleData(localeEsMX);
 
 //NOTA: se agrega 'SQLite' a providers
 @NgModule({
@@ -36,6 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
     SQLite,
     AuthGuard,
     AuthRedirectGuard,
+    { provide: LOCALE_ID, useValue: "es-MX" },
   ],
   bootstrap: [AppComponent],
 })

@@ -44,7 +44,7 @@ export class LocalizacionPage {
           lat: -33.020638,
           lng: -71.489153,
         },
-        zoom: 8,
+        zoom: 12,
       },
     });
     this.addMarkers();
@@ -60,21 +60,21 @@ export class LocalizacionPage {
           marker.coordinate.lng === data.longitude
       );
 
-      if (marcadorSeleccionado) {
-        this.mostrarInfoMarcador(marcadorSeleccionado);
-      }
+      // if (marcadorSeleccionado) {
+      //   this.mostrarInfoMarcador(marcadorSeleccionado);
+      // }
     });
   }
 
-  async mostrarInfoMarcador(marcador: Marker) {
-    const popover = await this.popoverController.create({
-      component: MarcadorPopoverComponent,
-      componentProps: {
-        titulo: marcador.title,
-        descripcion: marcador.snippet,
-      },
-      translucent: true,
-    });
-    await popover.present();
-  }
+  // async mostrarInfoMarcador(marcador: Marker) {
+  //   const popover = await this.popoverController.create({
+  //     component: MarcadorPopoverComponent,
+  //     componentProps: {
+  //       titulo: marcador.title,
+  //       descripcion: marcador.snippet,
+  //     },
+  //     translucent: true,
+  //   });
+  //   await popover.present();
+  // }
 }
