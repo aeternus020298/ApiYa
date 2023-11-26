@@ -5,15 +5,22 @@
       <ion-col size="12">
         <!-- colocar en src {{ userPhotoUrl }} -->
         <ion-avatar>
-          <img src="../../../assets/imagenPrueba.png" alt="Foto de perfil del usuario" /> 
+          <img id="imagenPerfil" [src]="imagenPerfil"  alt="Foto de perfil del usuario" /> 
         </ion-avatar>
         <hr>
         <!-- colocar interpolacion para el nombre del usuario -->
       </ion-col>
       <ion-col size="12" class="ion-padding" id="userLabel" >
-        <ion-label class="ion-text-center">Bienvenido <strong>{{ nombreUsuario }}</strong> </ion-label>
+        <ion-label class="ion-text-center" id="bienvenido">Bienvenido <strong>{{ nombreUsuario }}</strong> </ion-label>
       </ion-col>
     </ion-row>
+
+      <!-- Sección para mostrar los días restantes para la boda, si existe una fecha de boda -->
+  <ion-row *ngIf="diasParaBoda !== null">
+    <ion-col size="12" class="ion-text-center" id="diasFaltantes">
+      <ion-label id="diasFaltantes">Faltan <strong>{{ diasParaBoda }} días</strong>  para tu boda!</ion-label>
+    </ion-col>
+  </ion-row>
 
     <ion-row class="row">
       <ion-col>

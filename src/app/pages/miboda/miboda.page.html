@@ -43,7 +43,7 @@
   </ion-infinite-scroll>
   
   <!-- Botón flotante para añadir una nueva boda -->
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab *ngIf="bodas.length === 0" vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button routerLink="/addboda">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>

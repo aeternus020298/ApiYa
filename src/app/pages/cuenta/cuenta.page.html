@@ -11,8 +11,8 @@
 
 <ion-content>
   <div class="ion-padding avatar">
-    <ion-avatar class="profile-picture">
-      <img src="../../../assets/imagenPrueba.png" alt="Foto de perfil del usuario" />
+    <ion-avatar class="profile-picture" (click)="seleccionarImagen()">
+      <img [src]="imagenPerfil || '../../../assets/imagenPrueba.png' " alt="Foto de perfil del usuario" />
     </ion-avatar>
 
   </div>

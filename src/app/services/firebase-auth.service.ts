@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 //hago el import de las dependencias de firebase.
 import firebase from "firebase/compat/app";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
+import { AngularFireStorage } from "@angular/fire/compat/storage";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { Observable, map } from "rxjs";
 
@@ -13,7 +14,8 @@ export class FirebaseAuthService {
   user: Observable<firebase.User>;
   constructor(
     public ngFireAuth: AngularFireAuth,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private storage: AngularFireStorage
   ) {
     this.user = ngFireAuth.authState;
   }
@@ -45,16 +47,18 @@ export class FirebaseAuthService {
 
   //Creacion de metodo para logearse con correo y contraseña
   async loginUser(email: string, password: string) {
-    const result = await this.ngFireAuth.signInWithEmailAndPassword(email, password);
+    const result = await this.ngFireAuth.signInWithEmailAndPassword(
+      email,
+      password
+    );
     return result.user?.uid; // Retorna el ID del usuario
   }
   // SE RECOGE USERID Y SE UTILIZA EN FUNCIONES
   async getUserId(): Promise<string | null> {
-  const user = await this.ngFireAuth.currentUser;
-  return user ? user.uid : null;
+    const user = await this.ngFireAuth.currentUser;
+    return user ? user.uid : null;
   }
 
-  
   //creacion de metodo para recuperar la contraseña de la cuenta
   async resetPassword(email: string) {
     return await this.ngFireAuth.sendPasswordResetEmail(email);
@@ -72,8 +76,34 @@ export class FirebaseAuthService {
     return this.firestore.collection("users").doc(uid).valueChanges();
   }
 
+  // Método para obtener información de la boda de un usuario específico
+  getBodaInfo(userId: string): Observable<any> {
+    return this.firestore.collection("bodas").doc(userId).valueChanges();
+  }
+
   //metodo para comprobar si el usuario inicio sesion o no
   isLoggedIn(): Observable<boolean> {
     return this.ngFireAuth.authState.pipe(map((user) => !!user));
+  }
+
+  // Método para subir y actualizar la imagen de perfil del usuario
+  async uploadProfileImage(file: File, userId: string): Promise<void> {
+    try {
+      // Define la ruta del archivo en Firebase Storage
+      const filePath = `profileImages/${userId}`;
+      const fileRef = this.storage.ref(filePath);
+
+      // Sube la nueva imagen a Firebase Storage
+      await this.storage.upload(filePath, file);
+
+      // Obtiene la URL de la nueva imagen subida
+      const photoURL = await fileRef.getDownloadURL().toPromise();
+
+      // Actualiza la URL de la imagen en Firestore
+      await this.firestore.collection("users").doc(userId).update({ photoURL });
+    } catch (error) {
+      console.error("Error al subir la imagen de perfil", error);
+      throw error;
+    }
   }
 }
