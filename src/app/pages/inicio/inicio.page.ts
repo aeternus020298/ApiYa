@@ -14,6 +14,7 @@ export class InicioPage implements OnInit {
 
   isModalOpen = false;
   nombreUsuario: string;
+  apellido: string;
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
@@ -31,6 +32,7 @@ export class InicioPage implements OnInit {
         this.authService.getUserInfo(user.uid).subscribe((userInfo) => {
           console.log(userInfo);
           this.nombreUsuario = userInfo?.nombre;
+          this.apellido = userInfo?.apellido;
         });
       }
     });

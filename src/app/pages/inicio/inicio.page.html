@@ -2,36 +2,39 @@
 
 <ion-menu side="start" contentId="main-content">
   <ion-header [translucent]="true" class="ion-no-border">
-    <ion-toolbar>
+    <ion-toolbar id="nombreMenu">
       <ion-icon class="iconomenu" name="person-outline" slot="end"></ion-icon>
-      <ion-title> {{nombreUsuario}}</ion-title>
+      <ion-title id="nombreMenu"> <strong>{{nombreUsuario}}  {{apellido}}</strong> </ion-title>
     </ion-toolbar>
   </ion-header>
+
   <ion-content class="ion-padding">
-    <ion-list class="modFondo" lines="none">
-      <ion-item class="separation" routerLink="/cuenta">
+    <ion-list lines="fill">
+
+      <ion-item routerLink="/cuenta">
         <ion-icon class="iconolist" name="person-circle-outline" slot="end"></ion-icon>
         <ion-label>Mi cuenta</ion-label>
       </ion-item>
-      <ion-item class="separation" routerLink="/inicio">
-        <ion-icon class="iconolist" name="settings-outline" slot="end"></ion-icon>
-        <ion-label>Configuracion</ion-label>
+
+      <ion-item routerLink="/miboda/funciones">
+        <ion-icon class="iconomenu" class="iconolist" name="heart-circle-outline" slot="end"></ion-icon>
+        <ion-label>Mi boda</ion-label>
       </ion-item>
-      <ion-item class="separation" routerLink="/inicio">
-        <ion-icon class="iconolist" name="heart-circle-outline" slot="end"></ion-icon>
-        <ion-label>Mis bodas</ion-label>
-      </ion-item>
-      <ion-item class="separation" routerLink="/inicio">
-        <ion-icon class="iconolist" name="add-circle-outline" slot="end"></ion-icon>
+
+      <ion-item routerLink="/inicio">
+        <ion-icon class="iconomenu" class="iconolist" name="add-circle-outline" slot="end"></ion-icon>
         <ion-label>Mis invitaciones</ion-label>
       </ion-item>
-      <ion-item class="separation" (click)="logOut()"
-      (click)="cerrarSesion()" >
-        <ion-icon class="iconolist" name="log-out-outline" slot="end"></ion-icon>
-        <ion-label>Cerrar sesion</ion-label>
-      </ion-item>
+
     </ion-list>
+
+    <ion-item  id="cerrarSesion" color="danger" (click)="logOut()"
+    (click)="cerrarSesion()" >
+      <ion-icon class="iconolist" name="log-out-outline" slot="end"></ion-icon>
+      <ion-label>Cerrar sesion</ion-label>
+    </ion-item>
   </ion-content>
+
 </ion-menu>
 <div class="ion-page" contentId="main-content">
   <ion-header class="ion-no-border">

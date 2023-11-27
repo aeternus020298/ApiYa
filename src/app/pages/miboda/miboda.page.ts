@@ -1,32 +1,21 @@
 import { Component, OnInit } from "@angular/core";
 import { NavigationExtras, Router } from "@angular/router";
-import { SQLite, SQLiteObject } from "@awesome-cordova-plugins/sqlite";
-import { Platform, ToastController } from "@ionic/angular";
 import { DbserviceService } from "src/app/services/dbservice.service";
-import { ApicoctelesService } from "src/app/services/apicocteles.service";
-import { InfiniteScrollCustomEvent } from '@ionic/angular';
+import { InfiniteScrollCustomEvent } from "@ionic/angular";
 import { FirebaseAuthService } from "src/app/services/firebase-auth.service";
+import { Boda } from "src/app/clases/boda";
 
 @Component({
-  selector: 'app-miboda',
-  templateUrl: './miboda.page.html',
-  styleUrls: ['./miboda.page.scss'],
+  selector: "app-miboda",
+  templateUrl: "./miboda.page.html",
+  styleUrls: ["./miboda.page.scss"],
 })
 export class MibodaPage implements OnInit {
   currentUserId: string | null = null;
   menuType: string = "overlay";
   items = [];
   //POSIBLEMENTE HAYA QUE AJUSTAR ESTO PARA QUE SE LOGRE VER LA IMAGEN Y TEXTO DE LOTTIFILES
-  bodas: any = [
-    {
-      descripcion: "Escribe aqui datos de interés",
-      investrella: "Escribe aqui tu invitado especial",
-      menuestrella: "Escribe aqui tu menu especial",
-      tragoestrella: "Escribe aqui tu traguito especial",
-      lugar: "Escribe aqui el lugar de tu boda",
-      fecha: "Escribe aqui la fecha de tu boda",
-    },
-  ];
+  bodas: Boda[] = [];
 
   //BORRAR DESPUÉS
   isModalOpen = false;
@@ -46,13 +35,16 @@ export class MibodaPage implements OnInit {
   //SE UTILIZA USERID
   async ngOnInit() {
     this.currentUserId = await this.authService.getUserId();
-    this.servicioBD.dbState().subscribe((res: any) => {
-      if (res) {
-        this.servicioBD.fetchBodas(this.currentUserId).subscribe((item: any) => {
-          this.bodas = item;
+    console.log("Id el usuario: ", this.currentUserId);
+
+    // Cargar las bodas del usuario desde Firestore
+    if (this.currentUserId) {
+      this.servicioBD
+        .cargarBodas(this.currentUserId)
+        .subscribe((bodas: Boda[]) => {
+          this.bodas = bodas; // Actualizar la lista de bodas
         });
-      }
-    });
+    }
   }
 
   getItem($event: any) {
@@ -60,7 +52,15 @@ export class MibodaPage implements OnInit {
     console.log("valor del control: " + valor);
   }
 
-  editar(item: any) {
+  editar(item: Boda) {
+    console.log("Editando boda:", item);
+
+    // Verifica que la boda tenga un userId válido
+    if (!item.userId) {
+      this.servicioBD.presentToast("Error: Falta userId de la boda");
+      return;
+    }
+
     let navigationextras: NavigationExtras = {
       state: {
         idEnviado: item.id,
@@ -70,22 +70,41 @@ export class MibodaPage implements OnInit {
         tragoestrella: item.tragoestrella,
         lugarEnviado: item.lugar,
         fechaEnviado: item.fecha,
+        userId: item.userId,
       },
     };
     this.router.navigate(["/modboda"], navigationextras);
   }
 
-  eliminar(item: any, userId: any) {
-    this.servicioBD.deleteBoda(item.id, userId);
-    this.servicioBD.presentToast("Haz eliminado tu boda :( !!!");
+  eliminar(item: Boda) {
+    console.log(
+      "Eliminando boda con ID: ",
+      item.id,
+      "y userID: ",
+      this.currentUserId
+    );
+    if (!item.id || !this.currentUserId) {
+      this.servicioBD.presentToast("ID de boda o usuario no definidos");
+      return;
+    }
+
+    this.servicioBD
+      .deleteBoda(item.id, this.currentUserId)
+      .then(() => {
+        this.servicioBD.presentToast("Boda eliminada correctamente");
+        // Aquí podrías agregar lógica para actualizar tu lista de bodas
+      })
+      .catch((err) => {
+        this.servicioBD.presentToast("Error al eliminar la boda: " + err);
+      });
   }
-  
+
   segmentChanged($event: any) {
     console.log($event);
     let direccion = $event.detail.value;
     this.router.navigate(["miboda/" + direccion]);
   }
-  
+
   //codgio ts relacionado a infinite scroll
   private generateItems() {
     const count = this.items.length + 1;
@@ -99,5 +118,4 @@ export class MibodaPage implements OnInit {
       (ev as InfiniteScrollCustomEvent).target.complete();
     }, 500);
   }
-
 }

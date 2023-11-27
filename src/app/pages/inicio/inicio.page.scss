@@ -12,13 +12,24 @@ ion-content{
   --background: #f5f5f3;
 }
 
+ion-menu{
+  --background: #f5f5f3;
+}
+
 .footer{
   --background: #c93877;
 }
 
+
 #menuicon{
-  font-size: 30px;
+  font-size: 20px;
   margin: 0px 20px 0px 5px;
+}
+
+
+#nombreMenu{
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 
@@ -27,15 +38,27 @@ ion-content{
   margin-right: 40px;
 }
 
-.separation{
-  margin-top: 30px;
-}
+
 
 .iconomenu{
   font-size: 30px;
   margin: 0px 20px 0px 0px;
 }
 
-.modFondo{
-  color: #f5f5f3;
+ion-menu ion-list ion-item {
+  --background: #f5f5f3;
+  
+  
+}
+
+#cerrarSesion{
+  border-radius: 10px;
+  margin-top: 60vh;
+}
+
+ion-list{
+  padding: 0px;
+  margin: 0px;
+  border-radius: 10px;
+  border: 1px
 }
