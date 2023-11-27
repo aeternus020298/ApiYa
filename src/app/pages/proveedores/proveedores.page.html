@@ -5,6 +5,7 @@
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
+    <ion-title> Proveedores</ion-title>
     <ion-buttons slot="end">
     </ion-buttons>
   </ion-toolbar>
@@ -32,16 +33,18 @@
             <ion-grid>
               <ion-row>
                 
-                <!-- Esto nos esta diciendo que para todas excepto la resolucion de moviles, tendra un tamaño de 12 las cards -->
                 <ion-col class="ion-padding" size-lg="4" size-md="4" size-sm="4" size="12">
                   <ion-avatar>
                     <img [src]="proveedor.img" alt="profiles"/>
                   </ion-avatar>
                 </ion-col>
                 <ion-col class="ion-padding" size-lg="8" size-md="8" size-sm="8" size="12">
-                  <div class="nombre">{{proveedor.nombre}}</div>
+                  <div class="nombre ion-text-center">{{proveedor.nombre}}</div>
                   <p>Categoria: <br> <strong>{{proveedor.categoria}}</strong> </p>
-                  <p>Calificacion <br> <strong>{{proveedor.calificacion}}</strong> </p>
+                  <p>Region: <br> <strong>{{proveedor.region}}</strong></p>
+                  <p>Comuna: <br> <strong>{{proveedor.comuna}}</strong></p>
+                  <p>Calificacion: <br>
+                    <ion-icon class="estrellas" *ngFor="let star of obtenerEstrellas(proveedor.calificacion)" [name]="star"></ion-icon> 
                 </ion-col>
               </ion-row>
             </ion-grid>

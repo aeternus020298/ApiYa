@@ -19,8 +19,7 @@ export class CuentaPage implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: FirebaseAuthService,
-    private storage: AngularFireStorage // Agregar AngularFireStorage para manejar la subida de archivos
+    private authService: FirebaseAuthService
   ) {}
 
   async seleccionarImagen() {

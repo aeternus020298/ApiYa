@@ -12,7 +12,7 @@
 <ion-content>
   <div class="ion-padding avatar">
     <ion-avatar class="profile-picture" (click)="seleccionarImagen()">
-      <img [src]="imagenPerfil || '../../../assets/imagenPrueba.png' " alt="Foto de perfil del usuario" />
+      <img id="imagenPerfil" [src]="imagenPerfil || '../../../assets/imagenPrueba.png' " alt="Foto de perfil del usuario" />
     </ion-avatar>
 
   </div>
@@ -49,7 +49,7 @@
         </div>
         <hr>
         <ion-item color="none">
-          <ion-label>{{fechaNac}}</ion-label>
+          <ion-label>{{fechaNac | date: 'EEEE, d MMMM y' }}</ion-label>
           <ion-icon slot="end" name="calendar" color="primary"></ion-icon>
         </ion-item>
       </ion-col>

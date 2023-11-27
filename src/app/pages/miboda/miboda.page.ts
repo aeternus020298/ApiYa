@@ -53,6 +53,14 @@ export class MibodaPage implements OnInit {
   }
 
   editar(item: Boda) {
+    console.log("Editando boda:", item);
+
+    // Verifica que la boda tenga un userId válido
+    if (!item.userId) {
+      this.servicioBD.presentToast("Error: Falta userId de la boda");
+      return;
+    }
+
     let navigationextras: NavigationExtras = {
       state: {
         idEnviado: item.id,
@@ -62,6 +70,7 @@ export class MibodaPage implements OnInit {
         tragoestrella: item.tragoestrella,
         lugarEnviado: item.lugar,
         fechaEnviado: item.fecha,
+        userId: item.userId,
       },
     };
     this.router.navigate(["/modboda"], navigationextras);

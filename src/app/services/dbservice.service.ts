@@ -143,6 +143,7 @@ export class DbserviceService {
     if (!boda.id || !boda.userId) {
       throw new Error("El id y el userId deben estar definidos");
     }
+
     let data = [
       boda.descripcion,
       boda.investrella,
@@ -152,11 +153,13 @@ export class DbserviceService {
       boda.fecha,
       boda.id,
     ];
+
     // Actualiza la boda en SQLite
     await this.database.executeSql(
       "UPDATE Boda SET descripcion=?, investrella=?, menuestrella=?, tragoestrella=?, lugar=?, fecha=? WHERE id=? AND userId=?",
       data
     );
+
     // Sincroniza los cambios con Firestore
     await this.guardarBodaEnFirestore(boda);
   }

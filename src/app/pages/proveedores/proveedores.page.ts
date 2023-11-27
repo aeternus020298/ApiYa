@@ -70,4 +70,21 @@ export class ProveedoresPage implements OnInit {
       proveedor.nombre.toLowerCase().includes(textoBusqueda)
     );
   }
+
+  //metodo para modificar como se ve la calificacion, mostraremos estrellas en vez de numeros en la calificacion.
+  obtenerEstrellas(calificacion: number) {
+    // Crear un array que represente las estrellas a mostrar
+    let stars = [];
+    for (let i = 1; i <= 5; i++, calificacion--) {
+      if (calificacion >= 1) {
+        stars.push("star"); // ícono de estrella completa
+      } else if (calificacion >= 0.5) {
+        stars.push("star-half"); // ícono de media estrella
+        calificacion -= 0.5; // Asegurarse de no agregar más estrellas después de una media
+      } else {
+        stars.push("star-outline"); // ícono de estrella vacía
+      }
+    }
+    return stars;
+  }
 }

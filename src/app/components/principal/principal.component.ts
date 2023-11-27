@@ -41,6 +41,9 @@ export class PrincipalComponent implements OnInit {
         // Suponiendo que quieres la fecha de la primera boda
         const fechaBoda = new Date(bodas[0].fecha);
         this.diasParaBoda = this.calcularDiasRestantes(fechaBoda);
+        //en el caso de que se borren la boda, nos aseguramos de que los dias se pongan en null y desencadene el NGIF del html.
+      } else {
+        this.diasParaBoda = null;
       }
     });
   }

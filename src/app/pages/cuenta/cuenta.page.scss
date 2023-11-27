@@ -1,15 +1,22 @@
 
-
 .avatar{
-    margin-top: 30px;
-    margin-bottom: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
+
 
 
 .labelCenter{
     text-align: center;
     margin-top: 30px;
     margin-bottom: 10px;
+}
+
+#imagenPerfil {
+  border-radius: 30%;
+  width: 200px; /* Asegurar que la imagen ocupe todo el espacio del avatar */
+  height: 200px; /* Mantener la proporción de la imagen */
+  align-items: center;
 }
 
 .labelTitulo{
@@ -35,17 +42,12 @@ ion-toolbar{
 //PERFIL DE USUARIO
 
 ion-avatar {
-    border: 1px solid #000; /* Borde negro, ajusta como sea necesario */
-    border-radius: 50%; /* Hacerlo circular */
-    overflow: hidden; /* Asegurarse de que la imagen no se desborde */
-    width: 200px; 
-    height: 200px; 
-    margin: 0 auto;
-    box-shadow:   2px 2px 2px #000000,
-    -9px -9px 24px #ffeeee;
-  }
-  
-img {
-    width: 100%; /* Asegurar que la imagen ocupe todo el espacio del avatar */
-    height: auto; /* Mantener la proporción de la imagen */
-  }
+  border: 1px solid #000; /* Borde negro, ajusta como sea necesario */
+  border-radius: 30%; /* Hacerlo circular */
+  overflow: hidden; /* Asegurarse de que la imagen no se desborde */
+  width: 200px; 
+  height: 200px; 
+  margin: 0 auto;
+  box-shadow:   2px 2px 2px #000000,
+  -9px -9px 24px #ffeeee;
+}

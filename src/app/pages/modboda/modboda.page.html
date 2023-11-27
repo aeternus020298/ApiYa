@@ -46,12 +46,9 @@
         <ion-item class="wordwrap">
           <img src="../../../assets/icon/calendar-heart.svg" alt="fecha">
           <ion-label class="ion-text-wrap custom-font">Fecha</ion-label>
-          <!-- Asegúrate de que el formato de fecha sea compatible con el input de tipo 'date' -->
-          <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="boda.fecha"></ion-datetime>
+          <ion-input type="date" [(ngModel)]="boda.fecha"></ion-input>
         </ion-item>
-
         <br>
-
         <ion-button shape="block" (click)="editar()">Guardar</ion-button>
       </ion-card-content>
     </ion-card>
